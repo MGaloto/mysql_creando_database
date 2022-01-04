@@ -4,6 +4,7 @@ USE centro_medicina_prepaga;
 
 # Primero crear tablas sin relaciones
 
+
 CREATE TABLE IF NOT EXISTS afiliado (
 id_afiliado INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 nombre VARCHAR(50) NOT NULL,
@@ -14,7 +15,8 @@ fecha_nacimiento DATE NOT NULL,
 domicilio VARCHAR(50) NOT NULL,
 ocupacion VARCHAR(50) NOT NULL,
 estado_civil VARCHAR(50) NOT NULL,
-plan VARCHAR(50) NOT NULL
+plan VARCHAR(50) NOT NULL,
+dni INT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS especialidad (

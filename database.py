@@ -13,6 +13,9 @@ connection = pymysql.connect(host= keys[0].strip('\n'),
                              db='centro_medicina_prepaga' )
 
 
+cursor = connection.cursor()
+
+
 #%%
 
 # Query SQL para crear las Tablas:
@@ -28,7 +31,8 @@ sql_create_table_afiliado= """
             domicilio VARCHAR(50) NOT NULL,
             ocupacion VARCHAR(50) NOT NULL,
             estado_civil VARCHAR(50) NOT NULL,
-            plan VARCHAR(50) NOT NULL
+            plan VARCHAR(50) NOT NULL,
+            dni INT NOT NULL
             );
             """
 
@@ -117,8 +121,6 @@ sql_create_table_insumo_centro= """
 
 # Ejecutar los comandos:
 
-cursor = connection.cursor()
-
 cursor.execute(sql_create_table_afiliado)
 cursor.execute(sql_create_table_especialidad)
 cursor.execute(sql_create_table_medico)
@@ -143,6 +145,53 @@ for i in tablas:
 
 #%%
 
+
+# Ejemplo query del dni
+
+consultadni = 'SELECT dni FROM afiliado'
+cursor.execute(consultadni)
+listadni = [dni[0] for dni in cursor] 
+
+
+
+#%%
+
+# Insertar valores desde el transaccional
+
+while True:
+    
+    database = input('Desea darse de alta en nuestro sistema? (Si/No): \n')
+    
+    if database == 'No':
+        print('Muchas gracias\n')
+        break
+    elif database == 'Si':
+        print('Excelente, por favor comienza con tu dni para validarte en la base de datos\n')
+        
+        while True:
+            dni = int(input('Ingrese su dni: \n'))
+            if dni in listadni:
+                print("el dni ya se encuentra en la base de datos\n")
+                break
+            else:
+                id_afiliado = 'null'
+                nombre = input('Ingrese su nombre: \n')
+                apellido = input('Ingrese su apellido: \n')
+                email = input('Ingrese su email: \n')     
+                telefono = int(input('Ingrese su telefono: \n'))     
+                fecha_nacimiento = input('Ingrese su fecha de nacimiento (AAAA-MM-DD): \n')
+                domicilio = input('Ingrese su domicilio: \n')     
+                ocupacion = input('Ingrese su ocupacion: \n')     
+                estado_civil = input('Ingrese su estado civil: \n')     
+                plan = input('Ingrese su plan deseado: (medium, premium o gold) \n')
+                query = 'INSERT INTO afiliado (nombre, apellido, email, telefono, fecha_nacimiento, domicilio, ocupacion, estado_civil, plan, dni) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+                cursor.execute(query, (nombre, apellido, email, telefono, fecha_nacimiento, domicilio, ocupacion, estado_civil, plan, dni))
+                connection.commit()
+                print('Datos cargador, muchas gracias por darse de alta en nuestro sistema, dentro de las proximas horas un representante lo llamara al numero que ha ingresado')
+                break
+    else:
+        print('Por favor colocar (Si/No)')
+
 # Cerrar el Cursor y la Conexion:
 
 cursor.close()
@@ -150,5 +199,6 @@ cursor.close()
 connection.close()
 
 
-
 #%%
+
+
