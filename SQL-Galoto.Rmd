@@ -1,0 +1,138 @@
+---
+title: "Coderhouse"
+author: "Maximiliano Galoto"
+subtitle: Avances del Proyecto Final para el Curso SQL
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tinytex)
+
+
+# app.diagrams.net
+
+
+```
+
+## _Temática para el trabajo final:_
+
+Diagrama de Entidad de Relación de una _Empresa de Medicina Prepaga_.
+
+
+
+![DER](DER.png)
+
+
+
+## _Tablas, descripción y atributos:_
+
+A continuación se detallaran cada una de las tablas que componen el DER con sus atributos y descripciones:
+
+
+| $$ \textbf{Tabla: Afiliado }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Afiliado$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+| $$ Apellido$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+| $$ Email$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+| $$ Telefono$$     | $$INT \:NOT \:NULL  $$         | 
+| $$ Fecha\:Nacimiento$$     | $$DATE \:NOT \:NULL$$        | 
+| $$ Domicilio$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
+| $$ Ocupacion$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
+| $$ Estado\:Civil$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
+| $$ Plan$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
+
+_Esta tabla contiene los atributos de los afiliados a la empresa de medicina prepaga, podemos observar el ID como Primary Key, Nombre, Apellido, Fecha de Nacimiento, Domicilio, Ocupación y Estado Civil. Estos datos salen del transaccional cuando el afiliado se da de alta en nuestro sistema. _
+
+
+
+| $$ \textbf{Tabla: Especialidad }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Especialidad$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Especialidad$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+
+
+_Esta tabla contiene las diferentes prestaciones que proveen los distintos centros médicos._
+
+
+  
+
+| $$ \textbf{Tabla: Medico }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Medico$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+| $$ Apellido$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+| $$ Fecha\:Nacimiento$$     | $$DATE \:NOT \:NULL$$        | 
+| $$ Domicilio$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
+| $$ Telefono$$     | $$IN \:NOT\: NULL  $$            | 
+
+_Esta tabla contiene los datos de los médicos que prestan su servicio a distintos centros médicos._
+
+
+
+| $$ \textbf{Tabla: Centro Medico }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Centro$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+| $$ Dirección$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+| $$ Teléfono$$     | $$DATE \:NOT \:NULL$$        | 
+| $$ Id\: Insumo$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\: Medico$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\: Especialidad$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\: Afiliado$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+
+_Esta tabla contiene los distintos centros médicos de la empresa de Medicina Prepaga, se conecta con la tabla insumos, prestaciones y medico, ya que cada centro se especializa en algunas prestaciones que otros no y los médicos trabajan en distintos centros como los insumos que se proveen en diferentes centros médicos._
+
+| $$ \textbf{Tabla: Insumos }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Insumo$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Tipo$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+| $$ Proveedor$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+
+_Esta tabla contiene el tipo de insumo necesario para cada Centro Medico._
+
+
+
+| $$ \textbf{Tabla: Insumo Centro }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Insumo$$     |   $$IN \:NOT\: NULL\: FOREIGN \:KEY$$         | 
+| $$ Id\:Centro$$     |   $$IN \:NOT\: NULL\: FOREIGN \:KEY$$         | 
+
+_Esta tabla conecta los Insumos con cada Centro Medico._
+
+
+| $$ \textbf{Tabla: Turnos }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Turno$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Consulta$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+| $$ Diagnostico$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+| $$ Fecha$$     | $$DATE \:NOT \:NULL $$         | 
+| $$ Id\: Medico$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\: Afiliado$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+
+
+_Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la fecha y el diagnostico. Cada turno tiene un Id._
+
+
+## _Codigo en Python para crear las Tablas:_
+
+
+[https://github.com/MGaloto/database_final_work](https://github.com/MGaloto/database_final_work)
+
+
+## _Diagrama en My Sql:_
+
+
+![DER My Sql](REVERSE.png)
+
