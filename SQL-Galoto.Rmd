@@ -77,20 +77,6 @@ _Esta tabla contiene los datos de los médicos que prestan su servicio a distint
 
 
 
-| $$ \textbf{Tabla: Centro Medico }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Centro$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
-| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
-| $$ Dirección$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
-| $$ Teléfono$$     | $$DATE \:NOT \:NULL$$        | 
-| $$ Id\: Insumo$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\: Medico$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\: Especialidad$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\: Afiliado$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-
-_Esta tabla contiene los distintos centros médicos de la empresa de Medicina Prepaga, se conecta con la tabla insumos, prestaciones y medico, ya que cada centro se especializa en algunas prestaciones que otros no y los médicos trabajan en distintos centros como los insumos que se proveen en diferentes centros médicos._
-
 | $$ \textbf{Tabla: Insumos }$$ |
 |$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
 |-------|------------|
@@ -102,15 +88,6 @@ _Esta tabla contiene el tipo de insumo necesario para cada Centro Medico._
 
 
 
-| $$ \textbf{Tabla: Insumo Centro }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Insumo$$     |   $$IN \:NOT\: NULL\: FOREIGN \:KEY$$         | 
-| $$ Id\:Centro$$     |   $$IN \:NOT\: NULL\: FOREIGN \:KEY$$         | 
-
-_Esta tabla conecta los Insumos con cada Centro Medico._
-
-
 | $$ \textbf{Tabla: Turnos }$$ |
 |$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
 |-------|------------|
@@ -118,17 +95,35 @@ _Esta tabla conecta los Insumos con cada Centro Medico._
 | $$ Consulta$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
 | $$ Diagnostico$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
 | $$ Fecha$$     | $$DATE \:NOT \:NULL $$         | 
-| $$ Id\: Medico$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\: Afiliado$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+
 
 
 _Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la fecha y el diagnostico. Cada turno tiene un Id._
 
 
+
+| $$ \textbf{Tabla: Centro Medico }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Centro$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+| $$ Dirección$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+| $$ Teléfono$$     | $$DATE \:NOT \:NULL$$        | 
+| $$ Id\: Insumo$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\: Medico$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\: Especialidad$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\: Afiliado$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\: Turno$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+
+_Esta tabla contiene los distintos centros médicos de la empresa de Medicina Prepaga, se conecta con la tabla insumos, prestaciones y medico, ya que cada centro se especializa en algunas prestaciones que otros no y los médicos trabajan en distintos centros como los insumos que se proveen en diferentes centros médicos._
+
+
+
+
 ## _Codigo en Python para crear las Tablas:_
 
 
-[https://github.com/MGaloto/database_final_work](https://github.com/MGaloto/database_final_work)
+[Github](https://github.com/MGaloto/mysql_creando_database)
 
 
 ## _Diagrama en My Sql:_

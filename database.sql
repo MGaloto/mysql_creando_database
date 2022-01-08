@@ -6,87 +6,69 @@ USE centro_medicina_prepaga;
 
 
 CREATE TABLE IF NOT EXISTS afiliado (
-id_afiliado INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-nombre VARCHAR(50) NOT NULL,
-apellido VARCHAR(50) NOT NULL,
-email VARCHAR(50) NOT NULL,
-telefono INT NOT NULL,
-fecha_nacimiento DATE NOT NULL,
-domicilio VARCHAR(50) NOT NULL,
-ocupacion VARCHAR(50) NOT NULL,
-estado_civil VARCHAR(50) NOT NULL,
-plan VARCHAR(50) NOT NULL,
-dni INT NOT NULL
+id_afiliado INT  PRIMARY KEY AUTO_INCREMENT,
+nombre VARCHAR(50) ,
+apellido VARCHAR(50) ,
+email VARCHAR(50) ,
+telefono INT ,
+fecha_nacimiento DATE ,
+domicilio VARCHAR(50) ,
+ocupacion VARCHAR(50) ,
+estado_civil VARCHAR(50) ,
+plan VARCHAR(50) ,
+dni INT 
 );
 
 CREATE TABLE IF NOT EXISTS especialidad (
-id_especialidad INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-especialidad VARCHAR(50) NOT NULL
+id_especialidad INT  PRIMARY KEY AUTO_INCREMENT,
+especialidad VARCHAR(50) 
 );
 
 CREATE TABLE IF NOT EXISTS medico (
 
-id_medico INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-nombre VARCHAR(50) NOT NULL,
-apellido VARCHAR(50) NOT NULL,
-fecha_nacimiento DATE NOT NULL,
-domicilio VARCHAR(50) NOT NULL,
-telefono INT NOT NULL
+id_medico INT  PRIMARY KEY AUTO_INCREMENT,
+nombre VARCHAR(50) ,
+apellido VARCHAR(50) ,
+fecha_nacimiento DATE ,
+domicilio VARCHAR(50) ,
+telefono INT 
 );
 
 CREATE TABLE IF NOT EXISTS insumos (
-id_insumo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-tipo VARCHAR(50) NOT NULL,
-proveedor VARCHAR(50) NOT NULL
-
-);
-
-
-CREATE TABLE IF NOT EXISTS insumos (
-id_insumo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-tipo VARCHAR(50) NOT NULL,
-proveedor VARCHAR(50) NOT NULL
-
-);
-
-
-CREATE TABLE IF NOT EXISTS centro_medico (
-
-id_centro INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-nombre VARCHAR(50) NOT NULL,
-direccion VARCHAR(50) NOT NULL,
-telefono INT NOT NULL,
-id_insumo INT NOT NULL,
-FOREIGN KEY (id_insumo) REFERENCES insumos(id_insumo),
-id_medico INT NOT NULL,
-FOREIGN KEY (id_medico) REFERENCES medico(id_medico),
-id_especialidad INT NOT NULL,
-FOREIGN KEY (id_especialidad) REFERENCES especialidad(id_especialidad),
-id_afiliado INT NOT NULL,
-FOREIGN KEY (id_afiliado) REFERENCES afiliado(id_afiliado)
+id_insumo INT  PRIMARY KEY AUTO_INCREMENT,
+tipo VARCHAR(50) ,
+proveedor VARCHAR(50) 
 
 );
 
 
 CREATE TABLE IF NOT EXISTS turnos (
 
-id_turno INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-consulta VARCHAR(50) NOT NULL,
-diagnostico VARCHAR(50) NOT NULL,
-fecha DATE NOT NULL,
-id_medico INT NOT NULL,
-FOREIGN KEY (id_medico) REFERENCES medico(id_medico),
-id_afiliado INT NOT NULL,
-FOREIGN KEY (id_afiliado) REFERENCES afiliado(id_afiliado)
+id_turno INT  PRIMARY KEY AUTO_INCREMENT,
+consulta VARCHAR(50) ,
+diagnostico VARCHAR(50) ,
+fecha DATE 
 
 );
 
 
-CREATE TABLE IF NOT EXISTS insumo_centro (
 
-id_insumo INT NOT NULL,
+CREATE TABLE IF NOT EXISTS centro_medico (
+
+id_centro INT  PRIMARY KEY AUTO_INCREMENT,
+nombre VARCHAR(50) ,
+direccion VARCHAR(50) ,
+telefono INT ,
+id_insumo INT ,
 FOREIGN KEY (id_insumo) REFERENCES insumos(id_insumo),
-id_centro INT NOT NULL,
-FOREIGN KEY (id_centro) REFERENCES centro_medico(id_centro)
-            
+id_medico INT ,
+FOREIGN KEY (id_medico) REFERENCES medico(id_medico),
+id_especialidad INT ,
+FOREIGN KEY (id_especialidad) REFERENCES especialidad(id_especialidad),
+id_afiliado INT ,
+FOREIGN KEY (id_afiliado) REFERENCES afiliado(id_afiliado),
+id_turno INT ,
+FOREIGN KEY (id_turno) REFERENCES turnos(id_turno)
+
 );
+
