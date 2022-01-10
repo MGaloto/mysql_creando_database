@@ -22,7 +22,7 @@ cursor = connection.cursor()
 
 sql_create_table_afiliado= """
       CREATE TABLE IF NOT EXISTS afiliado (
-            id_afiliado INT  PRIMARY KEY AUTO_INCREMENT,
+            id_afiliado INT PRIMARY KEY AUTO_INCREMENT,
             nombre VARCHAR(50) ,
             apellido VARCHAR(50) ,
             email VARCHAR(50) ,
@@ -39,7 +39,7 @@ sql_create_table_afiliado= """
 sql_create_table_especialidad= """
 
     CREATE TABLE IF NOT EXISTS especialidad (
-            id_especialidad INT  PRIMARY KEY AUTO_INCREMENT,
+            id_especialidad INT PRIMARY KEY AUTO_INCREMENT,
             especialidad VARCHAR(50) 
             );
             """
@@ -49,7 +49,7 @@ sql_create_table_medico= """
     
     CREATE TABLE IF NOT EXISTS medico (
             
-            id_medico INT  PRIMARY KEY AUTO_INCREMENT,
+            id_medico INT PRIMARY KEY AUTO_INCREMENT,
             nombre VARCHAR(50) ,
             apellido VARCHAR(50) ,
             fecha_nacimiento DATE ,
@@ -58,12 +58,13 @@ sql_create_table_medico= """
             );
             """
     
-sql_create_table_insumos= """
+sql_create_table_plan_familiar= """
     
-    CREATE TABLE IF NOT EXISTS insumos (
-            id_insumo INT  PRIMARY KEY AUTO_INCREMENT,
+    CREATE TABLE IF NOT EXISTS plan_familiar (
+            id_plan_familiar INT PRIMARY KEY AUTO_INCREMENT,
             tipo VARCHAR(50) ,
-            proveedor VARCHAR(50) 
+            fecha_alta DATE,
+            total_consultas INT
             
             );
             """
@@ -72,7 +73,7 @@ sql_create_table_turnos= """
 
     CREATE TABLE IF NOT EXISTS turnos (
 
-            id_turno INT  PRIMARY KEY AUTO_INCREMENT,
+            id_turno INT PRIMARY KEY AUTO_INCREMENT,
             consulta VARCHAR(50) ,
             diagnostico VARCHAR(50) ,
             fecha DATE 
@@ -89,8 +90,8 @@ sql_create_table_centro_medico= """
             nombre VARCHAR(50) ,
             direccion VARCHAR(50) ,
             telefono INT ,
-            id_insumo INT ,
-            FOREIGN KEY (id_insumo) REFERENCES insumos(id_insumo),
+            id_plan_familiar INT ,
+            FOREIGN KEY (id_plan_familiar) REFERENCES plan_familiar(id_plan_familiar),
             id_medico INT ,
             FOREIGN KEY (id_medico) REFERENCES medico(id_medico),
             id_especialidad INT ,
@@ -112,7 +113,7 @@ sql_create_table_centro_medico= """
 cursor.execute(sql_create_table_afiliado)
 cursor.execute(sql_create_table_especialidad)
 cursor.execute(sql_create_table_medico)
-cursor.execute(sql_create_table_insumos)
+cursor.execute(sql_create_table_plan_familiar)
 cursor.execute(sql_create_table_turnos)
 cursor.execute(sql_create_table_centro_medico)
 

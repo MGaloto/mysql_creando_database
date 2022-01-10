@@ -36,7 +36,7 @@ A continuación se detallaran cada una de las tablas que componen el DER con sus
 | $$ \textbf{Tabla: Afiliado }$$ |
 |$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
 |-------|------------|
-| $$ Id\:Afiliado$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Id\:Afiliado$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
 | $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
 | $$ Apellido$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
 | $$ Email$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
@@ -54,7 +54,7 @@ _Esta tabla contiene los atributos de los afiliados a la empresa de medicina pre
 | $$ \textbf{Tabla: Especialidad }$$ |
 |$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
 |-------|------------|
-| $$ Id\:Especialidad$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Id\:Especialidad$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
 | $$ Especialidad$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
 
 
@@ -66,32 +66,33 @@ _Esta tabla contiene las diferentes prestaciones que proveen los distintos centr
 | $$ \textbf{Tabla: Medico }$$ |
 |$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
 |-------|------------|
-| $$ Id\:Medico$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Id\:Medico$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
 | $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
 | $$ Apellido$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
 | $$ Fecha\:Nacimiento$$     | $$DATE \:NOT \:NULL$$        | 
 | $$ Domicilio$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
-| $$ Telefono$$     | $$IN \:NOT\: NULL  $$            | 
+| $$ Telefono$$     | $$INT \:NOT\: NULL  $$            | 
 
 _Esta tabla contiene los datos de los médicos que prestan su servicio a distintos centros médicos._
 
 
 
-| $$ \textbf{Tabla: Insumos }$$ |
+| $$ \textbf{Tabla: Plan Familiar }$$ |
 |$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
 |-------|------------|
-| $$ Id\:Insumo$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Id\:Plan\:Familiar$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
 | $$ Tipo$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
-| $$ Proveedor$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+| $$ Fecha\:Alta$$     | $$DATE \:NOT \:NULL $$         | 
+| $$ Total\:Consultas$$     | $$INT \:NOT \:NULL  $$         | 
 
-_Esta tabla contiene el tipo de insumo necesario para cada Centro Medico._
+
 
 
 
 | $$ \textbf{Tabla: Turnos }$$ |
 |$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
 |-------|------------|
-| $$ Id\:Turno$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Id\:Turno$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
 | $$ Consulta$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
 | $$ Diagnostico$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
 | $$ Fecha$$     | $$DATE \:NOT \:NULL $$         | 
@@ -105,17 +106,17 @@ _Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la f
 | $$ \textbf{Tabla: Centro Medico }$$ |
 |$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
 |-------|------------|
-| $$ Id\:Centro$$     |   $$IN \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Id\:Centro$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
 | $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
 | $$ Dirección$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
-| $$ Teléfono$$     | $$DATE \:NOT \:NULL$$        | 
-| $$ Id\: Insumo$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\: Medico$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\: Especialidad$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\: Afiliado$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\: Turno$$     | $$IN \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Teléfono$$     | $$INT \:NOT \:NULL$$        | 
+| $$ Id\: Medico$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\: Especialidad$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\: Afiliado$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\: Turno$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\:Plan\:Familiar$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
 
-_Esta tabla contiene los distintos centros médicos de la empresa de Medicina Prepaga, se conecta con la tabla insumos, prestaciones y medico, ya que cada centro se especializa en algunas prestaciones que otros no y los médicos trabajan en distintos centros como los insumos que se proveen en diferentes centros médicos._
+_Esta tabla contiene los distintos centros médicos de la empresa de Medicina Prepaga, se conecta con todas las tablas._
 
 
 

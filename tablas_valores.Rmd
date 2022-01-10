@@ -1,0 +1,51 @@
+---
+title: "Coderhouse"
+author: "Maximiliano Galoto"
+subtitle: Insertar Valores en las Tablas
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tinytex)
+
+
+# app.diagrams.net
+
+
+```
+
+## _Metodologia utilizada:_
+
+Los valores en cada una de las tablas se insertaron desde archivos .csv.
+
+Los archivos son los siguientes:
+
+
+![Archivos .csv](imagenes/archivos.png)
+
+  
+_Cada una de las tablas contiene 10 observaciones_
+
+
+_Ejemplo tabla afiliados:_
+
+
+![.csv](imagenes/afiliado.png)
+
+
+A continuación se adjuntan scripts de los pasos para importar los datos y MySql final:
+
+![MySql](imagenes/import.png){width=70%}
+
+
+![Import](imagenes/script_medico.png){width=70%}
+
+
+
+![Tablas](imagenes/base_datos.png)
+
+

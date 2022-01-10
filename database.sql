@@ -34,10 +34,11 @@ domicilio VARCHAR(50) ,
 telefono INT 
 );
 
-CREATE TABLE IF NOT EXISTS insumos (
-id_insumo INT  PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS plan_familiar (
+id_plan_familiar INT PRIMARY KEY AUTO_INCREMENT,
 tipo VARCHAR(50) ,
-proveedor VARCHAR(50) 
+fecha_alta DATE,
+total_consultas INT
 
 );
 
@@ -55,12 +56,13 @@ fecha DATE
 
 CREATE TABLE IF NOT EXISTS centro_medico (
 
-id_centro INT  PRIMARY KEY AUTO_INCREMENT,
+id_centro INT PRIMARY KEY AUTO_INCREMENT,
 nombre VARCHAR(50) ,
 direccion VARCHAR(50) ,
 telefono INT ,
-id_insumo INT ,
-FOREIGN KEY (id_insumo) REFERENCES insumos(id_insumo),
+fecha_asistencia DATE ,
+id_plan_familiar INT ,
+FOREIGN KEY (id_plan_familiar) REFERENCES plan_familiar(id_plan_familiar),
 id_medico INT ,
 FOREIGN KEY (id_medico) REFERENCES medico(id_medico),
 id_especialidad INT ,

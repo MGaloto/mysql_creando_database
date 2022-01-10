@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.7)  8 JAN 2022 17:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.7)  9 JAN 2022 21:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -466,11 +466,11 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
 (c:/Users/maxig/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<DER.png, id=20, 620.3175pt x 566.115pt>
+<DER.png, id=20, 676.77844pt x 568.37344pt>
 File: DER.png Graphic file (type png)
 <use DER.png>
 Package pdftex.def Info: DER.png  used on input line 99.
-(pdftex.def)             Requested size: 469.75192pt x 428.70563pt.
+(pdftex.def)             Requested size: 469.76587pt x 394.51971pt.
 [1
 
 {c:/Users/maxig/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./DER.png>]
@@ -482,16 +482,16 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 110.
 [2]
 
-LaTeX Warning: Command \' invalid in math mode on input line 218.
+LaTeX Warning: Command \' invalid in math mode on input line 216.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 219.
+LaTeX Warning: Command \' invalid in math mode on input line 217.
 
-<REVERSE.png, id=47, 621.07031pt x 487.06969pt>
+<REVERSE.png, id=47, 577.40718pt x 508.14844pt>
 File: REVERSE.png Graphic file (type png)
 <use REVERSE.png>
-Package pdftex.def Info: REVERSE.png  used on input line 246.
-(pdftex.def)             Requested size: 469.75339pt x 368.40053pt.
+Package pdftex.def Info: REVERSE.png  used on input line 241.
+(pdftex.def)             Requested size: 469.77655pt x 413.42784pt.
 [3] [4 <./REVERSE.png>] (./SQL-Galoto.aux)
 Package rerunfilecheck Info: File `SQL-Galoto.out' has not changed.
 (rerunfilecheck)             Checksum: 723DFAF6F37B684D8BD1A09B8C3405FA;835.
@@ -505,7 +505,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  60i,7n,63p,373b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/maxig/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/maxig/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/maxig/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/maxig/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/maxig/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/maxig/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/maxig/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/maxig/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/maxig/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/maxig/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
-Output written on SQL-Galoto.pdf (4 pages, 238167 bytes).
+Output written on SQL-Galoto.pdf (4 pages, 237770 bytes).
 PDF statistics:
  105 PDF objects out of 1000 (max. 8388607)
  79 compressed objects within 1 object stream
