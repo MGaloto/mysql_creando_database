@@ -43,34 +43,45 @@ total_consultas INT
 );
 
 
-CREATE TABLE IF NOT EXISTS turnos (
-
-id_turno INT  PRIMARY KEY AUTO_INCREMENT,
-consulta VARCHAR(50) ,
-diagnostico VARCHAR(50) ,
-fecha DATE 
-
-);
-
-
-
 CREATE TABLE IF NOT EXISTS centro_medico (
 
 id_centro INT PRIMARY KEY AUTO_INCREMENT,
 nombre VARCHAR(50) ,
 direccion VARCHAR(50) ,
 telefono INT ,
-fecha_asistencia DATE ,
-id_plan_familiar INT ,
-FOREIGN KEY (id_plan_familiar) REFERENCES plan_familiar(id_plan_familiar),
-id_medico INT ,
-FOREIGN KEY (id_medico) REFERENCES medico(id_medico),
-id_especialidad INT ,
-FOREIGN KEY (id_especialidad) REFERENCES especialidad(id_especialidad),
-id_afiliado INT ,
-FOREIGN KEY (id_afiliado) REFERENCES afiliado(id_afiliado),
-id_turno INT ,
-FOREIGN KEY (id_turno) REFERENCES turnos(id_turno)
+cod_postal INT ,
+email VARCHAR(50) ,
+id_plan_familiar INT
 
 );
+
+
+CREATE TABLE IF NOT EXISTS consulta (
+id_consulta INT PRIMARY KEY AUTO_INCREMENT,
+consulta VARCHAR(50) ,
+diagnostico VARCHAR(50) 
+
+);
+
+
+CREATE TABLE IF NOT EXISTS turnos (
+
+id_turno INT  PRIMARY KEY AUTO_INCREMENT,
+fecha DATE,
+id_centro INT ,
+FOREIGN KEY (id_centro) REFERENCES centro_medico(id_centro) ,
+id_plan_familiar INT ,
+FOREIGN KEY (id_plan_familiar) REFERENCES plan_familiar(id_plan_familiar) ,
+id_medico INT ,
+FOREIGN KEY (id_medico) REFERENCES medico(id_medico) ,
+id_especialidad INT ,
+FOREIGN KEY (id_especialidad) REFERENCES especialidad(id_especialidad) ,
+id_afiliado INT ,
+FOREIGN KEY (id_afiliado) REFERENCES afiliado(id_afiliado) ,
+id_consulta INT ,
+FOREIGN KEY (id_consulta) REFERENCES consulta(id_consulta) 
+
+)engine = innodb;
+
+
 

@@ -1,12 +1,14 @@
 ---
-title: "Coderhouse"
+title: "Coder House"
 author: "Maximiliano Galoto"
 subtitle: Avances del Proyecto Final para el Curso SQL
 output:
-  pdf_document: default
-  html_document:
-    df_print: paged
+  html_notebook:
+    theme: cerulean
+    toc: yes
+    toc_float: yes
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -15,20 +17,20 @@ library(tinytex)
 
 # app.diagrams.net
 
-
 ```
 
-## _Temática para el trabajo final:_
+
+# 1 - Descripcion del proyecto
+
+ **_Temática para el trabajo final:_**
 
 Diagrama de Entidad de Relación de una _Empresa de Medicina Prepaga_.
 
 
-
-![DER](DER.png)
-
+# 2 - Descripción de las tablas
 
 
-## _Tablas, descripción y atributos:_
+**_Tablas, descripción y atributos:_**
 
 A continuación se detallaran cada una de las tablas que componen el DER con sus atributos y descripciones:
 
@@ -119,16 +121,76 @@ _Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la f
 _Esta tabla contiene los distintos centros médicos de la empresa de Medicina Prepaga, se conecta con todas las tablas._
 
 
+# 3 - Diagrama Entidad de Relacion
+
+![](DER.png)
+
+![](REVERSE.png)
+
+# 4 - Codigo MySql desde Python
 
 
-## _Codigo en Python para crear las Tablas:_
+[Github Codigo](https://github.com/MGaloto/mysql_creando_database/blob/main/database.py)
 
 
-[Github](https://github.com/MGaloto/mysql_creando_database)
+# 4 - Incersion de Datos
 
 
-## _Diagrama en My Sql:_
+**_Metodologia utilizada:_**
+
+Los valores en cada una de las tablas se insertaron desde archivos .csv.
+
+Los archivos son los siguientes:
 
 
-![DER My Sql](REVERSE.png)
+
+![Archivos .csv](imagenes/archivos.png)
+
+  
+_Cada una de las tablas contiene 10 observaciones_
+
+
+_Ejemplo tabla afiliados:_
+
+
+![.csv](imagenes/afiliado.png)
+
+
+A continuación se adjuntan scripts de los pasos para importar los datos y MySql final:
+
+![MySql](imagenes/import.png){width=70%}
+
+
+![Import](imagenes/script_medico.png){width=70%}
+
+
+
+![Tablas](imagenes/base_datos.png)
+
+
+# 5 - Vistas
+
+
+
+**_¿Como seleccionar el mejor modelo?_**
+
+
+<ul>
+
+_1) Escoger el modelo_
+
+_2) Dividir los datos de entrenamiento y de prueba_
+
+_3) Ajustar el modelo a los datos de entrenamiento_
+
+_4) Evaluar el modelo en los datos de prueba_
+
+_5) Re-Ajustar el modelo con todos los datos_
+
+_6) Predecir los datos futuros_
+
+
+</ul>
+
+
 
