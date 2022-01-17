@@ -50,8 +50,7 @@ nombre VARCHAR(50) ,
 direccion VARCHAR(50) ,
 telefono INT ,
 cod_postal INT ,
-email VARCHAR(50) ,
-id_plan_familiar INT
+email VARCHAR(50) 
 
 );
 

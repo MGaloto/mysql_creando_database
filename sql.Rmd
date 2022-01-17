@@ -1,14 +1,40 @@
 ---
 title: "Coder House"
 author: "Maximiliano Galoto"
-subtitle: Avances del Proyecto Final para el Curso SQL
+subtitle: "Avances del Proyecto Final para el Curso SQL"
 output:
   html_notebook:
     theme: cerulean
     toc: yes
     toc_float: yes
 ---
+<br>
+</br>
 
+<style type="text/css">
+
+h1.title {
+  font-size: 58px;
+  color: black;
+  text-align: center;
+}
+h3.subtitle { 
+    font-size: 28px;
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+  text-align: center;
+}
+h4.author { 
+    font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+  text-align: center;
+}
+
+</style>
+
+<br>
+</br>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -22,17 +48,29 @@ library(tinytex)
 
 # 1 - Descripcion del proyecto
 
+<br>
+</br>
+
  **_Temática para el trabajo final:_**
 
 Diagrama de Entidad de Relación de una _Empresa de Medicina Prepaga_.
 
 
+<br>
+</br>
+
+
 # 2 - Descripción de las tablas
 
+<br>
+</br>
 
 **_Tablas, descripción y atributos:_**
 
 A continuación se detallaran cada una de las tablas que componen el DER con sus atributos y descripciones:
+
+<br>
+</br>
 
 
 | $$ \textbf{Tabla: Afiliado }$$ |
@@ -48,9 +86,14 @@ A continuación se detallaran cada una de las tablas que componen el DER con sus
 | $$ Ocupacion$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
 | $$ Estado\:Civil$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
 | $$ Plan$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
+| $$ Plan$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
+| $$ Dni$$     | $$INT \:NOT \:NULL  $$            | 
+
 
 _Esta tabla contiene los atributos de los afiliados a la empresa de medicina prepaga, podemos observar el ID como Primary Key, Nombre, Apellido, Fecha de Nacimiento, Domicilio, Ocupación y Estado Civil. Estos datos salen del transaccional cuando el afiliado se da de alta en nuestro sistema. _
 
+<br>
+</br>
 
 
 | $$ \textbf{Tabla: Especialidad }$$ |
@@ -62,7 +105,8 @@ _Esta tabla contiene los atributos de los afiliados a la empresa de medicina pre
 
 _Esta tabla contiene las diferentes prestaciones que proveen los distintos centros médicos._
 
-
+<br>
+</br>
   
 
 | $$ \textbf{Tabla: Medico }$$ |
@@ -77,7 +121,8 @@ _Esta tabla contiene las diferentes prestaciones que proveen los distintos centr
 
 _Esta tabla contiene los datos de los médicos que prestan su servicio a distintos centros médicos._
 
-
+<br>
+</br>
 
 | $$ \textbf{Tabla: Plan Familiar }$$ |
 |$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
@@ -88,21 +133,8 @@ _Esta tabla contiene los datos de los médicos que prestan su servicio a distint
 | $$ Total\:Consultas$$     | $$INT \:NOT \:NULL  $$         | 
 
 
-
-
-
-| $$ \textbf{Tabla: Turnos }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Turno$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
-| $$ Consulta$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
-| $$ Diagnostico$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
-| $$ Fecha$$     | $$DATE \:NOT \:NULL $$         | 
-
-
-
-_Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la fecha y el diagnostico. Cada turno tiene un Id._
-
+<br>
+</br>
 
 
 | $$ \textbf{Tabla: Centro Medico }$$ |
@@ -112,28 +144,82 @@ _Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la f
 | $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
 | $$ Dirección$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
 | $$ Teléfono$$     | $$INT \:NOT \:NULL$$        | 
+| $$ Cod Postal$$     | $$INT \:NOT \:NULL$$        | 
+| $$ Email$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+
+<br>
+</br>
+
+
+| $$ \textbf{Tabla: Consulta }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Consulta$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Consulta$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+| $$ Diagnostico$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+
+
+<br>
+</br>
+
+
+| $$ \textbf{Tabla: Turnos }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Turno$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Fecha$$     | $$DATE \:NOT \:NULL  $$         |
 | $$ Id\: Medico$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
 | $$ Id\: Especialidad$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
 | $$ Id\: Afiliado$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\: Turno$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Id\: Consulta$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
 | $$ Id\:Plan\:Familiar$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+| $$ Id\:Centro$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
 
-_Esta tabla contiene los distintos centros médicos de la empresa de Medicina Prepaga, se conecta con todas las tablas._
+
+
+
+
+
+
+_Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la fecha y el diagnostico. Cada turno tiene un Id._
+
+
+<br>
+</br>
 
 
 # 3 - Diagrama Entidad de Relacion
 
+<br>
+</br>
+
 ![](DER.png)
+
+<br>
+</br>
 
 ![](REVERSE.png)
 
+<br>
+</br>
+
+
 # 4 - Codigo MySql desde Python
+
+<br>
+</br>
 
 
 [Github Codigo](https://github.com/MGaloto/mysql_creando_database/blob/main/database.py)
 
+<br>
+</br>
 
-# 4 - Incersion de Datos
+
+# 4 - Inserción de datos
+
+<br>
+</br>
 
 
 **_Metodologia utilizada:_**
@@ -144,7 +230,7 @@ Los archivos son los siguientes:
 
 
 
-![Archivos .csv](imagenes/archivos.png)
+![](imagenes/archivos.png)
 
   
 _Cada una de las tablas contiene 10 observaciones_
@@ -153,41 +239,98 @@ _Cada una de las tablas contiene 10 observaciones_
 _Ejemplo tabla afiliados:_
 
 
-![.csv](imagenes/afiliado.png)
+![](imagenes/afiliado.png)
 
 
 A continuación se adjuntan scripts de los pasos para importar los datos y MySql final:
 
-![MySql](imagenes/import.png){width=70%}
+![](imagenes/import.png){width=70%}
 
 
-![Import](imagenes/script_medico.png){width=70%}
+![](imagenes/script_medico.png){width=70%}
 
 
 
-![Tablas](imagenes/base_datos.png)
+![](imagenes/base_datos.png)
 
 
 # 5 - Vistas
 
 
 
-**_¿Como seleccionar el mejor modelo?_**
+
+
+
+
+
+
+**_A continuación se adjuntan los scripts de las 5 vistas_**
+
+_El código SQL de las vistas se encuentra en el siguiente link:_ [Github Codigo](https://github.com/MGaloto/mysql_creando_database/blob/main/database.py)
 
 
 <ul>
 
-_1) Escoger el modelo_
+<br>
+</br>
 
-_2) Dividir los datos de entrenamiento y de prueba_
+_1) Vista 1:_
 
-_3) Ajustar el modelo a los datos de entrenamiento_
 
-_4) Evaluar el modelo en los datos de prueba_
+_Consulta y Diagnostico por Afiliado_
 
-_5) Re-Ajustar el modelo con todos los datos_
 
-_6) Predecir los datos futuros_
+![](imagenes/vista1.png)
+<br>
+</br>
+<br>
+</br>
+
+
+
+_2) Vista 2_
+
+_Que medico atendió a cada paciente:_
+
+
+![](imagenes/vista2.png)
+<br>
+</br>
+<br>
+</br>
+
+_3) Vista 3_
+
+_Que medico atiende en cada centro medico:_
+
+![](imagenes/vista3.png)
+<br>
+</br>
+<br>
+</br>
+
+_4) Vista 4_
+
+_Plan familiar por afiliado:_
+
+![](imagenes/vista4.png)
+<br>
+</br>
+<br>
+</br>
+
+_5) Vista 5_
+
+
+
+_Cantidad de centros médicos por especialidad:_
+
+
+![](imagenes/vista5.png)
+<br>
+</br>
+<br>
+</br>
 
 
 </ul>
