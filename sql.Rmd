@@ -274,7 +274,7 @@ _El código SQL de las vistas se encuentra en el siguiente link:_ [Github Codigo
 <br>
 </br>
 
-_1) Vista 1:_
+**_1) Vista 1:_**
 
 
 _Consulta y Diagnostico por Afiliado_
@@ -288,7 +288,7 @@ _Consulta y Diagnostico por Afiliado_
 
 
 
-_2) Vista 2_
+**_2) Vista 2_**
 
 _Que medico atendió a cada paciente:_
 
@@ -299,7 +299,7 @@ _Que medico atendió a cada paciente:_
 <br>
 </br>
 
-_3) Vista 3_
+**_3) Vista 3_**
 
 _Que medico atiende en cada centro medico:_
 
@@ -309,7 +309,7 @@ _Que medico atiende en cada centro medico:_
 <br>
 </br>
 
-_4) Vista 4_
+**_4) Vista 4_**
 
 _Plan familiar por afiliado:_
 
@@ -319,7 +319,7 @@ _Plan familiar por afiliado:_
 <br>
 </br>
 
-_5) Vista 5_
+**_5) Vista 5_**
 
 
 
@@ -335,5 +335,52 @@ _Cantidad de centros médicos por especialidad:_
 
 </ul>
 
+
+
+
+
+# 5 - Funciones
+
+<br>
+</br>
+
+
+<ul>
+
+**_A continuación se adjuntan los scripts de las funcioness_**
+
+
+
+
+**_1) Función 1:_**
+
+
+_Función donde ingresamos un CHAR y nos devuelve un NUMERIC_
+
+_Ingresamos el diagnostico y nos regresa el porcentaje de pacientes con el diagnostico ingresado de nuestra base de datos_
+
+
+![](imagenes/funcion1.png)
+<br>
+</br>
+<br>
+</br>
+
+
+**_2) Función 2:_**
+
+
+_Función donde ingresamos un CHAR y nos devuelve un NUMERIC_
+
+_Ingresamos el plan familiar y nos regresa el porcentaje de afiliados con el plan familiar ingresado de nuestra base de datos_
+
+
+![](imagenes/funcion2.png)
+<br>
+</br>
+<br>
+</br>
+
+</ul>
 
 

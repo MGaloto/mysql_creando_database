@@ -14,8 +14,6 @@ INNER JOIN consulta
 ON turnos.id_consulta = consulta.id_consulta
 ORDER BY turnos.fecha DESC;
 
-SELECT * FROM vista_consulta_diagnostico;
-
 
 
 
@@ -38,10 +36,6 @@ ORDER BY turnos.fecha DESC;
 
 
 
-
-
-SELECT * FROM vista_medico_paciente;
-
 CREATE VIEW vista_centromedico_medico AS
 SELECT medico.nombre AS Nombre_Medico,
  medico.apellido AS Apellido_Medico,
@@ -55,7 +49,7 @@ ON turnos.id_medico = medico.id_medico
 ORDER BY turnos.fecha DESC;
 
 
-SELECT * FROM vista_centromedico_medico;
+
 
 
 
@@ -70,7 +64,7 @@ INNER JOIN plan_familiar
 ON turnos.id_plan_familiar = plan_familiar.id_plan_familiar
 ORDER BY afiliado.nombre DESC;
 
-SELECT * FROM vista_afiliado_planfamiliar;
+
 
 
 
@@ -81,7 +75,6 @@ FROM especialidad
 GROUP BY especialidad
 ORDER BY Cantidad_Por_Especialidad DESC;
 
-SELECT * FROM vista_cantidad_especialidad;
 
 
 
