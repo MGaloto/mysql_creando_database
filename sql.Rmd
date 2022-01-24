@@ -1,7 +1,7 @@
 ---
 title: "Coder House"
 author: "Maximiliano Galoto"
-subtitle: "Avances del Proyecto Final para el Curso SQL"
+subtitle: "Avances del Proyecto Final"
 output:
   html_notebook:
     theme: cerulean
@@ -216,7 +216,7 @@ _Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la f
 </br>
 
 
-# 4 - Inserción de datos
+# 5 - Inserción de datos
 
 <br>
 </br>
@@ -254,7 +254,7 @@ A continuación se adjuntan scripts de los pasos para importar los datos y MySql
 ![](imagenes/base_datos.png)
 
 
-# 5 - Vistas
+# 6 - Vistas
 
 
 
@@ -339,7 +339,7 @@ _Cantidad de centros médicos por especialidad:_
 
 
 
-# 5 - Funciones
+# 7 - Funciones
 
 <br>
 </br>
@@ -384,3 +384,43 @@ _Ingresamos el plan familiar y nos regresa el porcentaje de afiliados con el pla
 </ul>
 
 
+
+# 8 - Stored Procedures
+
+<br>
+</br>
+
+
+<ul>
+
+**_A continuación se adjuntan los scripts de los Stored Procedures_**
+
+
+
+
+**_1) Stored Procedure 1:_**
+
+
+_En el siguiente Stored Procedure se ejecuta un comando que ordena una variable de forma descendente o ascendente. Los parametros permiten elegir el orden, la tabla y la variable._
+
+
+![](imagenes/sp1.png)
+<br>
+</br>
+<br>
+</br>
+
+
+**_2) Stored Procedure 2:_**
+
+
+_El siguiente Stored Procedure ejecuta un comando para actualizar la tabla Turnos._
+
+
+![](imagenes/sp2.png)
+<br>
+</br>
+<br>
+</br>
+
+</ul>

@@ -151,6 +151,87 @@ for i in tablas:
 
 #%%
 
+# Insertamos los valores
+
+
+
+values_turnos = """
+
+            LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablas/turnos.txt' 
+            INTO TABLE turnos
+            IGNORE 1 ROWS;
+            
+            """
+
+
+values_afiliado = """
+
+            LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablas/afiliado.txt' 
+            INTO TABLE afiliado
+            IGNORE 1 ROWS;
+            
+            """
+            
+values_centro_medico = """
+
+            LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablas/centro_medico.txt' 
+            INTO TABLE centro_medico
+            IGNORE 1 ROWS;
+            
+            """
+            
+values_consulta = """
+
+            LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablas/consulta.txt' 
+            INTO TABLE consulta
+            IGNORE 1 ROWS;
+            
+            """
+            
+values_especialidad = """
+
+            LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablas/especialidad.txt' 
+            INTO TABLE especialidad
+            IGNORE 1 ROWS;
+            
+            """
+            
+values_medico = """
+
+            LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablas/medico.txt' 
+            INTO TABLE medico
+            IGNORE 1 ROWS;
+            
+            """
+            
+            
+values_plan_familiar = """
+
+            LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tablas/plan_familiar.txt' 
+            INTO TABLE plan_familiar
+            IGNORE 1 ROWS;
+            
+            """
+
+
+
+#%%
+
+
+cursor.execute(values_afiliado)
+cursor.execute(values_centro_medico)
+cursor.execute(values_consulta)
+cursor.execute(values_especialidad)
+cursor.execute(values_medico)
+cursor.execute(values_plan_familiar)
+
+
+
+#%%
+cursor.execute(values_turnos)
+
+
+#%%
 
 # Ejemplo query del dni
 
