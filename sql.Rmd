@@ -3,31 +3,79 @@ title: "Coder House"
 author: "Maximiliano Galoto"
 subtitle: "Avances del Proyecto Final"
 output:
-  html_notebook:
-    theme: cerulean
-    toc: yes
-    toc_float: yes
+ prettydoc::html_pretty:
+    theme: lumen
+    highlight: github
+    toc: true
+    toc_depth: 2
+    math: katex
+
+
+
 ---
+
+
+
+
 <br>
 </br>
 
+
+```{css my-header-colors, echo = FALSE}
+.page-header {
+    background-image: linear-gradient(200deg, black, black);
+}
+
+
+```
+
+
+
+
 <style type="text/css">
+
+.toc .toc-box {
+    padding: 1.5rem;
+    background-color: #d4cfcf;
+    border: solid 1px #d4cfcf;
+    border-radius: .3rem;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    color: black;
+}
+
+
+.main-content table th {
+    font-weight: 700;
+    background-color: yellow;
+    color: black;
+}
+
 
 h1.title {
   font-size: 58px;
-  color: black;
+  color: yellow;
   text-align: center;
 }
 h3.subtitle { 
     font-size: 28px;
   font-family: "Times New Roman", Times, serif;
-  color: black;
+  color: yellow ;
   text-align: center;
 }
 h4.author { 
     font-size: 22px;
   font-family: "Times New Roman", Times, serif;
-  color: black;
+  color:yellow ;
   text-align: center;
 }
 
@@ -35,6 +83,7 @@ h4.author {
 
 <br>
 </br>
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -45,8 +94,15 @@ library(tinytex)
 
 ```
 
-
+<div style="text-align: center">
 # 1 - Descripcion del proyecto
+</div>
+
+
+
+<div style="text-align: right">
+ <a href="#top">Volver al Inicio</a>
+</div>
 
 <br>
 </br>
@@ -59,8 +115,14 @@ Diagrama de Entidad de Relación de una _Empresa de Medicina Prepaga_.
 <br>
 </br>
 
-
+<div style="text-align: center">
 # 2 - Descripción de las tablas
+</div>
+
+
+<div style="text-align: right">
+ <a href="#top">Volver al Inicio</a>
+</div>
 
 <br>
 </br>
@@ -187,8 +249,15 @@ _Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la f
 <br>
 </br>
 
-
+<div style="text-align: center">
 # 3 - Diagrama Entidad de Relacion
+</div>
+
+
+<div style="text-align: right">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
 
 <br>
 </br>
@@ -203,8 +272,14 @@ _Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la f
 <br>
 </br>
 
-
+<div style="text-align: center">
 # 4 - Codigo MySql desde Python
+</div>
+
+<div style="text-align: right">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
 
 <br>
 </br>
@@ -215,8 +290,14 @@ _Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la f
 <br>
 </br>
 
-
+<div style="text-align: center">
 # 5 - Inserción de datos
+</div>
+
+<div style="text-align: right">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
 
 <br>
 </br>
@@ -253,13 +334,15 @@ A continuación se adjuntan scripts de los pasos para importar los datos y MySql
 
 ![](imagenes/base_datos.png)
 
-
+<div style="text-align: center">
 # 6 - Vistas
+</div>
 
 
 
-
-
+<div style="text-align: right">
+ <a href="#top">Volver al Inicio</a>
+</div>
 
 
 
@@ -279,6 +362,8 @@ _El código SQL de las vistas se encuentra en el siguiente link:_ [Github Codigo
 
 _Consulta y Diagnostico por Afiliado_
 
+_Esta vista permite guardarnos en una tabla aparte todos los turnos solicitados por los afiliados dados de alta en el sistema. Esta vista nos sirve para estar actualizados de los ultimos turnos ya que esta ordenada por fecha._
+
 
 ![](imagenes/vista1.png)
 <br>
@@ -292,6 +377,7 @@ _Consulta y Diagnostico por Afiliado_
 
 _Que medico atendió a cada paciente:_
 
+_Esta vista creada nos sirve para visualizar forma rapida mediante su consulta sobre que medicos atendieron a que paciente en determinada fecha._
 
 ![](imagenes/vista2.png)
 <br>
@@ -303,6 +389,8 @@ _Que medico atendió a cada paciente:_
 
 _Que medico atiende en cada centro medico:_
 
+_Esta vista permite que podamos visualizar de forma rapida que medicos atienden en los centros medicos._
+
 ![](imagenes/vista3.png)
 <br>
 </br>
@@ -312,6 +400,9 @@ _Que medico atiende en cada centro medico:_
 **_4) Vista 4_**
 
 _Plan familiar por afiliado:_
+
+
+_Esta vista nos permite ver de nuestra base de datos que plan familiar tiene cada uno de los afiliados._
 
 ![](imagenes/vista4.png)
 <br>
@@ -325,6 +416,7 @@ _Plan familiar por afiliado:_
 
 _Cantidad de centros médicos por especialidad:_
 
+_Vista que nos permite obtener de forma rapida y sencilla la especialidad de cada centro medico de nuesta base de datos._
 
 ![](imagenes/vista5.png)
 <br>
@@ -338,14 +430,27 @@ _Cantidad de centros médicos por especialidad:_
 
 
 
-
+<div style="text-align: center">
 # 7 - Funciones
+</div>
+
+
+<div style="text-align: right">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
 
 <br>
 </br>
 
 
+
+
 <ul>
+
+
+Por definición es importante indicar que una función es un conjunto de instrucciones SQL que realizan una tarea específica de manera automática. Una función acepta entradas en forma de parámetros y devuelve un valor.
+
 
 **_A continuación se adjuntan los scripts de las funcioness_**
 
@@ -359,6 +464,7 @@ _Función donde ingresamos un CHAR y nos devuelve un NUMERIC_
 
 _Ingresamos el diagnostico y nos regresa el porcentaje de pacientes con el diagnostico ingresado de nuestra base de datos_
 
+_En la parte inferior de la imagen adjunta se puede ver el resultado de la función una vez ingresado un CHAR._
 
 ![](imagenes/funcion1.png)
 <br>
@@ -374,6 +480,7 @@ _Función donde ingresamos un CHAR y nos devuelve un NUMERIC_
 
 _Ingresamos el plan familiar y nos regresa el porcentaje de afiliados con el plan familiar ingresado de nuestra base de datos_
 
+_En la parte inferior de la imagen adjunta se puede ver el resultado de la función una vez ingresado un CHAR._
 
 ![](imagenes/funcion2.png)
 <br>
@@ -384,14 +491,25 @@ _Ingresamos el plan familiar y nos regresa el porcentaje de afiliados con el pla
 </ul>
 
 
-
+<div style="text-align: center">
 # 8 - Stored Procedures
+</div>
+
+
+<div style="text-align: right">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
 
 <br>
 </br>
 
 
 <ul>
+
+
+Un stored procedure es un programa (o procedimiento) almacenado físicamente en una base de datos. Su implementación varía de un gestor de bases de datos a otro. La ventaja de un procedimiento almacenado es que al ser ejecutado, en respuesta a una petición de usuario, es ejecutado directamente en el motor de bases de datos, el cual usualmente corre en un servidor separado. Como tal, posee acceso directo a los datos que necesita manipular y sólo necesita enviar sus resultados de regreso al usuario, deshaciéndose de la sobrecarga resultante de comunicar grandes cantidades de datos salientes y entrantes.
+
 
 **_A continuación se adjuntan los scripts de los Stored Procedures_**
 
@@ -422,5 +540,76 @@ _El siguiente Stored Procedure ejecuta un comando para actualizar la tabla Turno
 </br>
 <br>
 </br>
+
+</ul>
+
+
+
+<div style="text-align: center">
+# 9 - Triggers
+</div>
+
+
+<div style="text-align: right">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
+<br>
+</br>
+
+
+<ul>
+
+
+Un disparador o trigger es una funcionalidad que la base de datos ejecuta de forma automática cuando se realiza una operación de tipo Insert, Update o Delete en una tabla o vista, o cuando se ejecuta una consulta SQL sobre una tabla o vista.
+
+**_A continuación se adjuntan los scripts de los Triggers_**
+
+
+
+
+**_1) Triggers 1:_**
+
+
+_En el siguiente Trigger se crea un log para la tabla afiliados y antes de que se completen los nuevos valores para la tabla afiliados se completan en la tabla de logs con fecha, usuario, id y tipo de operación._
+
+_Lo contrario sucede con la próxima imagen que es un Before._
+
+![](imagenes/triggeraft1.png)
+<br>
+</br>
+<br>
+</br>
+
+![](imagenes/triggerbef1.png)
+
+<br>
+</br>
+<br>
+</br>
+
+**_2) Triggers 2:_**
+
+
+_En el siguiente Trigger se crea un log para la tabla consulta y antes de que se completen los nuevos valores para la tabla se completan en la tabla de logs con fecha, usuario, id y tipo de operación._
+
+_Lo contrario sucede con la próxima imagen que es un Before._
+
+
+![](imagenes/triggeraft2.png)
+
+
+<br>
+</br>
+<br>
+</br>
+
+![](imagenes/triggerbef2.png)
+
+<br>
+</br>
+<br>
+</br>
+
 
 </ul>
