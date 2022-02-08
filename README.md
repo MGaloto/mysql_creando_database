@@ -9,14 +9,7 @@ Proyecto base de datos de una empresa de medicina prepaga. Se utilizara My Sql p
 ![](Imagenes/dw.png)
 
 
-# Diagrama Entidad de Relacion
+# Link del Proyecto
 
-![](DER.png)
+[Rpubs](https://rpubs.com/MGaloto/mysql_database)
 
-DER Creado desde: [https://app.diagrams.net/](https://app.diagrams.net/)
-
-# Reverse Engineer
-
-![](REVERSE.png)
-
-REVERSE Creado desde MySql
