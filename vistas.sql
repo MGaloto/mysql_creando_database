@@ -17,8 +17,6 @@ ORDER BY turnos.fecha DESC;
 
 
 
-
-
 CREATE VIEW vista_medico_paciente AS
 SELECT turnos.fecha AS Fecha_Turno,
  afiliado.nombre AS Nombre_Paciente, 
@@ -31,8 +29,6 @@ ON turnos.id_afiliado = afiliado.id_afiliado
 INNER JOIN medico 
 ON turnos.id_medico = medico.id_medico
 ORDER BY turnos.fecha DESC;
-
-
 
 
 
@@ -50,31 +46,28 @@ ORDER BY turnos.fecha DESC;
 
 
 
-
-
-
-CREATE VIEW vista_afiliado_planfamiliar AS
+CREATE VIEW cobros_afiliados AS
 SELECT afiliado.nombre AS Nombre_Afiliado,
  afiliado.apellido AS Apellido_Afiliado, 
- plan_familiar.tipo AS Plan_Familiar
-FROM turnos 
-INNER JOIN afiliado 
-ON turnos.id_afiliado = afiliado.id_afiliado
-INNER JOIN plan_familiar 
-ON turnos.id_plan_familiar = plan_familiar.id_plan_familiar
+ afiliado.id_afiliado AS Id_afiliado, 
+ cobros.fecha_transaccion AS Fecha_Cobro,
+ cobros.importe AS Importe_Cobro
+FROM afiliado 
+INNER JOIN cobros 
+ON afiliado.id_afiliado = cobros.id_afiliado
 ORDER BY afiliado.nombre DESC;
 
 
 
-
-
-CREATE VIEW vista_cantidad_especialidad AS
-SELECT COUNT(especialidad.especialidad) AS Cantidad_Por_Especialidad, 
-especialidad
-FROM especialidad
-GROUP BY especialidad
-ORDER BY Cantidad_Por_Especialidad DESC;
-
+CREATE VIEW pagos_proveedores AS
+SELECT proveedor.nombre AS Nombre_proveedor,
+ proveedor.mail AS Mail_proveedor, 
+ pagos.fecha_transaccion AS Fecha_pago, 
+ pagos.importe AS Importe
+FROM proveedor 
+INNER JOIN pagos 
+ON proveedor.id_proveedor = pagos.id_proveedor
+ORDER BY pagos.importe DESC;
 
 
 

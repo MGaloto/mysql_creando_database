@@ -1,5 +1,5 @@
 ---
-title: "Coder House"
+title: "Data Warehouse"
 author: "Maximiliano Galoto"
 subtitle: "Avances del Proyecto Final"
 output:
@@ -23,7 +23,9 @@ output:
 
 ```{css my-header-colors, echo = FALSE}
 .page-header {
-    background-image: linear-gradient(200deg, black, black);
+    background-image: linear-gradient(200deg, black, blue);
+    border: solid 1px black;
+    border-radius: .3rem;
 }
 
 
@@ -34,10 +36,13 @@ output:
 
 <style type="text/css">
 
+
+
+
 .toc .toc-box {
     padding: 1.5rem;
-    background-color: #d4cfcf;
-    border: solid 1px #d4cfcf;
+    background-color: #f5f5f5;
+    border: solid 1px #6b6b6b;
     border-radius: .3rem;
 }
 
@@ -54,30 +59,50 @@ a {
 }
 
 
+
 .main-content table th {
     font-weight: 700;
-    background-color: yellow;
+    background-image: linear-gradient(2000deg, black, blue);
+    color: white;
+}
+
+.main-content table td{
+    padding: .5rem 1rem;
+    border-bottom: 1px solid #e9ebec;
+    text-align: left;
     color: black;
+}
+
+.main-content table tr:nth-child(odd) {
+    background-color: #fcfcfc;
+}
+
+.main-content table tr:nth-child(even) {
+    background-color: #ffffff;
 }
 
 
 h1.title {
   font-size: 58px;
-  color: yellow;
+  color: white;
   text-align: center;
 }
 h3.subtitle { 
     font-size: 28px;
   font-family: "Times New Roman", Times, serif;
-  color: yellow ;
+  color: white ;
   text-align: center;
 }
 h4.author { 
     font-size: 22px;
   font-family: "Times New Roman", Times, serif;
-  color:yellow ;
+  color:white ;
   text-align: center;
 }
+
+
+
+
 
 </style>
 
@@ -94,13 +119,83 @@ library(tinytex)
 
 ```
 
-<div style="text-align: center">
-# 1 - Descripcion del proyecto
+
+<div style="text-align: left" class="toc-box">
+# 1 - Introduccion
+</div>
+
+
+<div style="text-align: left" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
+
+<b>
+
+Un Data Warehouse es un almacén electrónico donde generalmente una empresa u organización mantiene una gran cantidad de información. Los datos de un data warehouse deben almacenarse de forma segura, fiable, fácil de recuperar y fácil de administrar.
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/datawarehouse.jpg")
+```
+
+
+
+
+El concepto de data warehouse se originó en 1988 con el trabajo de los investigadores de IBM, Barry Devlin y Paul Murphy aunque el término data warehouse fue acuñado por William H. Inmon, el cual es conocido como el padre de Data Warehousing. Inmon describió un data warehouse como una colección de datos orientada a un tema específico, integrado, variante en el tiempo y no volátil, que soporta el proceso de toma de decisiones.
+
+
+</b>
+
+<br>
+</br>
+
+<div style="text-align: left" class="toc-box">
+# 2 - My Sql
+</div>
+
+
+<div style="text-align: left" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
+<br>
+</br>
+
+```{r, echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("Imagenes/MySQL-logo.png")
+```
+
+
+<br>
+</br>
+
+
+<b>
+
+Es un sistema de gestión de bases de datos relacional desarrollado bajo licencia dual: Licencia pública general/Licencia comercial por Oracle Corporation y está considerada como la base de datos de código abierto más popular del mundo, y una de las más populares en general junto a Oracle y Microsoft SQL Server, todo para entornos de desarrollo web.
+
+A continuacion se encuentra un link con los instructivos para poder descargar e instalar My Sql:
+
+
+[Guia de Instalacion de My Sql](https://docs.google.com/document/d/1GrStEE5YxDCRqYwWI0LASCCqiel2qooD/edit?usp=sharing&ouid=107665703043742500688&rtpof=true&sd=true)
+</b>
+
+
+
+
+
+
+
+<br>
+</br>
+
+<div style="text-align: left" class="toc-box">
+# 3 - Descripcion del proyecto
 </div>
 
 
 
-<div style="text-align: right">
+<div style="text-align: left" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -109,30 +204,45 @@ library(tinytex)
 
  **_Temática para el trabajo final:_**
 
-Diagrama de Entidad de Relación de una _Empresa de Medicina Prepaga_.
+
+
+<b>
+Base de datos de una _Empresa de Medicina Prepaga_ donde se va a hacer foco en un modelo de esquema [copo de nieve](https://es.wikipedia.org/wiki/Esquema_en_copo_de_nieve).
+</b>
+
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/snowflake.png")
+```
+
+
+
 
 
 <br>
 </br>
 
-<div style="text-align: center">
-# 2 - Descripción de las tablas
+<div style="text-align: left" class="toc-box">
+# 4 - Descripción de las tablas
 </div>
 
 
-<div style="text-align: right">
+<div style="text-align: left" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
 <br>
 </br>
 
+<b>
 **_Tablas, descripción y atributos:_**
 
 A continuación se detallaran cada una de las tablas que componen el DER con sus atributos y descripciones:
 
 <br>
 </br>
+
+
 
 
 | $$ \textbf{Tabla: Afiliado }$$ |
@@ -145,30 +255,48 @@ A continuación se detallaran cada una de las tablas que componen el DER con sus
 | $$ Telefono$$     | $$INT \:NOT \:NULL  $$         | 
 | $$ Fecha\:Nacimiento$$     | $$DATE \:NOT \:NULL$$        | 
 | $$ Domicilio$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
-| $$ Ocupacion$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
 | $$ Estado\:Civil$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
-| $$ Plan$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
-| $$ Plan$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
 | $$ Dni$$     | $$INT \:NOT \:NULL  $$            | 
+| $$ Id\:Ocupacion$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+| $$ Id\:Plan$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+
+_Esta tabla contiene los atributos de los afiliados de la empresa de medicina prepaga, podemos observar el ID como Primary Key y por ultimo dos FK que hacen referencia a la ocupación del empleado y el plan. Estas serán dos tablas que se crean a parte para no repertir datos._
 
 
-_Esta tabla contiene los atributos de los afiliados a la empresa de medicina prepaga, podemos observar el ID como Primary Key, Nombre, Apellido, Fecha de Nacimiento, Domicilio, Ocupación y Estado Civil. Estos datos salen del transaccional cuando el afiliado se da de alta en nuestro sistema. _
+_Un ejemplo sencillo: La ocupación puede ser empleado bajo relación de dependencia, monotributista, desempleado o jubilado. Estos datos se pondrán aparte en una tabla llamada *ocupacion_afiliado* y en la tabla *afiliado* solo de pondrá el numero de ID ya que al ir dando de alta a los afiliados en el sistema nos ahorrariamos espacio en la base de datos al no tener que repetir tantos caracteres por fila y solamente completar con el ID de ocupacion que viene de la tabla *ocupacion_afiliado*._
+
+
 
 <br>
 </br>
 
 
-| $$ \textbf{Tabla: Especialidad }$$ |
+| $$ \textbf{Tabla: Ocupacion Afiliado }$$ |
 |$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
 |-------|------------|
-| $$ Id\:Especialidad$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
-| $$ Especialidad$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+| $$ Id\:Ocupacion$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Ocupacion$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
 
 
-_Esta tabla contiene las diferentes prestaciones que proveen los distintos centros médicos._
+_Esta tabla contiene los siguientes datos: *Bajo relacion de dependencia, monotributista, desempleado y jubilado*._
 
 <br>
 </br>
+
+
+| $$ \textbf{Tabla: Plan Afiliado }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Plan$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
+| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+
+
+_Esta tabla contiene los siguientes datos: *Medium y Premium*._
+
+<br>
+</br>
+
+
   
 
 | $$ \textbf{Tabla: Medico }$$ |
@@ -183,16 +311,6 @@ _Esta tabla contiene las diferentes prestaciones que proveen los distintos centr
 
 _Esta tabla contiene los datos de los médicos que prestan su servicio a distintos centros médicos._
 
-<br>
-</br>
-
-| $$ \textbf{Tabla: Plan Familiar }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Plan\:Familiar$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
-| $$ Tipo$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
-| $$ Fecha\:Alta$$     | $$DATE \:NOT \:NULL $$         | 
-| $$ Total\:Consultas$$     | $$INT \:NOT \:NULL  $$         | 
 
 
 <br>
@@ -206,8 +324,9 @@ _Esta tabla contiene los datos de los médicos que prestan su servicio a distint
 | $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
 | $$ Dirección$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
 | $$ Teléfono$$     | $$INT \:NOT \:NULL$$        | 
-| $$ Cod Postal$$     | $$INT \:NOT \:NULL$$        | 
+| $$ Cod\:Postal$$     | $$INT \:NOT \:NULL$$        | 
 | $$ Email$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+| $$ Especialidad\:Principal$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
 
 <br>
 </br>
@@ -221,6 +340,8 @@ _Esta tabla contiene los datos de los médicos que prestan su servicio a distint
 | $$ Diagnostico$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
 
 
+_Esta tabla contiene los datos de las consultas de los afiliados y los diagnosticos posterior a la consulta._
+
 <br>
 </br>
 
@@ -231,52 +352,169 @@ _Esta tabla contiene los datos de los médicos que prestan su servicio a distint
 | $$ Id\:Turno$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
 | $$ Fecha$$     | $$DATE \:NOT \:NULL  $$         |
 | $$ Id\: Medico$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\: Especialidad$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
 | $$ Id\: Afiliado$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
 | $$ Id\: Consulta$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\:Plan\:Familiar$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
 | $$ Id\:Centro$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
 
 
 
-
-
-
-
-_Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la fecha y el diagnostico. Cada turno tiene un Id._
+_Esta tabla contiene los datos del turno. Se conecta con varias tablas, entre ellas la de consulta. Una vez registrado el turno en la base de datos y luego de la consulta se completan los valores en la tabla consulta con el diagnostico final._
 
 
 <br>
 </br>
 
-<div style="text-align: center">
-# 3 - Diagrama Entidad de Relacion
+| $$ \textbf{Tabla: Proveedor }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Proveedor$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$  | 
+| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+| $$ Telefono$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Cuit$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
+| $$ Mail$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
+
+_La tabla contiene todos los datos de los proveedores que se van dando de alta. No tiene muchos movimientos en general._
+
+<br>
+</br>
+
+
+
+| $$ \textbf{Tabla: Tipo Insumo }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Tipo\:Insumo$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$  | 
+| $$ Tipo\:Insumo$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+
+
+_Tabla que contiene datos sobre el tipo de insumo que compran los centros medicos. No tiene muchos movimientos._
+
+<br>
+</br>
+
+
+| $$ \textbf{Tabla: Insumos }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Insumo$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$  | 
+| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+| $$ Id\:Centro$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+| $$ Id\:Tipo\:Insumo$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+| $$ Id\:Proveedor$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+
+
+_Esta tabla contiene los datos de cada uno de los insumos._
+
+<br>
+</br>
+
+
+
+| $$ \textbf{Tabla: Centro Medico Insumos }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Centro\:Medico\:Insumos$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$  | 
+| $$ Id\:Centro$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+| $$ Id\:Insumo$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+
+
+_Tabla que conecta de muchos a muchos los insumos con los centros medicos._
+
+<br>
+</br>
+
+
+
+| $$ \textbf{Tabla: Pagos }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Pagos$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$  | 
+| $$ Fecha\:Transaccion$$     |   $$DATE\:NOT\:NULL$$  | 
+| $$ Importe$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+| $$ Id\:Medio\:Operacion$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+| $$ Id\:Proveedor$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+
+
+_Tabla que registra todos los pagos de todos los centros médicos._
+
+<br>
+</br>
+
+
+| $$ \textbf{Tabla: Cobros }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Cobros$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$ | 
+| $$ Fecha\:Transaccion$$     |   $$DATE\:NOT\:NULL$$  | 
+| $$ Importe$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+| $$ Id\:Medio\:Operacion$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+| $$ Id\:Afiliado$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+
+
+_Tabla que registra todos los cobros de todos los centros médicos._
+
+<br>
+</br>
+
+
+| $$ \textbf{Tabla: Medio Operacion }$$ |
+|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
+|-------|------------|
+| $$ Id\:Medio\:Operacion$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$ | 
+| $$ Tipo\:Medio\:Operacion$$     |   $$VARCHAR(50) \:NOT \:NULL   $$         | 
+
+
+_Tabla que registra todos medios financieros de pagos: *Tarjeta de Debito, Crédito, Efectivo y Transferencias*._
+</b>
+<br>
+</br>
+
+
+
+<div style="text-align: left" class="toc-box">
+# 5 - Diagrama Entidad de Relacion
 </div>
 
 
-<div style="text-align: right">
+<div style="text-align: left" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
 
 <br>
 </br>
+
+<b>
+Un diagrama entidad-relación, también conocido como modelo entidad relación o ERD, es un tipo de diagrama de flujo que ilustra cómo las "entidades", como personas, objetos o conceptos, se relacionan entre sí dentro de un sistema. Los diagramas ER se usan a menudo para diseñar o depurar bases de datos relacionales en los campos de ingeniería de software, sistemas de información empresarial, educación e investigación.
+
+En <b>[este link](https://app.diagrams.net/)</b> se puede elaborar un DER preliminar para luego trabajarlo en una base de datos.
+
 
 ![](DER.png)
 
 <br>
 </br>
 
+Luego de crear las tablas en My Sql podemos ver el Reverse Engineer. 
+
+La ingeniería inversa o retroingeniería es el proceso llevado a cabo con el objetivo de obtener información o un diseño a partir de un producto, con el fin de determinar cuáles son sus componentes y de qué manera interactúan entre sí y cuál fue el proceso de fabricación. 
+
+
+![](Imagenes/reverseoptions.png)
+
+La siguiente imagen representa el Reverse Engineer de la base de datos creada:
+
+</b>
 ![](REVERSE.png)
 
 <br>
 </br>
 
-<div style="text-align: center">
-# 4 - Codigo MySql desde Python
+<div style="text-align: left" class="toc-box">
+# 6 - Codigo MySql desde Python
 </div>
 
-<div style="text-align: right">
+<div style="text-align: left" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -285,16 +523,35 @@ _Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la f
 </br>
 
 
-[Github Codigo](https://github.com/MGaloto/mysql_creando_database/blob/main/database.py)
+
+<b>
+En el siguiente enlace se encuentra el código para crear la base de datos desde Python:
 
 <br>
 </br>
 
-<div style="text-align: center">
-# 5 - Inserción de datos
+```{r, echo=FALSE, out.width="40%", fig.align='center'}
+knitr::include_graphics("Imagenes/github.jpg")
+```
+
+<br>
+</br>
+
+
+<div style="text-align: center" >
+[Link Github Codigo](https://github.com/MGaloto/mysql_creando_database)
 </div>
 
-<div style="text-align: right">
+
+
+<br>
+</br>
+
+<div style="text-align: left" class="toc-box">
+# 7 - Inserción de datos
+</div>
+
+<div style="text-align: left" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -304,7 +561,7 @@ _Esta tabla conecta el medico y el paciente, donde podemos ver la consulta, la f
 
 
 **_Metodologia utilizada:_**
-
+<b>
 Los valores en cada una de las tablas se insertaron desde archivos .csv.
 
 Los archivos son los siguientes:
@@ -334,20 +591,22 @@ A continuación se adjuntan scripts de los pasos para importar los datos y MySql
 
 ![](imagenes/base_datos.png)
 
-<div style="text-align: center">
-# 6 - Vistas
+</b>
+
+<div style="text-align: left" class="toc-box">
+# 8 - Vistas
 </div>
 
 
 
-<div style="text-align: right">
+<div style="text-align: left" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
 
 
-
-**_A continuación se adjuntan los scripts de las 5 vistas_**
+<b>
+**_A continuación se adjuntan los scripts de las vistas_**
 
 _El código SQL de las vistas se encuentra en el siguiente link:_ [Github Codigo](https://github.com/MGaloto/mysql_creando_database/blob/main/database.py)
 
@@ -362,7 +621,7 @@ _El código SQL de las vistas se encuentra en el siguiente link:_ [Github Codigo
 
 _Consulta y Diagnostico por Afiliado_
 
-_Esta vista permite guardarnos en una tabla aparte todos los turnos solicitados por los afiliados dados de alta en el sistema. Esta vista nos sirve para estar actualizados de los ultimos turnos ya que esta ordenada por fecha._
+_Esta vista permite guardarnos en una tabla aparte todos los turnos solicitados por los afiliados dados de alta en el sistema. Nos sirve para estar actualizados de los ultimos turnos ya que esta ordenada por fecha._
 
 
 ![](imagenes/vista1.png)
@@ -392,33 +651,8 @@ _Que medico atiende en cada centro medico:_
 _Esta vista permite que podamos visualizar de forma rapida que medicos atienden en los centros medicos._
 
 ![](imagenes/vista3.png)
-<br>
-</br>
-<br>
-</br>
-
-**_4) Vista 4_**
-
-_Plan familiar por afiliado:_
 
 
-_Esta vista nos permite ver de nuestra base de datos que plan familiar tiene cada uno de los afiliados._
-
-![](imagenes/vista4.png)
-<br>
-</br>
-<br>
-</br>
-
-**_5) Vista 5_**
-
-
-
-_Cantidad de centros médicos por especialidad:_
-
-_Vista que nos permite obtener de forma rapida y sencilla la especialidad de cada centro medico de nuesta base de datos._
-
-![](imagenes/vista5.png)
 <br>
 </br>
 <br>
@@ -428,14 +662,14 @@ _Vista que nos permite obtener de forma rapida y sencilla la especialidad de cad
 </ul>
 
 
+</b>
 
-
-<div style="text-align: center">
-# 7 - Funciones
+<div style="text-align: left" class="toc-box">
+# 9 - Funciones
 </div>
 
 
-<div style="text-align: right">
+<div style="text-align: left" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -446,8 +680,8 @@ _Vista que nos permite obtener de forma rapida y sencilla la especialidad de cad
 
 
 
-<ul>
 
+<b>
 
 Por definición es importante indicar que una función es un conjunto de instrucciones SQL que realizan una tarea específica de manera automática. Una función acepta entradas en forma de parámetros y devuelve un valor.
 
@@ -455,7 +689,7 @@ Por definición es importante indicar que una función es un conjunto de instruc
 **_A continuación se adjuntan los scripts de las funcioness_**
 
 
-
+<ul>
 
 **_1) Función 1:_**
 
@@ -476,9 +710,9 @@ _En la parte inferior de la imagen adjunta se puede ver el resultado de la funci
 **_2) Función 2:_**
 
 
-_Función donde ingresamos un CHAR y nos devuelve un NUMERIC_
+_Función que no requiere un valor de entrada._
 
-_Ingresamos el plan familiar y nos regresa el porcentaje de afiliados con el plan familiar ingresado de nuestra base de datos_
+_Esta funcion nos calcula automaticamente la diferencia entre ingresos y egresos de todos los centros medicos._
 
 _En la parte inferior de la imagen adjunta se puede ver el resultado de la función una vez ingresado un CHAR._
 
@@ -490,13 +724,14 @@ _En la parte inferior de la imagen adjunta se puede ver el resultado de la funci
 
 </ul>
 
+</b>
 
-<div style="text-align: center">
-# 8 - Stored Procedures
+<div style="text-align: left" class="toc-box">
+# 10 - Stored Procedures
 </div>
 
 
-<div style="text-align: right">
+<div style="text-align: left" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -505,21 +740,21 @@ _En la parte inferior de la imagen adjunta se puede ver el resultado de la funci
 </br>
 
 
-<ul>
 
 
+<b>
 Un stored procedure es un programa (o procedimiento) almacenado físicamente en una base de datos. Su implementación varía de un gestor de bases de datos a otro. La ventaja de un procedimiento almacenado es que al ser ejecutado, en respuesta a una petición de usuario, es ejecutado directamente en el motor de bases de datos, el cual usualmente corre en un servidor separado. Como tal, posee acceso directo a los datos que necesita manipular y sólo necesita enviar sus resultados de regreso al usuario, deshaciéndose de la sobrecarga resultante de comunicar grandes cantidades de datos salientes y entrantes.
 
 
 **_A continuación se adjuntan los scripts de los Stored Procedures_**
 
-
+<ul>
 
 
 **_1) Stored Procedure 1:_**
 
 
-_En el siguiente Stored Procedure se ejecuta un comando que ordena una variable de forma descendente o ascendente. Los parametros permiten elegir el orden, la tabla y la variable._
+_En el siguiente Stored Procedure insertamos valores en la tabla turno con el ID creado anteriormente en la tabla consulta._
 
 
 ![](imagenes/sp1.png)
@@ -532,7 +767,7 @@ _En el siguiente Stored Procedure se ejecuta un comando que ordena una variable 
 **_2) Stored Procedure 2:_**
 
 
-_El siguiente Stored Procedure ejecuta un comando para actualizar la tabla Turnos._
+_El siguiente Stored Procedure ejecuta un comando que nos permite ordenar la tabla que queramos por una variable._
 
 
 ![](imagenes/sp2.png)
@@ -542,15 +777,15 @@ _El siguiente Stored Procedure ejecuta un comando para actualizar la tabla Turno
 </br>
 
 </ul>
+</b>
 
 
-
-<div style="text-align: center">
-# 9 - Triggers
+<div style="text-align: left" class="toc-box">
+# 11 - Triggers
 </div>
 
 
-<div style="text-align: right">
+<div style="text-align: left" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -558,28 +793,33 @@ _El siguiente Stored Procedure ejecuta un comando para actualizar la tabla Turno
 </br>
 
 
-<ul>
 
+<b>
 
 Un disparador o trigger es una funcionalidad que la base de datos ejecuta de forma automática cuando se realiza una operación de tipo Insert, Update o Delete en una tabla o vista, o cuando se ejecuta una consulta SQL sobre una tabla o vista.
+
+Un trigger no puede existir sin una tabla asignada, podemos crear muchos triggers para una tabla. 
+
+Cuando un evento ya sea de tipo Insert, Update o Delete se realiza en una tabla que contiene uno o varios triggers, en la tabla que creamos que comienza con logs se ejecuta tambien ese evento modificando la tabla. Hay dos comandos que podemos utilizar, el Before y el After, con el primero cuando insertamos datos en la tabla principal primero ingresaran al triger y luego a la tabla principal, con el After ocurre todo lo contrario.
 
 **_A continuación se adjuntan los scripts de los Triggers_**
 
 
-
+<ul>
 
 **_1) Triggers 1:_**
 
 
-_En el siguiente Trigger se crea un log para la tabla afiliados y antes de que se completen los nuevos valores para la tabla afiliados se completan en la tabla de logs con fecha, usuario, id y tipo de operación._
+_En el siguiente Trigger se crea un log para la tabla afiliados y luego de insertar los datos en la tabla afiliados van a parar al trigger creado._
 
-_Lo contrario sucede con la próxima imagen que es un Before._
+
 
 ![](imagenes/triggeraft1.png)
 <br>
 </br>
 <br>
 </br>
+_Lo contrario sucede con la próxima imagen que es un Before._
 
 ![](imagenes/triggerbef1.png)
 
@@ -604,6 +844,8 @@ _Lo contrario sucede con la próxima imagen que es un Before._
 <br>
 </br>
 
+_Lo contrario sucede con la próxima imagen que es un Before._
+
 ![](imagenes/triggerbef2.png)
 
 <br>
@@ -613,3 +855,74 @@ _Lo contrario sucede con la próxima imagen que es un Before._
 
 
 </ul>
+
+</b>
+
+
+
+
+
+
+
+
+<div style="text-align: left" class="toc-box">
+# 12 - Permisos
+</div>
+
+
+
+
+
+
+
+<div style="text-align: left" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
+<br>
+</br>
+
+
+
+<b>
+
+Sentencias GRANT y REVOKE
+
+Utilizando la sentencia GRANT podemos dar permisos al usuario creado para que pueda hacer los siguientes comandos sobre la base de datos o una tabla en particular: SELECT, INSERT, UPDATE y DELETE.
+
+Con la sentencia REVOKE le quitamos permisos al usuario.
+
+
+**_A continuación se adjuntan los scripts de los Usuarios creados y las sentencias_**
+
+<ul>
+
+_Creamos el usuario_uno y el usuario_dos donde al primero le damos permiso con la sentencia GRANT para que solo pueda hacer comandos SELECT. Al usuario_dos le damos permiso para que pueda alterar, seleccionar e insertar datos._
+
+_Con la sentencia REVOKE le quitamos a ambos usuarios la posibilidad de eliminar registros._
+
+
+![](imagenes/user.png)
+<br>
+</br>
+<br>
+</br>
+
+
+_SHOW GRANTS para el usuario_uno._
+
+
+_Podemos ver que solo tiene permiso para la sentencia SELECT en la base de datos._
+
+![](imagenes/user_1.png)
+
+
+_SHOW GRANTS para el usuario_dos._
+
+_Podemos ver que tiene permiso para la sentencia SELECT, INSERT y ALTER en la base de datos._
+
+![](imagenes/user_2.png)
+
+</b>
+
+

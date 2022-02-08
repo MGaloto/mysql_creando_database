@@ -1,20 +1,24 @@
 
+# Primero insertamos valores en la tabla consulta
+INSERT INTO consulta(consulta,diagnostico) 
+VALUES('fiebre', 'covid');
 
+
+# Luego mediante stored procedure insertamos valores en la tabla turno con el ID ya creado anteriormente
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_centromedico_turno`(IN fecha DATE, 
 IN id_centro INT, 
-IN id_plan_familiar INT,
 IN id_medico INT,
-IN id_especialidad INT,
 IN id_afiliado INT,
 IN id_consulta INT)
 BEGIN
-INSERT INTO turnos(fecha,id_centro,id_plan_familiar,id_medico,id_especialidad,id_afiliado,id_consulta) 
-VALUES(fecha,id_centro,id_plan_familiar,id_medico,id_especialidad,id_afiliado,id_consulta);
+INSERT INTO turnos(fecha,id_centro,id_medico,id_afiliado,id_consulta) 
+VALUES(fecha,id_centro,id_medico,id_afiliado,id_consulta);
     END$$
 DELIMITER ;
 
-CALL sp_centromedico_turno('2022-01-24', 10, 10, 9, 10, 10, 10)
+CALL sp_centromedico_turno('2022-02-06', 1, 3, 9, 11);
+
 
 
 DELIMITER $$

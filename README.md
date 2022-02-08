@@ -2,14 +2,21 @@
 Creando una Base de datos en MySql desde Python.
 
 
-Base de Datos en MySQL.
+# Data Warehouse
+
+Proyecto base de datos de una empresa de medicina prepaga. Se utilizara My Sql para la creacion de la base de datos, las tablas y todo lo necesario para comenzar a llenar las tablas con datos, realizar triggers, vistas, funciones. 
+
+![](Imagenes/dw.png)
 
 
-
-DER Creado desde: [https://app.diagrams.net/](https://app.diagrams.net/)
+# Diagrama Entidad de Relacion
 
 ![](DER.png)
 
-REVERSE Creado desde MySql:
+DER Creado desde: [https://app.diagrams.net/](https://app.diagrams.net/)
+
+# Reverse Engineer
 
 ![](REVERSE.png)
+
+REVERSE Creado desde MySql

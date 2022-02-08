@@ -1,0 +1,11 @@
+id_insumo;nombre;id_tipo_insumo;id_proveedor
+null;jeringa;2;1
+null;cama;3;2
+null;barbijo;4;1
+null;ambulancia;3;3
+null;medicamento a;1;4
+null;medicamento b;1;4
+null;medicamento c;1;4
+null;medicamento d;1;4
+null;medicamento e;1;4
+null;medicamento f;1;4

@@ -1,0 +1,11 @@
+id_centro;nombre;direccion;telefono;cod_postal;email;especialidad_principal
+null;Narcizo;calle 254;153113111;150;narcizo@gmail.com;pediatria
+null;Aleman;calle 255;153113112;151;aleman@gmail.com;odontologia
+null;Pueyrredon;calle 256;153113113;152;pueyrredon@gmail.com;psiquiatria
+null;Lopez;calle 257;153113114;153;lopez@gmail.com;dermatologia
+null;Español;calle 258;153113115;154;español@gmail.com;traumatologia
+null;Italiano;calle 259;153113116;155;italiano@gmail.com;pediatria
+null;Comunitario;calle 260;153113117;156;comunitario@gmail.com;odontologia
+null;Del Valle;calle 261;153113118;157;delvalle@gmail.com;psiquiatria
+null;Monte Grande;calle 262;153113119;158;montegrande@gmail.com;dermatologia
+null;Britanico;calle 263;153113120;159;britanico@gmail.com;traumatologia
