@@ -132,7 +132,23 @@ library(tinytex)
 
 <b>
 
-Un Data Warehouse es un almacén electrónico donde generalmente una empresa u organización mantiene una gran cantidad de información. Los datos de un data warehouse deben almacenarse de forma segura, fiable, fácil de recuperar y fácil de administrar.
+### Bases de Datos SQL
+
+Las Bases de datos SQL, son bases de datos del tipo Relacionales y estructuradas. Su nombre SQL proviene del término (Structured Query Language), en español: Lenguaje de Consulta Estructurado. Se operan a través de SQL, (“sícuel”), un lenguaje derivado del estándar ANSI SQL.
+El lenguaje con el cual se manipulan se conoce como Transact SQL aunque algunas alternativas comerciales utilizan su propia variante con mínimas diferencias sobre el lenguaje estandarizado ANSI SQL.
+
+
+### Bases de Datos No-SQL
+
+Las bases de datos No-SQL (not only SQL) difieren del modelo estructurado, apoyándose en un sistema de almacenamiento del tipo {clave - valor}. No utilizan el lenguaje SQL para realizar operaciones sobre la información almacenada.
+Su estructura se basa en el formato de transporte de datos JSON y, además de la categoría clave-valor, el almacenamiento de información se asemeja a bb.dd. documentales, y a las bb.dd. orientadas a grafos.
+Mongo DB, Cassandra, Cosmos DB y Firestore, son las más conocidas y utilizadas actualmente.
+
+
+
+### Data Warehouse
+
+Un <span style = "color:blue">Data Warehouse</span> es un almacén electrónico donde generalmente una empresa u organización mantiene una gran cantidad de información. Los datos de un data warehouse deben almacenarse de forma segura, fiable, fácil de recuperar y fácil de administrar.
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center'}
 knitr::include_graphics("Imagenes/datawarehouse.jpg")
@@ -178,10 +194,19 @@ A continuacion se encuentra un link con los instructivos para poder descargar e 
 
 
 [Guia de Instalacion de My Sql](https://docs.google.com/document/d/1GrStEE5YxDCRqYwWI0LASCCqiel2qooD/edit?usp=sharing&ouid=107665703043742500688&rtpof=true&sd=true)
-</b>
 
 
 
+### Introduccion a Bases de Datos Relacionales
+
+Las bases de datos relacionales se basan en el Modelo Relacional usando N cantidad de tablas para representar, tanto los datos, como las relaciones entre estos.
+Es poco frecuente encontrar casos de una bb.dd. con una sola tabla pero, en el caso de que se dé esta situación, se le denomina como Base de datos Plana.
+El modelo relacional, en el cual se apoyan estas bases de datos, almacenan la información en un conjunto de tablas, y a su vez, las aprovechan para representar tanto los datos como también las relaciones entre cada una de estas.
+
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/bdrelacional.png")
+```
 
 
 
@@ -203,7 +228,7 @@ A continuacion se encuentra un link con los instructivos para poder descargar e 
 </br>
 
  **_Temática para el trabajo final:_**
-
+</b>
 
 
 <b>
@@ -235,6 +260,70 @@ knitr::include_graphics("Imagenes/snowflake.png")
 </br>
 
 <b>
+
+### Tablas
+
+Cuando nos referimos a una tabla, estamos hablando específicamente de un tipo de elemento, que cumple el paradigma de Modelado de datos, y permite guardar la información denominada registros. Cada tabla se compone de Campos y Columnas. Cada campo debe ser único además de tener un tipo de dato asociado. Cada Columna de una tabla, define el total de la información que se almacena, comúnmente llamada registro.
+Un registro es el dato alojado en forma de fila, dentro de una tabla. Otro nombre que se le aplica comúnmente a los registros, es tupla.
+Las tablas también suelen ser llamadas, mucho más formalmente: entidad. Y, en algunos textos algo más antiguos: relación. Y al igual que el nombre tupla, aplicado a los registros, los campos o columnas también son denominados más formalmente como: atributos.
+
+
+### Estructura de Tablas
+
+Es una estructura de tablas, las cuales a su vez se relacionan con otras tablas. Su principal característica es no poseer información repetida de forma innecesaria, lo que permite adicionar más información sin llegar a afectar la otra almacenada.
+
+
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/esttablas.png")
+```
+
+
+### Ventajas del modelo Relacional
+
+* Favorece el proceso de normalización, el cual permite eliminar la redundancia de los datos.
+
+* Permite realizar consultas y obtener reportes de forma ágil y rápida por medio de SQL u otro lenguaje de base de datos estructurado.
+
+* Se pueden crear una o varias relaciones entre todas las tablas.
+
+* Ayuda a evitar la duplicidad de registros guardados.
+
+* Atomiza la información de la mejor forma posible.
+
+* Garantiza la integridad referencial.
+
+* Si un registro se relaciona con otro registro de otra tabla, no permite que el mismo sea eliminado. Asimismo, si se quiere borrar, también pasará con todos los datos relacionados.
+
+
+### Tipos de Relaciones
+
+
+```{r, echo=FALSE, out.width="80%", fig.align='center', fig.cap='Uno a uno'}
+knitr::include_graphics("Imagenes/unouno.png")
+```
+
+
+
+```{r, echo=FALSE, out.width="80%", fig.align='center', fig.cap='Uno a Muchos'}
+knitr::include_graphics("Imagenes/unomuchos.png")
+```
+
+
+
+```{r, echo=FALSE, out.width="80%", fig.align='center', fig.cap='Muchos a Muchos'}
+knitr::include_graphics("Imagenes/muchosmuchos.png")
+```
+
+
+### Logicas
+
+* Clave primaria <span style = "color:green">PK</span>: también llamada llave primaria o primary key, hace que el registro sea unívoco y obligatoriamente no nulo.
+
+* Clave foránea <span style = "color:blue">FK</span>: también llamada foreign key, clave secundaria o clave externa, puede ser -o no- una clave primaria dentro de la tabla. Su característica es que es el punto de enlace con otra tabla donde ésta es primary key.
+
+* Clave índice: es un campo que facilita la búsqueda dentro de una tabla. Generalmente son campos primary key.
+
 **_Tablas, descripción y atributos:_**
 
 A continuación se detallaran cada una de las tablas que componen el DER con sus atributos y descripciones:
@@ -605,7 +694,29 @@ A continuación se adjuntan scripts de los pasos para importar los datos y MySql
 
 
 
+
+
+
 <b>
+
+
+Una Vista SQL es básicamente una tabla virtual que se genera a partir de la ejecución de una o más consultas SQL, aplicada sobre una o más tablas. Su estructura corresponde a una serie de filas y columnas tal como encontramos en las tablas SQL, que almacenan la vista de la información tal como la definimos al crearla.
+Podemos guardar las Vistas con un nombre distintivo, para poder ejecutarlas cuantas veces consideremos necesario.
+Su almacenamiento se da en la sección Views de los objetos de la base de datos.
+
+
+### Beneficios
+
+* Privacidad de la información: los usuarios podrán ver solo aquellos datos que creamos convenientes mostrar.
+
+* Rendimiento de la bb.dd.: Crear queries sobre vistas complejas nos ahorra ejecutar una query pesada para llegar a la información.
+
+* Protección de datos: Aquellos usuarios que no poseen un entorno de pre-producción, las vistas evitan errores de borrado o alteración.
+
+
+
+### Scripts de Vistas
+
 **_A continuación se adjuntan los scripts de las vistas_**
 
 _El código SQL de las vistas se encuentra en el siguiente link:_ [Github Codigo](https://github.com/MGaloto/mysql_creando_database/blob/main/database.py)
@@ -678,12 +789,28 @@ _Esta vista permite que podamos visualizar de forma rapida que medicos atienden 
 </br>
 
 
+```{r, echo=FALSE, out.width="60%", fig.align='center'}
+knitr::include_graphics("Imagenes/fun.png")
+```
+
 
 
 
 <b>
 
 Por definición es importante indicar que una función es un conjunto de instrucciones SQL que realizan una tarea específica de manera automática. Una función acepta entradas en forma de parámetros y devuelve un valor.
+
+Las funciones personalizadas o almacenadas de Mysql permiten procesar y manipular datos de forma procedural y eficiente. Dichos datos son enviados a través de uno o más parámetros, al momento de invocar la función, y devueltos como resultado por esta misma.
+
+Podemos crear funciones, a la medida de nuestra necesidad, combinando a las mismas con funciones ya existentes del lenguaje Mysql, para así obtener los resultados deseados tal como necesitamos.
+
+Algunos de los beneficios a destacar:
+
+* Mejoran la integridad y seguridad de los datos
+
+* Optimizan el rendimiento de la base de datos
+
+* Otorgan una mejor lectura del código
 
 
 **_A continuación se adjuntan los scripts de las funcioness_**
@@ -743,7 +870,18 @@ _En la parte inferior de la imagen adjunta se puede ver el resultado de la funci
 
 
 <b>
-Un stored procedure es un programa (o procedimiento) almacenado físicamente en una base de datos. Su implementación varía de un gestor de bases de datos a otro. La ventaja de un procedimiento almacenado es que al ser ejecutado, en respuesta a una petición de usuario, es ejecutado directamente en el motor de bases de datos, el cual usualmente corre en un servidor separado. Como tal, posee acceso directo a los datos que necesita manipular y sólo necesita enviar sus resultados de regreso al usuario, deshaciéndose de la sobrecarga resultante de comunicar grandes cantidades de datos salientes y entrantes.
+Un Stored Procedure o Procedimiento Almacenado es un programa almacenado físicamente en una base de datos, creado para cumplir tareas específicas. Permite también establecer niveles de seguridad y manipular operaciones complejas o extensas del lado del servidor, evitando un ida y vuelta de datos que termine sobrecargando una red o servidor.
+
+Su estructura es similar a las Funciones SQL que vimos la clase anterior pero, a diferencia de éstas, un Stored Procedure esta pensado para resolver desde una operación simple, hasta operaciones complejas que requieran modificar varias tablas y/o datos almacenados en una base de datos.
+
+Algunos Beneficios:
+
+* El motor de bb.dd. controla las operaciones.
+* Se ejecuta en un servidor independiente.
+* Devuelve al usuario el resultado final, evitando sobrecargar su computadora con procesos.
+* Evita programar una lógica compleja del lado del usuario.
+* Minimiza los errores concentrando las operaciones.
+
 
 
 **_A continuación se adjuntan los scripts de los Stored Procedures_**
@@ -902,7 +1040,7 @@ _Creamos el usuario_uno y el usuario_dos donde al primero le damos permiso con l
 _Con la sentencia REVOKE le quitamos a ambos usuarios la posibilidad de eliminar registros._
 
 
-![](imagenes/user.png)
+![](Imagenes/user.png)
 <br>
 </br>
 <br>
@@ -914,15 +1052,97 @@ _SHOW GRANTS para el usuario_uno._
 
 _Podemos ver que solo tiene permiso para la sentencia SELECT en la base de datos._
 
-![](imagenes/user_1.png)
+![](Imagenes/user_1.png)
 
 
 _SHOW GRANTS para el usuario_dos._
 
 _Podemos ver que tiene permiso para la sentencia SELECT, INSERT y ALTER en la base de datos._
 
-![](imagenes/user_2.png)
+![](Imagenes/user_2.png)
 
 </b>
+
+<br>
+</br>
+
+
+<b>
+
+<div style="text-align: left" class="toc-box">
+# 13 - Backup
+</div>
+
+
+
+
+En el mundo digital, algo que nunca puede pasarse por alto es resguardar la información o datos con los cuales trabajamos a diarios.
+
+Más allá de este resguardo de archivos y/o documentos, las bases de datos también son contempladas como una fuente de información importante y por ello deben incluirse en una rutina de copia de seguridad.
+
+Mysql incluye la herramienta mysqldump dentro del motor de base de datos para gestionar las copias de seguridad. 
+
+
+<div style="text-align: left" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
+<br>
+</br>
+
+
+**_A continuación se realizara un Backup de la base de datos_**
+
+
+_Para crear el Backup de las tablas dejando de lado la estructura debemos hacer los siguientes pasos:_
+
+
+
+![](Imagenes/backup1.png)
+<br>
+</br>
+
+_Click en la base de datos:_
+
+![](Imagenes/backup2.png)
+
+<br>
+</br>
+
+_Tildar todas las opciones:_
+
+![](Imagenes/backup11.png)
+
+
+<br>
+</br>
+
+_Seleccionar Export to Self-Contained File:_
+
+_Esta opción nos exportara un archivo .sql_
+
+![](Imagenes/backup3.png)
+
+<br>
+</br>
+
+_Seleccionar Start Export:_
+
+
+![](Imagenes/backup4.png)
+
+_Listo con el Backup._
+
+</b>
+
+<br>
+</br>
+
+<div style="text-align: left" class="toc-box">
+ <a href="#top">Volver al Inicio del Trabajo</a>
+</div>
+
+
+<b>
 
 
