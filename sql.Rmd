@@ -48,14 +48,30 @@ output:
 a {
     color: black;
     text-decoration: none;
+    font-weight: bold;
 }
 
-.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+
+
+.main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: 400;
     color: black;
 }
+
+
+.main-content h1 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 750;
+    color: blue;
+    text-align: center;
+    border: solid 1px black;
+    border-radius: .3rem;
+    background-color: #f5f5f5;
+} 
+
 
 
 
@@ -1153,17 +1169,103 @@ _Listo con el Backup._
 </br>
 
 
+La Inteligencia de Negocios o Business Intelligence (BI) se puede definir como el proceso de analizar datos históricos y acumulados para extraer una cierta inteligencia o conocimiento a partir de ellos, información que resulta de gran utilidad para las prácticas laborales para la elaboración de informes y reportes.
+
+
+A continuación se adjunta un script que muestra el código a ejecutar en Python para conectarse a la base de datos, crear un Data Frame y manupularlo desde el IDE. En este caso, el Data Frame se crea con datos de una Vista de My Sql, se guarda en una planilla de Excel en la carpeta del trabajo y se explotan los datos utilizando el software R.
+
+
+<br>
+</br>
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/pythonbi.png")
+```
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+library(highcharter)
+library(tidyverse)
+library(readxl)
+library(dplyr)
+
+df = read_excel('C:/Users/maxig/Desktop/Carpetas/Cursos/SQL Coder/Trabajo Final/Codigo Python/df.xlsx')
+
+
+df_final = data.frame(table(df$Diagnostico))
+
+
+colnames(df_final) = c('Diagnostico','Frecuencia')
+
+
+
+```
+
+<br>
+</br>
+
+Se utiliza la librería <b>{<span style = "color:green">highcharter</span>}</b> en R.
+
+Para mas información sobre la librería click [aqui](https://cran.r-project.org/web/packages/highcharter/highcharter.pdf)
+
+<br>
+</br>
 
 
 
 
 
+```{r, echo=TRUE, fig.cap= 'Pie Chart'}
+
+pie = df_final %>% 
+  hchart('pie', hcaes(x = Diagnostico, y = Frecuencia, color = viridis::mako(n = length(df_final$Diagnostico)))) %>% 
+  hc_add_theme(hc_theme_google()) %>% 
+  hc_tooltip(pointFormat = '<b>Cantidad Diagnostico</b>  {point.y}') %>% 
+  hc_title(text = 'Pie Chart Diagnosticos',
+           style = list(fontSize = '20px', fontWeight = 'bold')) %>% 
+  hc_subtitle(text = '<b>From MySql</b>',
+              style = list(fontSize = '16px', color = "black")) %>% 
+  hc_credits(enabled = TRUE, text = '@MGaloto',
+             style = list(fontSize = '16px', color = "black")) 
+
+pie
+
+```
 
 
 
 
+<br>
+</br>
+
+```{r, echo=TRUE, fig.cap= 'Bar Graph'}
 
 
+
+bar_plots = df_final %>% 
+  arrange(desc(Frecuencia)) %>% 
+  hchart('column', hcaes(x = Diagnostico, y = Frecuencia, color = viridis::mako(n = length(df_final$Diagnostico))),
+         showInLegend = F,
+         maxSize = "15%",
+         dataLabels = list(enabled = TRUE,
+                           format = '% {point.y: .2f}')) %>% 
+  hc_add_theme(hc_theme_google()) %>% 
+  hc_tooltip(pointFormat = '<b>Diagnosticos</b> {point.y} <br> ' ) %>% 
+  hc_title(text = 'Diagnosticos',
+           style = list(fontSize = '20px', fontWeight = 'bold')) %>% 
+  hc_subtitle(text = '<b>From MySql</b>',
+              style = list(fontSize = '16px', color = "black")) %>% 
+  hc_credits(enabled = TRUE, text = '@MGaloto',
+             style = list(fontSize = '16px', color = "black")) %>% 
+  hc_yAxis(labels = list(style = list(color = "black")),
+           tickColor = "black") %>% 
+  hc_xAxis(labels = list(style = list(color = "black")),
+           tickColor = "black")
+
+bar_plots
+
+```
 
 
 
