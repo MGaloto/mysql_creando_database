@@ -1,7 +1,7 @@
 ---
-title: "Data Warehouse"
+title: "Base de Datos"
 author: "Maximiliano Galoto"
-subtitle: "Avances del Proyecto Final"
+subtitle: "Proyecto sobre la construccion de una Base de Datos en My Sql."
 output:
  prettydoc::html_pretty:
     theme: lumen
@@ -9,7 +9,6 @@ output:
     toc: true
     toc_depth: 2
     math: katex
-
 
 
 ---
@@ -88,13 +87,13 @@ h1.title {
   text-align: center;
 }
 h3.subtitle { 
-    font-size: 28px;
+    font-size: 24px;
   font-family: "Times New Roman", Times, serif;
   color: white ;
   text-align: center;
 }
 h4.author { 
-    font-size: 22px;
+    font-size: 20px;
   font-family: "Times New Roman", Times, serif;
   color:white ;
   text-align: center;
@@ -1073,7 +1072,12 @@ _Podemos ver que tiene permiso para la sentencia SELECT, INSERT y ALTER en la ba
 # 13 - Backup
 </div>
 
+<div style="text-align: left" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
 
+<br>
+</br>
 
 
 En el mundo digital, algo que nunca puede pasarse por alto es resguardar la información o datos con los cuales trabajamos a diarios.
@@ -1083,12 +1087,7 @@ Más allá de este resguardo de archivos y/o documentos, las bases de datos tamb
 Mysql incluye la herramienta mysqldump dentro del motor de base de datos para gestionar las copias de seguridad. 
 
 
-<div style="text-align: left" class="toc-box">
- <a href="#top">Volver al Inicio</a>
-</div>
 
-<br>
-</br>
 
 
 **_A continuación se realizara un Backup de la base de datos_**
@@ -1135,14 +1134,44 @@ _Listo con el Backup._
 
 </b>
 
+
+
+
+
+
+<b>
+
+<div style="text-align: left" class="toc-box">
+# 14 - Business Intelligence
+</div>
+
+<div style="text-align: left" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
+<br>
+</br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br>
 </br>
 
 <div style="text-align: left" class="toc-box">
  <a href="#top">Volver al Inicio del Trabajo</a>
 </div>
-
-
-<b>
-
 
