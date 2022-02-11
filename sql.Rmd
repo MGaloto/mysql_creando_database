@@ -140,7 +140,7 @@ library(tinytex)
 </div>
 
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -165,7 +165,7 @@ Mongo DB, Cassandra, Cosmos DB y Firestore, son las más conocidas y utilizadas 
 
 Un <span style = "color:blue">Data Warehouse</span> es un almacén electrónico donde generalmente una empresa u organización mantiene una gran cantidad de información. Los datos de un data warehouse deben almacenarse de forma segura, fiable, fácil de recuperar y fácil de administrar.
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="60%", fig.align='center'}
 knitr::include_graphics("Imagenes/datawarehouse.jpg")
 ```
 
@@ -185,14 +185,14 @@ El concepto de data warehouse se originó en 1988 con el trabajo de los investig
 </div>
 
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
 <br>
 </br>
 
-```{r, echo=FALSE, out.width="50%", fig.align='center'}
+```{r, echo=FALSE, out.width="60%", fig.align='center'}
 knitr::include_graphics("Imagenes/MySQL-logo.png")
 ```
 
@@ -211,6 +211,11 @@ A continuacion se encuentra un link con los instructivos para poder descargar e 
 [Guia de Instalacion de My Sql](https://docs.google.com/document/d/1GrStEE5YxDCRqYwWI0LASCCqiel2qooD/edit?usp=sharing&ouid=107665703043742500688&rtpof=true&sd=true)
 
 
+[Glosario My Sql](https://docs.google.com/document/d/1Iij_crZc1vvfgk21Dm08D-GgV2Zc3Q4r/edit?usp=sharing&ouid=107665703043742500688&rtpof=true&sd=true)
+
+
+
+
 
 ### Introduccion a Bases de Datos Relacionales
 
@@ -219,7 +224,7 @@ Es poco frecuente encontrar casos de una bb.dd. con una sola tabla pero, en el c
 El modelo relacional, en el cual se apoyan estas bases de datos, almacenan la información en un conjunto de tablas, y a su vez, las aprovechan para representar tanto los datos como también las relaciones entre cada una de estas.
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="60%", fig.align='center'}
 knitr::include_graphics("Imagenes/bdrelacional.png")
 ```
 
@@ -251,7 +256,7 @@ Base de datos de una _Empresa de Medicina Prepaga_ donde se va a hacer foco en u
 </b>
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="60%", fig.align='center'}
 knitr::include_graphics("Imagenes/snowflake.png")
 ```
 
@@ -267,7 +272,7 @@ knitr::include_graphics("Imagenes/snowflake.png")
 </div>
 
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -289,7 +294,7 @@ Es una estructura de tablas, las cuales a su vez se relacionan con otras tablas.
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="60%", fig.align='center'}
 knitr::include_graphics("Imagenes/esttablas.png")
 ```
 
@@ -580,7 +585,7 @@ _Tabla que registra todos medios financieros de pagos: *Tarjeta de Debito, Créd
 </div>
 
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -594,7 +599,12 @@ Un diagrama entidad-relación, también conocido como modelo entidad relación o
 En <b>[este link](https://app.diagrams.net/)</b> se puede elaborar un DER preliminar para luego trabajarlo en una base de datos.
 
 
-![](DER.png)
+
+```{r, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("DER.png")
+```
+
+
 
 <br>
 </br>
@@ -604,21 +614,40 @@ Luego de crear las tablas en My Sql podemos ver el Reverse Engineer.
 La ingeniería inversa o retroingeniería es el proceso llevado a cabo con el objetivo de obtener información o un diseño a partir de un producto, con el fin de determinar cuáles son sus componentes y de qué manera interactúan entre sí y cuál fue el proceso de fabricación. 
 
 
-![](Imagenes/reverseoptions.png)
+
+
+```{r, echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("Imagenes/reverseoptions.png")
+```
+
+
+
+
 
 La siguiente imagen representa el Reverse Engineer de la base de datos creada:
 
 </b>
-![](REVERSE.png)
+
+
+
+```{r, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("REVERSE.png")
+```
+
+
+
+
 
 <br>
 </br>
 
-<div style="text-align: left" class="toc-box">
-# 6 - Codigo MySql desde Python
-</div>
+
 
 <div style="text-align: left" class="toc-box">
+# 6 - Inner Join
+</div>
+
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -626,36 +655,42 @@ La siguiente imagen representa el Reverse Engineer de la base de datos creada:
 <br>
 </br>
 
-
-
 <b>
-En el siguiente enlace se encuentra el código para crear la base de datos desde Python:
 
-<br>
-</br>
+Inner Join es una sentencia de SQL para recuperar datos de varias tablas al mismo tiempo. En la siguiente imagen se muestra una consulta de todos los afiliados de la base de datos con los pagos de las cuotas acumuladas en el año.
 
-```{r, echo=FALSE, out.width="40%", fig.align='center'}
-knitr::include_graphics("Imagenes/github.jpg")
+Se tienen en cuenta las siguientes sentencias:
+
+* Inner Join entre todas las tablas.
+
+* Sumatoria total de la variable importe de la tabla cobros.
+
+* Se extrae el año de la variable fecha_transaccion.
+
+* Se agrupa por afiliado único.
+
+* Se ordena de mayor a menor los importes de pago acumulados.
+
+
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/join.png")
 ```
 
-<br>
-</br>
 
-
-<div style="text-align: center" >
-[Link Github Codigo](https://github.com/MGaloto/mysql_creando_database)
-</div>
 
 
 
 <br>
 </br>
+
+
 
 <div style="text-align: left" class="toc-box">
 # 7 - Inserción de datos
 </div>
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -671,8 +706,13 @@ Los valores en cada una de las tablas se insertaron desde archivos .csv.
 Los archivos son los siguientes:
 
 
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/archivos.png")
+```
 
-![](imagenes/archivos.png)
+
+
+
 
   
 _Cada una de las tablas contiene 10 observaciones_
@@ -681,19 +721,41 @@ _Cada una de las tablas contiene 10 observaciones_
 _Ejemplo tabla afiliados:_
 
 
-![](imagenes/afiliado.png)
+
+```{r, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("Imagenes/afiliado.png")
+```
+
+
+
+
 
 
 A continuación se adjuntan scripts de los pasos para importar los datos y MySql final:
 
-![](imagenes/import.png){width=70%}
 
 
-![](imagenes/script_medico.png){width=70%}
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/import.png")
+```
 
 
 
-![](imagenes/base_datos.png)
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/script_medico.png")
+```
+
+
+
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/base_datos.png")
+```
+
+
+
+
 
 </b>
 
@@ -703,7 +765,7 @@ A continuación se adjuntan scripts de los pasos para importar los datos y MySql
 
 
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -750,7 +812,13 @@ _Consulta y Diagnostico por Afiliado_
 _Esta vista permite guardarnos en una tabla aparte todos los turnos solicitados por los afiliados dados de alta en el sistema. Nos sirve para estar actualizados de los ultimos turnos ya que esta ordenada por fecha._
 
 
-![](imagenes/vista1.png)
+
+```{r, echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("Imagenes/vista1.png")
+```
+
+
+
 <br>
 </br>
 <br>
@@ -764,7 +832,14 @@ _Que medico atendió a cada paciente:_
 
 _Esta vista creada nos sirve para visualizar forma rapida mediante su consulta sobre que medicos atendieron a que paciente en determinada fecha._
 
-![](imagenes/vista2.png)
+
+```{r, echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("Imagenes/vista2.png")
+```
+
+
+
+
 <br>
 </br>
 <br>
@@ -776,7 +851,11 @@ _Que medico atiende en cada centro medico:_
 
 _Esta vista permite que podamos visualizar de forma rapida que medicos atienden en los centros medicos._
 
-![](imagenes/vista3.png)
+
+```{r, echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("Imagenes/vista3.png")
+```
+
 
 
 <br>
@@ -795,7 +874,7 @@ _Esta vista permite que podamos visualizar de forma rapida que medicos atienden 
 </div>
 
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -804,7 +883,7 @@ _Esta vista permite que podamos visualizar de forma rapida que medicos atienden 
 </br>
 
 
-```{r, echo=FALSE, out.width="60%", fig.align='center'}
+```{r, echo=FALSE, out.width="40%", fig.align='center'}
 knitr::include_graphics("Imagenes/fun.png")
 ```
 
@@ -842,7 +921,15 @@ _Ingresamos el diagnostico y nos regresa el porcentaje de pacientes con el diagn
 
 _En la parte inferior de la imagen adjunta se puede ver el resultado de la función una vez ingresado un CHAR._
 
-![](imagenes/funcion1.png)
+
+
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/funcion1.png")
+```
+
+
+
 <br>
 </br>
 <br>
@@ -858,7 +945,11 @@ _Esta funcion nos calcula automaticamente la diferencia entre ingresos y egresos
 
 _En la parte inferior de la imagen adjunta se puede ver el resultado de la función una vez ingresado un CHAR._
 
-![](imagenes/funcion2.png)
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/funcion2.png")
+```
+
 <br>
 </br>
 <br>
@@ -873,7 +964,7 @@ _En la parte inferior de la imagen adjunta se puede ver el resultado de la funci
 </div>
 
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -910,7 +1001,11 @@ Algunos Beneficios:
 _En el siguiente Stored Procedure insertamos valores en la tabla turno con el ID creado anteriormente en la tabla consulta._
 
 
-![](imagenes/sp1.png)
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/sp1.png")
+```
+
 <br>
 </br>
 <br>
@@ -923,7 +1018,11 @@ _En el siguiente Stored Procedure insertamos valores en la tabla turno con el ID
 _El siguiente Stored Procedure ejecuta un comando que nos permite ordenar la tabla que queramos por una variable._
 
 
-![](imagenes/sp2.png)
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/sp2.png")
+```
+
 <br>
 </br>
 <br>
@@ -938,7 +1037,7 @@ _El siguiente Stored Procedure ejecuta un comando que nos permite ordenar la tab
 </div>
 
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -967,14 +1066,22 @@ _En el siguiente Trigger se crea un log para la tabla afiliados y luego de inser
 
 
 
-![](imagenes/triggeraft1.png)
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/triggeraft1.png")
+```
+
+
 <br>
 </br>
 <br>
 </br>
 _Lo contrario sucede con la próxima imagen que es un Before._
 
-![](imagenes/triggerbef1.png)
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/triggerbef1.png")
+```
+
 
 <br>
 </br>
@@ -989,7 +1096,11 @@ _En el siguiente Trigger se crea un log para la tabla consulta y antes de que se
 _Lo contrario sucede con la próxima imagen que es un Before._
 
 
-![](imagenes/triggeraft2.png)
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/triggeraft2.png")
+```
+
 
 
 <br>
@@ -999,7 +1110,11 @@ _Lo contrario sucede con la próxima imagen que es un Before._
 
 _Lo contrario sucede con la próxima imagen que es un Before._
 
-![](imagenes/triggerbef2.png)
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/triggerbef1.png")
+```
+
 
 <br>
 </br>
@@ -1028,7 +1143,7 @@ _Lo contrario sucede con la próxima imagen que es un Before._
 
 
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -1055,7 +1170,11 @@ _Creamos el usuario_uno y el usuario_dos donde al primero le damos permiso con l
 _Con la sentencia REVOKE le quitamos a ambos usuarios la posibilidad de eliminar registros._
 
 
-![](Imagenes/user.png)
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/user.png")
+```
+
 <br>
 </br>
 <br>
@@ -1067,14 +1186,22 @@ _SHOW GRANTS para el usuario_uno._
 
 _Podemos ver que solo tiene permiso para la sentencia SELECT en la base de datos._
 
-![](Imagenes/user_1.png)
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/user_1.png")
+```
+
 
 
 _SHOW GRANTS para el usuario_dos._
 
 _Podemos ver que tiene permiso para la sentencia SELECT, INSERT y ALTER en la base de datos._
 
-![](Imagenes/user_2.png)
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/user_2.png")
+```
+
+
 
 </b>
 
@@ -1088,7 +1215,7 @@ _Podemos ver que tiene permiso para la sentencia SELECT, INSERT y ALTER en la ba
 # 13 - Backup
 </div>
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -1112,21 +1239,32 @@ Mysql incluye la herramienta mysqldump dentro del motor de base de datos para ge
 _Para crear el Backup de las tablas dejando de lado la estructura debemos hacer los siguientes pasos:_
 
 
+```{r, echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("Imagenes/backup1.png")
+```
 
-![](Imagenes/backup1.png)
+
 <br>
 </br>
 
 _Click en la base de datos:_
 
-![](Imagenes/backup2.png)
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/backup2.png")
+```
+
 
 <br>
 </br>
 
 _Tildar todas las opciones:_
 
-![](Imagenes/backup11.png)
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/backup11.png")
+```
+
 
 
 <br>
@@ -1136,7 +1274,11 @@ _Seleccionar Export to Self-Contained File:_
 
 _Esta opción nos exportara un archivo .sql_
 
-![](Imagenes/backup3.png)
+
+```{r, echo=FALSE, out.width="50%", fig.align='center'}
+knitr::include_graphics("Imagenes/backup3.png")
+```
+
 
 <br>
 </br>
@@ -1144,7 +1286,10 @@ _Esta opción nos exportara un archivo .sql_
 _Seleccionar Start Export:_
 
 
-![](Imagenes/backup4.png)
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/backup4.png")
+```
+
 
 _Listo con el Backup._
 
@@ -1161,7 +1306,7 @@ _Listo con el Backup._
 # 14 - Business Intelligence
 </div>
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -1178,10 +1323,47 @@ A continuación se adjunta un script que muestra el código a ejecutar en Python
 <br>
 </br>
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
-knitr::include_graphics("Imagenes/pythonbi.png")
-```
 
+<div style="text-align: center">
+<b>Python Code:</b>
+</div>
+
+<br>
+</br>
+
+<b><span style = "color:purple">import</span></b> pymysql
+<b><span style = "color:purple">import</span></b> pandas <b><span style = "color:purple">as</span></b> pd
+
+connection = pymysql.connect(host= <b><span style = "color:green">'Poner el Host'</span></b>, 
+                             user= <b><span style = "color:green">'Poner el User'</span></b>, 
+                             password= <b><span style = "color:green">'Poner el Pass'</span></b>, 
+                             db='centro_medicina_prepaga' )
+
+
+cursor = connection.cursor()
+
+
+query = <b><span style = "color:green">'SELECT * FROM vista_consulta_diagnostico'</span></b>
+
+
+
+cursor.execute(query)
+
+
+df = pd.read_sql(query, connection)
+
+
+df.to_excel(<b><span style = "color:green">'df.xlsx'</span></b>, index=<b><span style = "color:orange">False</span></b>)
+
+<br>
+</br>
+
+<div style="text-align: center">
+<b>R Code:</b>
+</div>
+
+<br>
+</br>
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -1273,7 +1455,53 @@ bar_plots
 <br>
 </br>
 
+
+
+
 <div style="text-align: left" class="toc-box">
+# 15 - Codigo My Sql desde Python
+</div>
+
+<div style="text-align: right" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
+
+<br>
+</br>
+
+
+
+<b>
+En los siguientes enlaces se encuentra el código para crear la base de datos desde Python y My Sql:
+
+<br>
+</br>
+
+```{r, echo=FALSE, out.width="40%", fig.align='center'}
+knitr::include_graphics("Imagenes/github.jpg")
+```
+
+<br>
+</br>
+
+
+
+
+<div style="text-align: center" >
+[Link Github Codigo .sql](https://github.com/MGaloto/mysql_creando_database/tree/main/Codigo%20MySql)
+</div>
+
+<div style="text-align: center" >
+[Link Github Codigo Python](https://github.com/MGaloto/mysql_creando_database/tree/main/Codigo%20Python)
+</div>
+
+
+<br>
+</br>
+
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio del Trabajo</a>
 </div>
+
 
