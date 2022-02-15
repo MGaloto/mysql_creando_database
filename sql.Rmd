@@ -65,7 +65,8 @@ a {
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: 750;
-    color: blue;
+    background-image: linear-gradient(200deg, black, blue);
+    color: white;
     text-align: center;
     border: solid 1px black;
     border-radius: .3rem;
@@ -350,6 +351,7 @@ A continuación se detallaran cada una de las tablas que componen el DER con sus
 
 <br>
 </br>
+
 
 
 
@@ -643,51 +645,11 @@ knitr::include_graphics("REVERSE.png")
 
 
 
-<div style="text-align: left" class="toc-box">
-# 6 - Inner Join
-</div>
-
-<div style="text-align: right" class="toc-box">
- <a href="#top">Volver al Inicio</a>
-</div>
-
-
-<br>
-</br>
-
-<b>
-
-Inner Join es una sentencia de SQL para recuperar datos de varias tablas al mismo tiempo. En la siguiente imagen se muestra una consulta de todos los afiliados de la base de datos con los pagos de las cuotas acumuladas en el año.
-
-Se tienen en cuenta las siguientes sentencias:
-
-* Inner Join entre todas las tablas.
-
-* Sumatoria total de la variable importe de la tabla cobros.
-
-* Se extrae el año de la variable fecha_transaccion.
-
-* Se agrupa por afiliado único.
-
-* Se ordena de mayor a menor los importes de pago acumulados.
-
-
-
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
-knitr::include_graphics("Imagenes/join.png")
-```
-
-
-
-
-
-<br>
-</br>
 
 
 
 <div style="text-align: left" class="toc-box">
-# 7 - Inserción de datos
+# 6 - Inserción de datos
 </div>
 
 <div style="text-align: right" class="toc-box">
@@ -753,6 +715,97 @@ knitr::include_graphics("Imagenes/script_medico.png")
 knitr::include_graphics("Imagenes/base_datos.png")
 ```
 
+<br>
+</br>
+
+
+<div style="text-align: left" class="toc-box">
+# 7 - Inner Join
+</div>
+
+<div style="text-align: right" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
+
+<br>
+</br>
+
+<b>
+
+Inner Join es una sentencia de SQL para recuperar datos de varias tablas al mismo tiempo. En la siguiente imagen se muestra una consulta de todos los afiliados de la base de datos con los pagos de las cuotas acumuladas en el año.
+
+Se tienen en cuenta las siguientes sentencias:
+
+* Inner Join entre todas las tablas.
+
+* Sumatoria total de la variable importe de la tabla cobros.
+
+* Se extrae el año de la variable fecha_transaccion.
+
+* Se agrupa por afiliado único.
+
+* Se ordena de mayor a menor los importes de pago acumulados.
+
+
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/join.png")
+```
+
+<br>
+</br>
+
+El siguiente join es entre la tabla pagos y proveedores, se agrupa cada uno de los proveedores con el importe total sumado de los pagos hechos a cada uno de ellos:
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Imagenes/join2.png")
+```
+
+
+A continuación se trabajara con el software R para crear un grafico de torta por proveedor con los montos totales de pago a cada uno de ellos:
+
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+library(highcharter)
+library(tidyverse)
+library(readxl)
+library(dplyr)
+
+df_2 = read_excel('C:/Users/maxig/Desktop/Carpetas/Cursos/SQL Coder/Trabajo Final/Codigo Python/df_2.xlsx')
+
+
+
+colnames(df_2) = c('Proveedor','Fecha de Pago', 'Pago Total')
+
+
+
+```
+
+
+
+
+```{r, echo=TRUE, fig.cap= 'Pie Chart'}
+
+pie_chart = df_2 %>% 
+  hchart('pie', hcaes(x = df_2$Proveedor, y = df_2$`Pago Total`, color = viridis::mako(n = length(df_2$Proveedor)))) %>% 
+  hc_add_theme(hc_theme_google()) %>% 
+  hc_tooltip(pointFormat = '<b>Pago Total</b>  {point.y}') %>% 
+  hc_title(text = 'Pie Chart Pagos por Proveedor en ARS',
+           style = list(fontSize = '20px', fontWeight = 'bold')) %>% 
+  hc_subtitle(text = '<b>From MySql</b>',
+              style = list(fontSize = '16px', color = "black")) %>% 
+  hc_credits(enabled = TRUE, text = '@MGaloto',
+             style = list(fontSize = '16px', color = "black")) 
+
+pie_chart
+
+```
+
+<br>
+</br>
 
 
 
@@ -1367,10 +1420,6 @@ df.to_excel(<b><span style = "color:green">'df.xlsx'</span></b>, index=<b><span 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
-library(highcharter)
-library(tidyverse)
-library(readxl)
-library(dplyr)
 
 df = read_excel('C:/Users/maxig/Desktop/Carpetas/Cursos/SQL Coder/Trabajo Final/Codigo Python/df.xlsx')
 
