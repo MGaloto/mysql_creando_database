@@ -225,11 +225,6 @@ Es poco frecuente encontrar casos de una bb.dd. con una sola tabla pero, en el c
 El modelo relacional, en el cual se apoyan estas bases de datos, almacenan la información en un conjunto de tablas, y a su vez, las aprovechan para representar tanto los datos como también las relaciones entre cada una de estas.
 
 
-```{r, echo=FALSE, out.width="60%", fig.align='center'}
-knitr::include_graphics("Imagenes/bdrelacional.png")
-```
-
-
 
 
 <br>
@@ -294,12 +289,6 @@ Las tablas también suelen ser llamadas, mucho más formalmente: entidad. Y, en 
 Es una estructura de tablas, las cuales a su vez se relacionan con otras tablas. Su principal característica es no poseer información repetida de forma innecesaria, lo que permite adicionar más información sin llegar a afectar la otra almacenada.
 
 
-
-```{r, echo=FALSE, out.width="60%", fig.align='center'}
-knitr::include_graphics("Imagenes/esttablas.png")
-```
-
-
 ### Ventajas del modelo Relacional
 
 * Favorece el proceso de normalización, el cual permite eliminar la redundancia de los datos.
@@ -320,19 +309,19 @@ knitr::include_graphics("Imagenes/esttablas.png")
 ### Tipos de Relaciones
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center', fig.cap='Uno a uno'}
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
 knitr::include_graphics("Imagenes/unouno.png")
 ```
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center', fig.cap='Uno a Muchos'}
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
 knitr::include_graphics("Imagenes/unomuchos.png")
 ```
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center', fig.cap='Muchos a Muchos'}
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
 knitr::include_graphics("Imagenes/muchosmuchos.png")
 ```
 
@@ -352,24 +341,24 @@ A continuación se detallaran cada una de las tablas que componen el DER con sus
 <br>
 </br>
 
+ $$ \textbf{Tabla: Afiliado }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_afiliado*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL
+*apellido*|VARCHAR(50) NOT NULL
+*email*|VARCHAR(50) NOT NULL
+*telefono*|INT NOT NULL 
+*fecha_nacimiento*|DATE NOT NULL
+*domicilio*|VARCHAR(50) NOT NULL 
+*estado_civil*|VARCHAR(50) NOT NULL 
+*dni*|INT NOT NULL 
+*id_ocupacion*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_plan*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
 
 
 
-
-| $$ \textbf{Tabla: Afiliado }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Afiliado$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
-| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
-| $$ Apellido$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
-| $$ Email$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
-| $$ Telefono$$     | $$INT \:NOT \:NULL  $$         | 
-| $$ Fecha\:Nacimiento$$     | $$DATE \:NOT \:NULL$$        | 
-| $$ Domicilio$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
-| $$ Estado\:Civil$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
-| $$ Dni$$     | $$INT \:NOT \:NULL  $$            | 
-| $$ Id\:Ocupacion$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
-| $$ Id\:Plan$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
 
 _Esta tabla contiene los atributos de los afiliados de la empresa de medicina prepaga, podemos observar el ID como Primary Key y por ultimo dos FK que hacen referencia a la ocupación del empleado y el plan. Estas serán dos tablas que se crean a parte para no repertir datos._
 
@@ -382,11 +371,14 @@ _Un ejemplo sencillo: La ocupación puede ser empleado bajo relación de depende
 </br>
 
 
-| $$ \textbf{Tabla: Ocupacion Afiliado }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Ocupacion$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
-| $$ Ocupacion$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+ $$ \textbf{Tabla: Ocupacion Afiliado }$$ 
+
+ **Atributos** |  **Descripción**    
+-----------| ------------|
+*id_ocupacion*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*ocupación*|VARCHAR(50) NOT NULL
+
+
 
 
 _Esta tabla contiene los siguientes datos: *Bajo relacion de dependencia, monotributista, desempleado y jubilado*._
@@ -395,11 +387,16 @@ _Esta tabla contiene los siguientes datos: *Bajo relacion de dependencia, monotr
 </br>
 
 
-| $$ \textbf{Tabla: Plan Afiliado }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Plan$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
-| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+
+
+ $$ \textbf{Tabla: Plan Afiliado  }$$ 
+
+ **Atributos** |  **Descripción**    
+-----------| ------------|
+*id_plan*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL
+
+
 
 
 _Esta tabla contiene los siguientes datos: *Medium y Premium*._
@@ -408,17 +405,19 @@ _Esta tabla contiene los siguientes datos: *Medium y Premium*._
 </br>
 
 
-  
+ $$ \textbf{Tabla: Medico }$$ 
 
-| $$ \textbf{Tabla: Medico }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Medico$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
-| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
-| $$ Apellido$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
-| $$ Fecha\:Nacimiento$$     | $$DATE \:NOT \:NULL$$        | 
-| $$ Domicilio$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
-| $$ Telefono$$     | $$INT \:NOT\: NULL  $$            | 
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_medico*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL
+*apellido*|VARCHAR(50) NOT NULL
+*fecha_nacimiento*|DATE NOT NULL
+*domicilio*|VARCHAR(50) NOT NULL
+*telefono*|INT NOT NULL 
+
+
+
 
 _Esta tabla contiene los datos de los médicos que prestan su servicio a distintos centros médicos._
 
@@ -428,27 +427,39 @@ _Esta tabla contiene los datos de los médicos que prestan su servicio a distint
 </br>
 
 
-| $$ \textbf{Tabla: Centro Medico }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Centro$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
-| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
-| $$ Dirección$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
-| $$ Teléfono$$     | $$INT \:NOT \:NULL$$        | 
-| $$ Cod\:Postal$$     | $$INT \:NOT \:NULL$$        | 
-| $$ Email$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
-| $$ Especialidad\:Principal$$     | $$VARCHAR(50) \:NOT \:NULL  $$         | 
+
+ $$ \textbf{Tabla: Centro Medico }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_centro*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL
+*direccion*|VARCHAR(50) NOT NULL
+*telefono*|INT NOT NULL 
+*codigo_postal*|INT NOT NULL 
+*email*|VARCHAR(50) NOT NULL
+*fecha_nacimiento*|DATE NOT NULL
+*especialidad*|VARCHAR(50) NOT NULL
+
+
+
 
 <br>
 </br>
 
 
-| $$ \textbf{Tabla: Consulta }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Consulta$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
-| $$ Consulta$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
-| $$ Diagnostico$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
+
+
+ $$ \textbf{Tabla: Consulta }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_consulta*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*consulta*|VARCHAR(50) NOT NULL
+*diagnostico*|VARCHAR(50) NOT NULL
+
+
+
 
 
 _Esta tabla contiene los datos de las consultas de los afiliados y los diagnosticos posterior a la consulta._
@@ -457,15 +468,18 @@ _Esta tabla contiene los datos de las consultas de los afiliados y los diagnosti
 </br>
 
 
-| $$ \textbf{Tabla: Turnos }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Turno$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$         | 
-| $$ Fecha$$     | $$DATE \:NOT \:NULL  $$         |
-| $$ Id\: Medico$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\: Afiliado$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\: Consulta$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Id\:Centro$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+ $$ \textbf{Tabla: Turnos }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_turno*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*fecha*|DATE NOT NULL
+*id_medico*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_afiliado*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_consulta*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_centro*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+
+
 
 
 
@@ -475,27 +489,33 @@ _Esta tabla contiene los datos del turno. Se conecta con varias tablas, entre el
 <br>
 </br>
 
-| $$ \textbf{Tabla: Proveedor }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Proveedor$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$  | 
-| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
-| $$ Telefono$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Cuit$$     | $$INT \:NOT\: NULL\: FOREIGN \:KEY $$            | 
-| $$ Mail$$     | $$VARCHAR(50) \:NOT \:NULL  $$            | 
+
+
+ $$ \textbf{Tabla: Proveedor }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_proveedor*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL 
+*telefono*|INT NOT NULL 
+*cuit*|INT NOT NULL 
+*mail*|VARCHAR(50) NOT NULL 
+
+
 
 _La tabla contiene todos los datos de los proveedores que se van dando de alta. No tiene muchos movimientos en general._
 
 <br>
 </br>
 
+ $$ \textbf{Tabla: Tipo Insumo }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_tipo_insumo*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*tipo_insumo*|VARCHAR(50) NOT NULL 
 
 
-| $$ \textbf{Tabla: Tipo Insumo }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Tipo\:Insumo$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$  | 
-| $$ Tipo\:Insumo$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
 
 
 _Tabla que contiene datos sobre el tipo de insumo que compran los centros medicos. No tiene muchos movimientos._
@@ -504,14 +524,18 @@ _Tabla que contiene datos sobre el tipo de insumo que compran los centros medico
 </br>
 
 
-| $$ \textbf{Tabla: Insumos }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Insumo$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$  | 
-| $$ Nombre$$     | $$VARCHAR(50) \:NOT \:NULL  $$         |
-| $$ Id\:Centro$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
-| $$ Id\:Tipo\:Insumo$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
-| $$ Id\:Proveedor$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+ $$ \textbf{Tabla: Insumos }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_insumo*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL 
+*id_centro*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_tipo_insumo*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_proveedor*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+
+
+
 
 
 _Esta tabla contiene los datos de cada uno de los insumos._
@@ -520,13 +544,16 @@ _Esta tabla contiene los datos de cada uno de los insumos._
 </br>
 
 
+ $$ \textbf{Tabla: Centro Medico Insumos }$$ 
 
-| $$ \textbf{Tabla: Centro Medico Insumos }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Centro\:Medico\:Insumos$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$  | 
-| $$ Id\:Centro$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
-| $$ Id\:Insumo$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_centro_medico_insumos*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL 
+*id_centro*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_insumo*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+
+
 
 
 _Tabla que conecta de muchos a muchos los insumos con los centros medicos._
@@ -536,14 +563,16 @@ _Tabla que conecta de muchos a muchos los insumos con los centros medicos._
 
 
 
-| $$ \textbf{Tabla: Pagos }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Pagos$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$  | 
-| $$ Fecha\:Transaccion$$     |   $$DATE\:NOT\:NULL$$  | 
-| $$ Importe$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
-| $$ Id\:Medio\:Operacion$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
-| $$ Id\:Proveedor$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+ $$ \textbf{Tabla: Pagos }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_pagos*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*fecha_transaccion*|DATE NOT NULL 
+*importe*|INT NOT NULL 
+*id_medio_operacion*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_proveedor*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+
 
 
 _Tabla que registra todos los pagos de todos los centros médicos._
@@ -552,14 +581,16 @@ _Tabla que registra todos los pagos de todos los centros médicos._
 </br>
 
 
-| $$ \textbf{Tabla: Cobros }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Cobros$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$ | 
-| $$ Fecha\:Transaccion$$     |   $$DATE\:NOT\:NULL$$  | 
-| $$ Importe$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
-| $$ Id\:Medio\:Operacion$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
-| $$ Id\:Afiliado$$     |   $$INT \:NOT\: NULL\: FOREIGN \:KEY $$         | 
+ $$ \textbf{Tabla: Cobros }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_cobros*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*fecha_transaccion*|DATE NOT NULL 
+*importe*|INT NOT NULL 
+*id_medio_operacion*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_afiliado*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+
 
 
 _Tabla que registra todos los cobros de todos los centros médicos._
@@ -568,11 +599,14 @@ _Tabla que registra todos los cobros de todos los centros médicos._
 </br>
 
 
-| $$ \textbf{Tabla: Medio Operacion }$$ |
-|$$ \textbf{Atributos}$$ | $$ \textbf{Descripcion}$$ | 
-|-------|------------|
-| $$ Id\:Medio\:Operacion$$     |   $$INT \:NOT\: NULL\: PRIMARY \:KEY\: AUTO\:INCREMENT$$ | 
-| $$ Tipo\:Medio\:Operacion$$     |   $$VARCHAR(50) \:NOT \:NULL   $$         | 
+ $$ \textbf{Tabla: Medio Operacion }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_medio_operacion*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*tipo_medio_operacion*|VARCHAR(50) NOT NULL 
+
+
 
 
 _Tabla que registra todos medios financieros de pagos: *Tarjeta de Debito, Crédito, Efectivo y Transferencias*._
@@ -675,7 +709,8 @@ knitr::include_graphics("Imagenes/archivos.png")
 
 
 
-
+  
+  
   
 _Cada una de las tablas contiene 10 observaciones_
 
@@ -718,9 +753,30 @@ knitr::include_graphics("Imagenes/base_datos.png")
 <br>
 </br>
 
+<div style="text-align: left" class="toc-box">
+# 7 - Incersion de Datos desde Python
+</div>
+
+<div style="text-align: right" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
+
+<br>
+</br>
+
+
+![.](Imagenes/gifuno.gif){width=100%}
+
+
+
+<br>
+</br>
+
+
 
 <div style="text-align: left" class="toc-box">
-# 7 - Inner Join
+# 8 - Inner Join
 </div>
 
 <div style="text-align: right" class="toc-box">
@@ -813,7 +869,7 @@ pie_chart
 </b>
 
 <div style="text-align: left" class="toc-box">
-# 8 - Vistas
+# 9 - Vistas
 </div>
 
 
@@ -923,7 +979,7 @@ knitr::include_graphics("Imagenes/vista3.png")
 </b>
 
 <div style="text-align: left" class="toc-box">
-# 9 - Funciones
+# 10 - Funciones
 </div>
 
 
@@ -1013,7 +1069,7 @@ knitr::include_graphics("Imagenes/funcion2.png")
 </b>
 
 <div style="text-align: left" class="toc-box">
-# 10 - Stored Procedures
+# 11 - Stored Procedures
 </div>
 
 
@@ -1086,7 +1142,7 @@ knitr::include_graphics("Imagenes/sp2.png")
 
 
 <div style="text-align: left" class="toc-box">
-# 11 - Triggers
+# 12 - Triggers
 </div>
 
 
@@ -1187,7 +1243,7 @@ knitr::include_graphics("Imagenes/triggerbef1.png")
 
 
 <div style="text-align: left" class="toc-box">
-# 12 - Permisos
+# 13 - Permisos
 </div>
 
 
@@ -1265,7 +1321,7 @@ knitr::include_graphics("Imagenes/user_2.png")
 <b>
 
 <div style="text-align: left" class="toc-box">
-# 13 - Backup
+# 14 - Backup
 </div>
 
 <div style="text-align: right" class="toc-box">
@@ -1356,7 +1412,7 @@ _Listo con el Backup._
 <b>
 
 <div style="text-align: left" class="toc-box">
-# 14 - Business Intelligence
+# 15 - Business Intelligence
 </div>
 
 <div style="text-align: right" class="toc-box">
@@ -1508,7 +1564,7 @@ bar_plots
 
 
 <div style="text-align: left" class="toc-box">
-# 15 - Codigo My Sql desde Python
+# 16 - Codigo My Sql desde Python
 </div>
 
 <div style="text-align: right" class="toc-box">
@@ -1523,6 +1579,41 @@ bar_plots
 
 <b>
 En los siguientes enlaces se encuentra el código para crear la base de datos desde Python y My Sql:
+
+El repositorio contiene:
+
+<ul>
+
+<br>
+
+<li>
+Codigo MySql: Todo el codigo de todos los scripts .sql para crear la base de datos y todos los items del trabajo
+</li>
+
+</br>
+
+<br>
+
+<li>
+Script Final: Script .sql que ejecuta el trabajo completo.
+</li>
+
+</br>
+
+
+<br>
+
+<li>
+Codigo Python: Codigo de Python para crear las tablas e insertar valores en la tabla afiliados utilizando input. Tambien se encuentra la conexcion a My Sql, creacion de un data frame y exportacion a otra carpeta.
+</li>
+
+</br>
+
+</ul>
+
+
+
+
 
 <br>
 </br>

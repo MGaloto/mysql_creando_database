@@ -28,3 +28,10 @@ Codigo Python
 
 [Rpubs](https://rpubs.com/MGaloto/mysql_database)
 
+
+
+# Ejemplo de Insert Data desde Python
+
+
+
+![](Imagenes/gifuno.gif)
