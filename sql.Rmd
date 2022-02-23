@@ -236,7 +236,7 @@ El modelo relacional, en el cual se apoyan estas bases de datos, almacenan la in
 
 
 
-<div style="text-align: left" class="toc-box">
+<div style="text-align: right" class="toc-box">
  <a href="#top">Volver al Inicio</a>
 </div>
 
@@ -252,7 +252,7 @@ Base de datos de una _Empresa de Medicina Prepaga_ donde se va a hacer foco en u
 </b>
 
 
-```{r, echo=FALSE, out.width="60%", fig.align='center'}
+```{r, echo=FALSE, out.width="90%", fig.align='center'}
 knitr::include_graphics("Imagenes/snowflake.png")
 ```
 
@@ -636,9 +636,21 @@ En <b>[este link](https://app.diagrams.net/)</b> se puede elaborar un DER prelim
 
 
 
-```{r, echo=FALSE, out.width="100%", fig.align='center'}
+```{css , echo = FALSE}
+
+.myimg {
+  border: solid 1px black;
+}
+
+
+```
+
+
+
+```{r, echo=FALSE, out.width="100%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("DER.png")
 ```
+
 
 
 
@@ -652,7 +664,7 @@ La ingeniería inversa o retroingeniería es el proceso llevado a cabo con el ob
 
 
 
-```{r, echo=FALSE, out.width="50%", fig.align='center'}
+```{r, echo=FALSE, out.width="50%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/reverseoptions.png")
 ```
 
@@ -666,7 +678,7 @@ La siguiente imagen representa el Reverse Engineer de la base de datos creada:
 
 
 
-```{r, echo=FALSE, out.width="100%", fig.align='center'}
+```{r, echo=FALSE, out.width="100%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("REVERSE.png")
 ```
 
@@ -702,7 +714,7 @@ Los valores en cada una de las tablas se insertaron desde archivos .csv.
 Los archivos son los siguientes:
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/archivos.png")
 ```
 
@@ -719,7 +731,7 @@ _Ejemplo tabla afiliados:_
 
 
 
-```{r, echo=FALSE, out.width="100%", fig.align='center'}
+```{r, echo=FALSE, out.width="100%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/afiliado.png")
 ```
 
@@ -732,21 +744,21 @@ A continuación se adjuntan scripts de los pasos para importar los datos y MySql
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/import.png")
 ```
 
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/script_medico.png")
 ```
 
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/base_datos.png")
 ```
 
@@ -765,6 +777,12 @@ knitr::include_graphics("Imagenes/base_datos.png")
 <br>
 </br>
 
+
+<b>
+
+A continuacion se adjunta un breve .gif que muestra la ingesta de datos a My Sql desde Python. Se utiliza un While que finaliza cuando el usuario desea dejar de ingresar datos. Los datos se ingresan en la tabla de afiliados dandolos de alta en el sistema.
+
+</b>
 
 ![.](Imagenes/gifuno.gif){width=100%}
 
@@ -805,7 +823,7 @@ Se tienen en cuenta las siguientes sentencias:
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/join.png")
 ```
 
@@ -814,7 +832,7 @@ knitr::include_graphics("Imagenes/join.png")
 
 El siguiente join es entre la tabla pagos y proveedores, se agrupa cada uno de los proveedores con el importe total sumado de los pagos hechos a cada uno de ellos:
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/join2.png")
 ```
 
@@ -836,7 +854,7 @@ df_2 = read_excel('C:/Users/maxig/Desktop/Carpetas/Cursos/SQL Coder/Trabajo Fina
 
 colnames(df_2) = c('Proveedor','Fecha de Pago', 'Pago Total')
 
-
+library(reticulate)
 
 ```
 
@@ -922,7 +940,7 @@ _Esta vista permite guardarnos en una tabla aparte todos los turnos solicitados 
 
 
 
-```{r, echo=FALSE, out.width="50%", fig.align='center'}
+```{r, echo=FALSE, out.width="50%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/vista1.png")
 ```
 
@@ -942,7 +960,7 @@ _Que medico atendió a cada paciente:_
 _Esta vista creada nos sirve para visualizar forma rapida mediante su consulta sobre que medicos atendieron a que paciente en determinada fecha._
 
 
-```{r, echo=FALSE, out.width="50%", fig.align='center'}
+```{r, echo=FALSE, out.width="50%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/vista2.png")
 ```
 
@@ -961,7 +979,7 @@ _Que medico atiende en cada centro medico:_
 _Esta vista permite que podamos visualizar de forma rapida que medicos atienden en los centros medicos._
 
 
-```{r, echo=FALSE, out.width="50%", fig.align='center'}
+```{r, echo=FALSE, out.width="50%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/vista3.png")
 ```
 
@@ -992,7 +1010,7 @@ knitr::include_graphics("Imagenes/vista3.png")
 </br>
 
 
-```{r, echo=FALSE, out.width="40%", fig.align='center'}
+```{r, echo=FALSE, out.width="40%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/fun.png")
 ```
 
@@ -1033,7 +1051,7 @@ _En la parte inferior de la imagen adjunta se puede ver el resultado de la funci
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/funcion1.png")
 ```
 
@@ -1055,7 +1073,7 @@ _Esta funcion nos calcula automaticamente la diferencia entre ingresos y egresos
 _En la parte inferior de la imagen adjunta se puede ver el resultado de la función una vez ingresado un CHAR._
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/funcion2.png")
 ```
 
@@ -1111,7 +1129,7 @@ _En el siguiente Stored Procedure insertamos valores en la tabla turno con el ID
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/sp1.png")
 ```
 
@@ -1128,7 +1146,7 @@ _El siguiente Stored Procedure ejecuta un comando que nos permite ordenar la tab
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/sp2.png")
 ```
 
@@ -1175,7 +1193,7 @@ _En el siguiente Trigger se crea un log para la tabla afiliados y luego de inser
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/triggeraft1.png")
 ```
 
@@ -1187,7 +1205,7 @@ knitr::include_graphics("Imagenes/triggeraft1.png")
 _Lo contrario sucede con la próxima imagen que es un Before._
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/triggerbef1.png")
 ```
 
@@ -1206,7 +1224,7 @@ _Lo contrario sucede con la próxima imagen que es un Before._
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/triggeraft2.png")
 ```
 
@@ -1220,7 +1238,7 @@ knitr::include_graphics("Imagenes/triggeraft2.png")
 _Lo contrario sucede con la próxima imagen que es un Before._
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/triggerbef1.png")
 ```
 
@@ -1280,7 +1298,7 @@ _Con la sentencia REVOKE le quitamos a ambos usuarios la posibilidad de eliminar
 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/user.png")
 ```
 
@@ -1296,7 +1314,7 @@ _SHOW GRANTS para el usuario_uno._
 _Podemos ver que solo tiene permiso para la sentencia SELECT en la base de datos._
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/user_1.png")
 ```
 
@@ -1306,7 +1324,7 @@ _SHOW GRANTS para el usuario_dos._
 
 _Podemos ver que tiene permiso para la sentencia SELECT, INSERT y ALTER en la base de datos._
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/user_2.png")
 ```
 
@@ -1348,7 +1366,7 @@ Mysql incluye la herramienta mysqldump dentro del motor de base de datos para ge
 _Para crear el Backup de las tablas dejando de lado la estructura debemos hacer los siguientes pasos:_
 
 
-```{r, echo=FALSE, out.width="50%", fig.align='center'}
+```{r, echo=FALSE, out.width="50%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/backup1.png")
 ```
 
@@ -1359,7 +1377,7 @@ knitr::include_graphics("Imagenes/backup1.png")
 _Click en la base de datos:_
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/backup2.png")
 ```
 
@@ -1370,7 +1388,7 @@ knitr::include_graphics("Imagenes/backup2.png")
 _Tildar todas las opciones:_
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/backup11.png")
 ```
 
@@ -1384,7 +1402,7 @@ _Seleccionar Export to Self-Contained File:_
 _Esta opción nos exportara un archivo .sql_
 
 
-```{r, echo=FALSE, out.width="50%", fig.align='center'}
+```{r, echo=FALSE, out.width="50%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/backup3.png")
 ```
 
@@ -1395,7 +1413,7 @@ knitr::include_graphics("Imagenes/backup3.png")
 _Seleccionar Start Export:_
 
 
-```{r, echo=FALSE, out.width="80%", fig.align='center'}
+```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/backup4.png")
 ```
 
@@ -1440,29 +1458,36 @@ A continuación se adjunta un script que muestra el código a ejecutar en Python
 <br>
 </br>
 
-<b><span style = "color:purple">import</span></b> pymysql
-<b><span style = "color:purple">import</span></b> pandas <b><span style = "color:purple">as</span></b> pd
-
-connection = pymysql.connect(host= <b><span style = "color:green">'Poner el Host'</span></b>, 
-                             user= <b><span style = "color:green">'Poner el User'</span></b>, 
-                             password= <b><span style = "color:green">'Poner el Pass'</span></b>, 
-                             db='centro_medicina_prepaga' )
-
-
-cursor = connection.cursor()
-
-
-query = <b><span style = "color:green">'SELECT * FROM vista_consulta_diagnostico'</span></b>
 
 
 
-cursor.execute(query)
+```{python eval=FALSE}
 
 
-df = pd.read_sql(query, connection)
+
+import pymysql
+import pandas as pd
 
 
-df.to_excel(<b><span style = "color:green">'df.xlsx'</span></b>, index=<b><span style = "color:orange">False</span></b>)
+def run():
+  connection = pymysql.connect(host= 'Poner el Host', 
+                               user= 'Poner el User', 
+                               password= 'Poner el Pass', 
+                               db='Poner la Base de Datos' )
+  cursor = connection.cursor()
+  query = 'SELECT * FROM vista_consulta_diagnostico'
+  cursor.execute(query)
+  df = pd.read_sql(query, connection)
+  df.to_excel('df.xlsx', index=False)
+  
+
+if __name__ == '__main__':
+  run()
+  
+
+
+```
+
 
 <br>
 </br>
@@ -1484,6 +1509,7 @@ df_final = data.frame(table(df$Diagnostico))
 
 
 colnames(df_final) = c('Diagnostico','Frecuencia')
+
 
 
 
@@ -1526,7 +1552,7 @@ pie
 <br>
 </br>
 
-```{r, echo=TRUE, fig.cap= 'Bar Graph'}
+```{r, echo=TRUE, fig.cap= 'Bar Graph' ,out.extra='class="myimg"'}
 
 
 
@@ -1618,7 +1644,7 @@ Codigo Python: Codigo de Python para crear las tablas e insertar valores en la t
 <br>
 </br>
 
-```{r, echo=FALSE, out.width="40%", fig.align='center'}
+```{r, echo=FALSE, out.width="40%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/github.jpg")
 ```
 

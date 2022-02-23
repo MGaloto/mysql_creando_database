@@ -25,6 +25,9 @@ INSERT INTO `logsafiliado` (id_movimiento, fecha_user,
 VALUES (NULL, NOW(), SESSION_USER(), NEW.id_afiliado, NEW.nombre, new.apellido,
      new.email, new.telefono, new.fecha_nacimiento, new.domicilio, new.estado_civil,  
      new.dni, new.id_plan, new.id_ocupacion, 'INSERT');
+     
+
+
     
 CREATE TRIGGER `before_logs_afiliado`
 BEFORE INSERT ON `afiliado`
