@@ -5,7 +5,7 @@
 Creando una Base de datos en MySql desde Python.
 
 
-<a href="https://www.mysql.com/" rel="nofollow"><img src="https://miracomosehace.com/wp-content/uploads/2020/08/icono-de-mysql-a-colores.jpg" align="right" width="150" style="max-width: 100%;"></a>
+<a href="https://www.mysql.com/" rel="nofollow"><img src="https://hashtechy.com/wp-content/uploads/2021/12/mysql.jpg" align="right" width="200" style="max-width: 100%;"></a>
 
 # Base de Datos
 
