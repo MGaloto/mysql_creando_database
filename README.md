@@ -18,7 +18,7 @@ Se utilizara My Sql para la creacion de la base de datos.
 <li>
 1 - Introduccion
 </li>
-</li>
+<li>
 2 - My Sql
 </li>
 <li>
@@ -66,7 +66,7 @@ Se utilizara My Sql para la creacion de la base de datos.
 
 </ui>
 
-https://maxi-galo.netlify.app/
+
 
 # Contenido del Repositorio
 
@@ -85,4 +85,3 @@ Codigo Python
 [Rpubs](https://rpubs.com/MGaloto/mysql_database)
 
 
-![](Imagenes/dw.png)
