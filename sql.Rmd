@@ -148,21 +148,34 @@ library(tinytex)
 
 <b>
 
+<div style="text-align: center">
 ### Bases de Datos SQL
+</div>
 
 Las Bases de datos SQL, son bases de datos del tipo Relacionales y estructuradas. Su nombre SQL proviene del término (Structured Query Language), en español: Lenguaje de Consulta Estructurado. Se operan a través de SQL, (“sícuel”), un lenguaje derivado del estándar ANSI SQL.
 El lenguaje con el cual se manipulan se conoce como Transact SQL aunque algunas alternativas comerciales utilizan su propia variante con mínimas diferencias sobre el lenguaje estandarizado ANSI SQL.
 
+<br>
+</br>
 
+
+
+<div style="text-align: center">
 ### Bases de Datos No-SQL
+</div>
 
 Las bases de datos No-SQL (not only SQL) difieren del modelo estructurado, apoyándose en un sistema de almacenamiento del tipo {clave - valor}. No utilizan el lenguaje SQL para realizar operaciones sobre la información almacenada.
 Su estructura se basa en el formato de transporte de datos JSON y, además de la categoría clave-valor, el almacenamiento de información se asemeja a bb.dd. documentales, y a las bb.dd. orientadas a grafos.
 Mongo DB, Cassandra, Cosmos DB y Firestore, son las más conocidas y utilizadas actualmente.
 
+<br>
+</br>
 
 
+
+<div style="text-align: center">
 ### Data Warehouse
+</div>
 
 Un <span style = "color:blue">Data Warehouse</span> es un almacén electrónico donde generalmente una empresa u organización mantiene una gran cantidad de información. Los datos de un data warehouse deben almacenarse de forma segura, fiable, fácil de recuperar y fácil de administrar.
 
@@ -214,11 +227,15 @@ A continuacion se encuentra un link con los instructivos para poder descargar e 
 
 [Glosario My Sql](https://docs.google.com/document/d/1Iij_crZc1vvfgk21Dm08D-GgV2Zc3Q4r/edit?usp=sharing&ouid=107665703043742500688&rtpof=true&sd=true)
 
+<br>
+</br>
 
 
 
-
+<div style="text-align: center">
 ### Introduccion a Bases de Datos Relacionales
+</div>
+
 
 Las bases de datos relacionales se basan en el Modelo Relacional usando N cantidad de tablas para representar, tanto los datos, como las relaciones entre estos.
 Es poco frecuente encontrar casos de una bb.dd. con una sola tabla pero, en el caso de que se dé esta situación, se le denomina como Base de datos Plana.
@@ -249,6 +266,48 @@ El modelo relacional, en el cual se apoyan estas bases de datos, almacenan la in
 
 <b>
 Base de datos de una _Empresa de Medicina Prepaga_ donde se va a hacer foco en un modelo de esquema [copo de nieve](https://es.wikipedia.org/wiki/Esquema_en_copo_de_nieve).
+
+La empresa de medicina prepaga tiene varios centros donde cada uno de ellos tiene una especialidad particular. La estructura de la base de datos nos ayuda a almacenar los datos de forma eficiente y de ellos podemos obtener la siguiente información:
+
+<ul>
+
+<li>
+Cobros de afiliados y pagos a proveedores por centro medico.
+</li>
+
+<li>
+Diagnósticos y consultas de los afiliados por centro y medico atendido.
+</li>
+
+<li>
+Fechas de las consultas y los turnos.
+</li>
+
+<li>
+Insumos por proveedor, por tipo y por centro medico.
+</li>
+
+<li>
+Datos de nuestros médicos y afiliados.
+</li>
+
+<li>
+Distintos medios por los cuales se llevan a cabo las operaciones de cobros y pagos.
+</li>
+
+<li>
+Resultados netos de caja por periodo y por centro medico.
+</li>
+
+
+
+</ul>
+
+
+El objetivo es introducirnos en el mundo de las bases de datos relacionales, entender las distintas funcionalidades que nos proveen para el armado de una base de datos y otras sentencias que nos ayuden al armado final de la base de datos de una empresa de medicina prepaga.
+
+
+
 </b>
 
 
@@ -277,19 +336,33 @@ knitr::include_graphics("Imagenes/snowflake.png")
 
 <b>
 
+<div style="text-align: center">
 ### Tablas
+</div>
 
 Cuando nos referimos a una tabla, estamos hablando específicamente de un tipo de elemento, que cumple el paradigma de Modelado de datos, y permite guardar la información denominada registros. Cada tabla se compone de Campos y Columnas. Cada campo debe ser único además de tener un tipo de dato asociado. Cada Columna de una tabla, define el total de la información que se almacena, comúnmente llamada registro.
 Un registro es el dato alojado en forma de fila, dentro de una tabla. Otro nombre que se le aplica comúnmente a los registros, es tupla.
 Las tablas también suelen ser llamadas, mucho más formalmente: entidad. Y, en algunos textos algo más antiguos: relación. Y al igual que el nombre tupla, aplicado a los registros, los campos o columnas también son denominados más formalmente como: atributos.
 
+<br>
+</br>
 
+
+
+<div style="text-align: center">
 ### Estructura de Tablas
+</div>
 
 Es una estructura de tablas, las cuales a su vez se relacionan con otras tablas. Su principal característica es no poseer información repetida de forma innecesaria, lo que permite adicionar más información sin llegar a afectar la otra almacenada.
 
+<br>
+</br>
 
+
+
+<div style="text-align: center">
 ### Ventajas del modelo Relacional
+</div>
 
 * Favorece el proceso de normalización, el cual permite eliminar la redundancia de los datos.
 
@@ -306,8 +379,13 @@ Es una estructura de tablas, las cuales a su vez se relacionan con otras tablas.
 * Si un registro se relaciona con otro registro de otra tabla, no permite que el mismo sea eliminado. Asimismo, si se quiere borrar, también pasará con todos los datos relacionados.
 
 
-### Tipos de Relaciones
+<br>
+</br>
 
+
+<div style="text-align: center">
+### Tipos de Relaciones
+</div>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center'}
 knitr::include_graphics("Imagenes/unouno.png")
@@ -325,16 +403,24 @@ knitr::include_graphics("Imagenes/unomuchos.png")
 knitr::include_graphics("Imagenes/muchosmuchos.png")
 ```
 
-
+<div style="text-align: center">
 ### Logicas
-
+</div>
 * Clave primaria <span style = "color:green">PK</span>: también llamada llave primaria o primary key, hace que el registro sea unívoco y obligatoriamente no nulo.
 
 * Clave foránea <span style = "color:blue">FK</span>: también llamada foreign key, clave secundaria o clave externa, puede ser -o no- una clave primaria dentro de la tabla. Su característica es que es el punto de enlace con otra tabla donde ésta es primary key.
 
 * Clave índice: es un campo que facilita la búsqueda dentro de una tabla. Generalmente son campos primary key.
 
-**_Tablas, descripción y atributos:_**
+<br>
+</br>
+
+
+<div style="text-align: center">
+### Tablas, descripción y atributos
+</div>
+
+
 
 A continuación se detallaran cada una de las tablas que componen el DER con sus atributos y descripciones:
 
@@ -357,7 +443,8 @@ A continuación se detallaran cada una de las tablas que componen el DER con sus
 *id_ocupacion*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
 *id_plan*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
 
-
+<br>
+</br>
 
 
 _Esta tabla contiene los atributos de los afiliados de la empresa de medicina prepaga, podemos observar el ID como Primary Key y por ultimo dos FK que hacen referencia a la ocupación del empleado y el plan. Estas serán dos tablas que se crean a parte para no repertir datos._
@@ -378,7 +465,8 @@ _Un ejemplo sencillo: La ocupación puede ser empleado bajo relación de depende
 *id_ocupacion*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
 *ocupación*|VARCHAR(50) NOT NULL
 
-
+<br>
+</br>
 
 
 _Esta tabla contiene los siguientes datos: *Bajo relacion de dependencia, monotributista, desempleado y jubilado*._
@@ -396,7 +484,8 @@ _Esta tabla contiene los siguientes datos: *Bajo relacion de dependencia, monotr
 *id_plan*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
 *nombre*|VARCHAR(50) NOT NULL
 
-
+<br>
+</br>
 
 
 _Esta tabla contiene los siguientes datos: *Medium y Premium*._
@@ -416,7 +505,8 @@ _Esta tabla contiene los siguientes datos: *Medium y Premium*._
 *domicilio*|VARCHAR(50) NOT NULL
 *telefono*|INT NOT NULL 
 
-
+<br>
+</br>
 
 
 _Esta tabla contiene los datos de los médicos que prestan su servicio a distintos centros médicos._
@@ -458,7 +548,8 @@ _Esta tabla contiene los datos de los médicos que prestan su servicio a distint
 *consulta*|VARCHAR(50) NOT NULL
 *diagnostico*|VARCHAR(50) NOT NULL
 
-
+<br>
+</br>
 
 
 
@@ -480,7 +571,8 @@ _Esta tabla contiene los datos de las consultas de los afiliados y los diagnosti
 *id_centro*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
 
 
-
+<br>
+</br>
 
 
 _Esta tabla contiene los datos del turno. Se conecta con varias tablas, entre ellas la de consulta. Una vez registrado el turno en la base de datos y luego de la consulta se completan los valores en la tabla consulta con el diagnostico final._
@@ -501,7 +593,8 @@ _Esta tabla contiene los datos del turno. Se conecta con varias tablas, entre el
 *cuit*|INT NOT NULL 
 *mail*|VARCHAR(50) NOT NULL 
 
-
+<br>
+</br>
 
 _La tabla contiene todos los datos de los proveedores que se van dando de alta. No tiene muchos movimientos en general._
 
@@ -515,7 +608,8 @@ _La tabla contiene todos los datos de los proveedores que se van dando de alta. 
 *id_tipo_insumo*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
 *tipo_insumo*|VARCHAR(50) NOT NULL 
 
-
+<br>
+</br>
 
 
 _Tabla que contiene datos sobre el tipo de insumo que compran los centros medicos. No tiene muchos movimientos._
@@ -534,7 +628,8 @@ _Tabla que contiene datos sobre el tipo de insumo que compran los centros medico
 *id_tipo_insumo*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
 *id_proveedor*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
 
-
+<br>
+</br>
 
 
 
@@ -553,7 +648,8 @@ _Esta tabla contiene los datos de cada uno de los insumos._
 *id_centro*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
 *id_insumo*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
 
-
+<br>
+</br>
 
 
 _Tabla que conecta de muchos a muchos los insumos con los centros medicos._
@@ -572,10 +668,11 @@ _Tabla que conecta de muchos a muchos los insumos con los centros medicos._
 *importe*|INT NOT NULL 
 *id_medio_operacion*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
 *id_proveedor*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_centro*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+<br>
+</br>
 
-
-
-_Tabla que registra todos los pagos de todos los centros médicos._
+_Tabla que registra todos los pagos de todos los centros médicos. Se puede consultar el total de pagos por cada centro medico._
 
 <br>
 </br>
@@ -590,10 +687,13 @@ _Tabla que registra todos los pagos de todos los centros médicos._
 *importe*|INT NOT NULL 
 *id_medio_operacion*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
 *id_afiliado*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_centro*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+
+<br>
+</br>
 
 
-
-_Tabla que registra todos los cobros de todos los centros médicos._
+_Tabla que registra todos los cobros de todos los centros médicos. El id_centro que aparece en la linea del cobro de la empresa de medicina prepaga no se relaciona necesariamente con que le haya hecho un pago a ese centro medico, sino que hace relación a que con mayor frecuencia se atiende en ese centro y se termina imputando el cobro de esa manera._
 
 <br>
 </br>
@@ -606,10 +706,13 @@ _Tabla que registra todos los cobros de todos los centros médicos._
 *id_medio_operacion*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
 *tipo_medio_operacion*|VARCHAR(50) NOT NULL 
 
+<br>
+</br>
 
 
 
 _Tabla que registra todos medios financieros de pagos: *Tarjeta de Debito, Crédito, Efectivo y Transferencias*._
+
 </b>
 <br>
 </br>
@@ -645,6 +748,8 @@ En <b>[este link](https://app.diagrams.net/)</b> se puede elaborar un DER prelim
 
 ```
 
+<br>
+</br>
 
 
 ```{r, echo=FALSE, out.width="100%", fig.align='center' ,out.extra='class="myimg"'}
@@ -662,13 +767,15 @@ Luego de crear las tablas en My Sql podemos ver el Reverse Engineer.
 La ingeniería inversa o retroingeniería es el proceso llevado a cabo con el objetivo de obtener información o un diseño a partir de un producto, con el fin de determinar cuáles son sus componentes y de qué manera interactúan entre sí y cuál fue el proceso de fabricación. 
 
 
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="50%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/reverseoptions.png")
 ```
 
-
+<br>
+</br>
 
 
 
@@ -676,7 +783,8 @@ La siguiente imagen representa el Reverse Engineer de la base de datos creada:
 
 </b>
 
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="100%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("REVERSE.png")
@@ -713,13 +821,16 @@ Los valores en cada una de las tablas se insertaron desde archivos .csv.
 
 Los archivos son los siguientes:
 
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/archivos.png")
 ```
 
 
-
+<br>
+</br>
 
   
   
@@ -729,33 +840,38 @@ _Cada una de las tablas contiene 10 observaciones_
 
 _Ejemplo tabla afiliados:_
 
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="100%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/afiliado.png")
 ```
 
 
-
+<br>
+</br>
 
 
 
 A continuación se adjuntan scripts de los pasos para importar los datos y MySql final:
 
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/import.png")
 ```
 
 
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/script_medico.png")
 ```
 
-
+<br>
+</br>
 
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
@@ -783,6 +899,9 @@ knitr::include_graphics("Imagenes/base_datos.png")
 A continuacion se adjunta un breve .gif que muestra la ingesta de datos a My Sql desde Python. Se utiliza un While que finaliza cuando el usuario desea dejar de ingresar datos. Los datos se ingresan en la tabla de afiliados dandolos de alta en el sistema.
 
 </b>
+
+<br>
+</br>
 
 ![.](Imagenes/gifuno.gif){width=100%}
 
@@ -821,7 +940,8 @@ Se tienen en cuenta las siguientes sentencias:
 
 * Se ordena de mayor a menor los importes de pago acumulados.
 
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/join.png")
@@ -836,10 +956,13 @@ El siguiente join es entre la tabla pagos y proveedores, se agrupa cada uno de l
 knitr::include_graphics("Imagenes/join2.png")
 ```
 
+<br>
+</br>
 
 A continuación se trabajara con el software R para crear un grafico de torta por proveedor con los montos totales de pago a cada uno de ellos:
 
-
+<br>
+</br>
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -858,7 +981,8 @@ library(reticulate)
 
 ```
 
-
+<br>
+</br>
 
 
 ```{r, echo=TRUE, fig.cap= 'Pie Chart'}
@@ -897,7 +1021,8 @@ pie_chart
 </div>
 
 
-
+<br>
+</br>
 
 
 
@@ -908,9 +1033,12 @@ Una Vista SQL es básicamente una tabla virtual que se genera a partir de la eje
 Podemos guardar las Vistas con un nombre distintivo, para poder ejecutarlas cuantas veces consideremos necesario.
 Su almacenamiento se da en la sección Views de los objetos de la base de datos.
 
+<br>
+</br>
 
+<div style="text-align: center">
 ### Beneficios
-
+</div>
 * Privacidad de la información: los usuarios podrán ver solo aquellos datos que creamos convenientes mostrar.
 
 * Rendimiento de la bb.dd.: Crear queries sobre vistas complejas nos ahorra ejecutar una query pesada para llegar a la información.
@@ -918,8 +1046,12 @@ Su almacenamiento se da en la sección Views de los objetos de la base de datos.
 * Protección de datos: Aquellos usuarios que no poseen un entorno de pre-producción, las vistas evitan errores de borrado o alteración.
 
 
+<br>
+</br>
 
+<div style="text-align: center">
 ### Scripts de Vistas
+</div>
 
 **_A continuación se adjuntan los scripts de las vistas_**
 
@@ -938,7 +1070,8 @@ _Consulta y Diagnostico por Afiliado_
 
 _Esta vista permite guardarnos en una tabla aparte todos los turnos solicitados por los afiliados dados de alta en el sistema. Nos sirve para estar actualizados de los ultimos turnos ya que esta ordenada por fecha._
 
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="50%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/vista1.png")
@@ -948,8 +1081,7 @@ knitr::include_graphics("Imagenes/vista1.png")
 
 <br>
 </br>
-<br>
-</br>
+
 
 
 
@@ -958,6 +1090,9 @@ knitr::include_graphics("Imagenes/vista1.png")
 _Que medico atendió a cada paciente:_
 
 _Esta vista creada nos sirve para visualizar forma rapida mediante su consulta sobre que medicos atendieron a que paciente en determinada fecha._
+
+<br>
+</br>
 
 
 ```{r, echo=FALSE, out.width="50%", fig.align='center' ,out.extra='class="myimg"'}
@@ -969,8 +1104,7 @@ knitr::include_graphics("Imagenes/vista2.png")
 
 <br>
 </br>
-<br>
-</br>
+
 
 **_3) Vista 3_**
 
@@ -978,6 +1112,8 @@ _Que medico atiende en cada centro medico:_
 
 _Esta vista permite que podamos visualizar de forma rapida que medicos atienden en los centros medicos._
 
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="50%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/vista3.png")
@@ -987,8 +1123,7 @@ knitr::include_graphics("Imagenes/vista3.png")
 
 <br>
 </br>
-<br>
-</br>
+
 
 
 </ul>
@@ -1008,11 +1143,6 @@ knitr::include_graphics("Imagenes/vista3.png")
 
 <br>
 </br>
-
-
-```{r, echo=FALSE, out.width="40%", fig.align='center' ,out.extra='class="myimg"'}
-knitr::include_graphics("Imagenes/fun.png")
-```
 
 
 
@@ -1048,7 +1178,8 @@ _Ingresamos el diagnostico y nos regresa el porcentaje de pacientes con el diagn
 
 _En la parte inferior de la imagen adjunta se puede ver el resultado de la función una vez ingresado un CHAR._
 
-
+<br>
+</br>
 
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
@@ -1059,8 +1190,7 @@ knitr::include_graphics("Imagenes/funcion1.png")
 
 <br>
 </br>
-<br>
-</br>
+
 
 
 **_2) Función 2:_**
@@ -1072,6 +1202,8 @@ _Esta funcion nos calcula automaticamente la diferencia entre ingresos y egresos
 
 _En la parte inferior de la imagen adjunta se puede ver el resultado de la función una vez ingresado un CHAR._
 
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/funcion2.png")
@@ -1079,8 +1211,7 @@ knitr::include_graphics("Imagenes/funcion2.png")
 
 <br>
 </br>
-<br>
-</br>
+
 
 </ul>
 
@@ -1127,14 +1258,13 @@ Algunos Beneficios:
 
 _En el siguiente Stored Procedure insertamos valores en la tabla turno con el ID creado anteriormente en la tabla consulta._
 
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/sp1.png")
 ```
 
-<br>
-</br>
 <br>
 </br>
 
@@ -1144,7 +1274,8 @@ knitr::include_graphics("Imagenes/sp1.png")
 
 _El siguiente Stored Procedure ejecuta un comando que nos permite ordenar la tabla que queramos por una variable._
 
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/sp2.png")
@@ -1152,8 +1283,7 @@ knitr::include_graphics("Imagenes/sp2.png")
 
 <br>
 </br>
-<br>
-</br>
+
 
 </ul>
 </b>
@@ -1190,7 +1320,8 @@ Cuando un evento ya sea de tipo Insert, Update o Delete se realiza en una tabla 
 
 
 _En el siguiente Trigger se crea un log para la tabla afiliados y luego de insertar los datos en la tabla afiliados van a parar al trigger creado._
-
+<br>
+</br>
 
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
@@ -1200,10 +1331,10 @@ knitr::include_graphics("Imagenes/triggeraft1.png")
 
 <br>
 </br>
+
+_Lo contrario sucede con la próxima imagen que es un Before._
 <br>
 </br>
-_Lo contrario sucede con la próxima imagen que es un Before._
-
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/triggerbef1.png")
@@ -1212,8 +1343,7 @@ knitr::include_graphics("Imagenes/triggerbef1.png")
 
 <br>
 </br>
-<br>
-</br>
+
 
 **_2) Triggers 2:_**
 
@@ -1222,7 +1352,8 @@ _En el siguiente Trigger se crea un log para la tabla consulta y antes de que se
 
 _Lo contrario sucede con la próxima imagen que es un Before._
 
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/triggeraft2.png")
@@ -1232,11 +1363,11 @@ knitr::include_graphics("Imagenes/triggeraft2.png")
 
 <br>
 </br>
-<br>
-</br>
+
 
 _Lo contrario sucede con la próxima imagen que es un Before._
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/triggerbef1.png")
@@ -1245,8 +1376,7 @@ knitr::include_graphics("Imagenes/triggerbef1.png")
 
 <br>
 </br>
-<br>
-</br>
+
 
 
 </ul>
@@ -1295,7 +1425,8 @@ Con la sentencia REVOKE le quitamos permisos al usuario.
 _Creamos el usuario_uno y el usuario_dos donde al primero le damos permiso con la sentencia GRANT para que solo pueda hacer comandos SELECT. Al usuario_dos le damos permiso para que pueda alterar, seleccionar e insertar datos._
 
 _Con la sentencia REVOKE le quitamos a ambos usuarios la posibilidad de eliminar registros._
-
+<br>
+</br>
 
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
@@ -1304,26 +1435,27 @@ knitr::include_graphics("Imagenes/user.png")
 
 <br>
 </br>
-<br>
-</br>
 
 
 _SHOW GRANTS para el usuario_uno._
 
 
 _Podemos ver que solo tiene permiso para la sentencia SELECT en la base de datos._
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/user_1.png")
 ```
-
+<br>
+</br>
 
 
 _SHOW GRANTS para el usuario_dos._
 
 _Podemos ver que tiene permiso para la sentencia SELECT, INSERT y ALTER en la base de datos._
-
+<br>
+</br>
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/user_2.png")
 ```
@@ -1365,7 +1497,8 @@ Mysql incluye la herramienta mysqldump dentro del motor de base de datos para ge
 
 _Para crear el Backup de las tablas dejando de lado la estructura debemos hacer los siguientes pasos:_
 
-
+<br>
+</br>
 ```{r, echo=FALSE, out.width="50%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/backup1.png")
 ```
@@ -1376,7 +1509,8 @@ knitr::include_graphics("Imagenes/backup1.png")
 
 _Click en la base de datos:_
 
-
+<br>
+</br>
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/backup2.png")
 ```
@@ -1386,7 +1520,8 @@ knitr::include_graphics("Imagenes/backup2.png")
 </br>
 
 _Tildar todas las opciones:_
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/backup11.png")
@@ -1401,7 +1536,8 @@ _Seleccionar Export to Self-Contained File:_
 
 _Esta opción nos exportara un archivo .sql_
 
-
+<br>
+</br>
 ```{r, echo=FALSE, out.width="50%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/backup3.png")
 ```
@@ -1411,7 +1547,8 @@ knitr::include_graphics("Imagenes/backup3.png")
 </br>
 
 _Seleccionar Start Export:_
-
+<br>
+</br>
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center' ,out.extra='class="myimg"'}
 knitr::include_graphics("Imagenes/backup4.png")

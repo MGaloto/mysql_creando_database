@@ -1,0 +1,470 @@
+---
+title: "SQL"
+author: "Maximiliano Galoto"
+date: "28/02/2022"
+output:
+  pdf_document: default
+  word_document: default
+subtitle: 'Base de Datos de una Empresa de Medicina Prepaga.'
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+
+```
+
+
+
+
+
+
+## 1) _Introducción:_
+
+
+<b>
+Base de datos de una _Empresa de Medicina Prepaga_ donde se va a hacer foco en un modelo de esquema [copo de nieve](https://es.wikipedia.org/wiki/Esquema_en_copo_de_nieve).
+
+La empresa de medicina prepaga tiene varios centros donde cada uno de ellos tiene una especialidad particular. La estructura de la base de datos nos ayuda a almacenar los datos de forma eficiente y de ellos podemos obtener la siguiente información:
+
+
+* Cobros de afiliados y pagos a proveedores por centro medico.
+
+
+
+* Diagnósticos y consultas de los afiliados por centro y medico atendido.
+
+
+
+* Fechas de las consultas y los turnos.
+
+
+
+* Insumos por proveedor, por tipo y por centro medico.
+
+
+
+* Datos de nuestros médicos y afiliados.
+
+
+
+* Distintos medios por los cuales se llevan a cabo las operaciones de cobros y pagos.
+
+
+
+* Resultados netos de caja por periodo y por centro medico.
+
+
+## 2) _Objetivo:_
+
+El objetivo es introducirnos en el mundo de las bases de datos relacionales, entender las distintas funcionalidades que nos proveen para el armado de una base de datos y otras sentencias que nos ayuden al armado final de la base de datos de una empresa de medicina prepaga.
+
+
+
+## 3) _Situación Problemática:_
+
+
+Empresa de Medicina Prepaga que busca registrar sus datos por centro medico, es decir, turnos, pagos, cobros y proveedores por cada uno de los centros medicos. No solo por turnos y diagnosticos sino tambien por la situacion financiera de cada uno de sus centros.
+
+
+
+
+
+
+## 4) _Modelo de Negocio:_
+
+Empresa privada de prestación de cobertura medica con distintos planes. La empresa tiene varios centros médicos en donde se atienden los afiliados. 
+
+
+
+
+## 5) _Diagrama E-R:_
+
+
+<b>
+Un diagrama entidad-relación, también conocido como modelo entidad relación o ERD, es un tipo de diagrama de flujo que ilustra cómo las "entidades", como personas, objetos o conceptos, se relacionan entre sí dentro de un sistema. Los diagramas ER se usan a menudo para diseñar o depurar bases de datos relacionales en los campos de ingeniería de software, sistemas de información empresarial, educación e investigación.
+
+En <b>[este link](https://app.diagrams.net/)</b> se puede elaborar un DER preliminar para luego trabajarlo en una base de datos.
+
+
+
+<br>
+</br>
+
+
+```{r, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("DER.png")
+```
+
+
+
+
+</b>
+
+
+## 6) _Tablas:_
+
+
+A continuación se detallaran cada una de las tablas que componen el DER con sus atributos y descripciones:
+
+<br>
+</br>
+
+ $$ \textbf{Tabla: Afiliado }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_afiliado*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL
+*apellido*|VARCHAR(50) NOT NULL
+*email*|VARCHAR(50) NOT NULL
+*telefono*|INT NOT NULL 
+*fecha_nacimiento*|DATE NOT NULL
+*domicilio*|VARCHAR(50) NOT NULL 
+*estado_civil*|VARCHAR(50) NOT NULL 
+*dni*|INT NOT NULL 
+*id_ocupacion*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_plan*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+
+<br>
+</br>
+
+
+_Esta tabla contiene los atributos de los afiliados de la empresa de medicina prepaga, podemos observar el ID como Primary Key y por ultimo dos FK que hacen referencia a la ocupación del empleado y el plan. Estas serán dos tablas que se crean a parte para no repertir datos._
+
+
+_Un ejemplo sencillo: La ocupación puede ser empleado bajo relación de dependencia, monotributista, desempleado o jubilado. Estos datos se pondrán aparte en una tabla llamada *ocupacion_afiliado* y en la tabla *afiliado* solo de pondrá el numero de ID ya que al ir dando de alta a los afiliados en el sistema nos ahorrariamos espacio en la base de datos al no tener que repetir tantos caracteres por fila y solamente completar con el ID de ocupacion que viene de la tabla *ocupacion_afiliado*._
+
+
+
+<br>
+</br>
+
+
+ $$ \textbf{Tabla: Ocupacion Afiliado }$$ 
+
+ **Atributos** |  **Descripción**    
+-----------| ------------|
+*id_ocupacion*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*ocupación*|VARCHAR(50) NOT NULL
+
+<br>
+</br>
+
+
+_Esta tabla contiene los siguientes datos: *Bajo relacion de dependencia, monotributista, desempleado y jubilado*._
+
+<br>
+</br>
+
+
+
+
+ $$ \textbf{Tabla: Plan Afiliado  }$$ 
+
+ **Atributos** |  **Descripción**    
+-----------| ------------|
+*id_plan*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL
+
+<br>
+</br>
+
+
+_Esta tabla contiene los siguientes datos: *Medium y Premium*._
+
+<br>
+</br>
+
+
+ $$ \textbf{Tabla: Medico }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_medico*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL
+*apellido*|VARCHAR(50) NOT NULL
+*fecha_nacimiento*|DATE NOT NULL
+*domicilio*|VARCHAR(50) NOT NULL
+*telefono*|INT NOT NULL 
+
+<br>
+</br>
+
+
+_Esta tabla contiene los datos de los médicos que prestan su servicio a distintos centros médicos._
+
+
+
+<br>
+</br>
+
+
+
+ $$ \textbf{Tabla: Centro Medico }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_centro*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL
+*direccion*|VARCHAR(50) NOT NULL
+*telefono*|INT NOT NULL 
+*codigo_postal*|INT NOT NULL 
+*email*|VARCHAR(50) NOT NULL
+*fecha_nacimiento*|DATE NOT NULL
+*especialidad*|VARCHAR(50) NOT NULL
+
+
+
+
+<br>
+</br>
+
+
+
+
+ $$ \textbf{Tabla: Consulta }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_consulta*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*consulta*|VARCHAR(50) NOT NULL
+*diagnostico*|VARCHAR(50) NOT NULL
+
+<br>
+</br>
+
+
+
+_Esta tabla contiene los datos de las consultas de los afiliados y los diagnosticos posterior a la consulta._
+
+<br>
+</br>
+
+
+ $$ \textbf{Tabla: Turnos }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_turno*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*fecha*|DATE NOT NULL
+*id_medico*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_afiliado*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_consulta*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_centro*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+
+
+<br>
+</br>
+
+
+_Esta tabla contiene los datos del turno. Se conecta con varias tablas, entre ellas la de consulta. Una vez registrado el turno en la base de datos y luego de la consulta se completan los valores en la tabla consulta con el diagnostico final._
+
+
+<br>
+</br>
+
+
+
+ $$ \textbf{Tabla: Proveedor }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_proveedor*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL 
+*telefono*|INT NOT NULL 
+*cuit*|INT NOT NULL 
+*mail*|VARCHAR(50) NOT NULL 
+
+<br>
+</br>
+
+_La tabla contiene todos los datos de los proveedores que se van dando de alta. No tiene muchos movimientos en general._
+
+<br>
+</br>
+
+ $$ \textbf{Tabla: Tipo Insumo }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_tipo_insumo*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*tipo_insumo*|VARCHAR(50) NOT NULL 
+
+<br>
+</br>
+
+
+_Tabla que contiene datos sobre el tipo de insumo que compran los centros medicos. No tiene muchos movimientos._
+
+<br>
+</br>
+
+
+ $$ \textbf{Tabla: Insumos }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_insumo*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL 
+*id_centro*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_tipo_insumo*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_proveedor*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+
+<br>
+</br>
+
+
+
+_Esta tabla contiene los datos de cada uno de los insumos._
+
+<br>
+</br>
+
+
+ $$ \textbf{Tabla: Centro Medico Insumos }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_centro_medico_insumos*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*nombre*|VARCHAR(50) NOT NULL 
+*id_centro*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_insumo*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+
+<br>
+</br>
+
+
+_Tabla que conecta de muchos a muchos los insumos con los centros medicos._
+
+<br>
+</br>
+
+
+
+ $$ \textbf{Tabla: Pagos }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_pagos*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*fecha_transaccion*|DATE NOT NULL 
+*importe*|INT NOT NULL 
+*id_medio_operacion*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_proveedor*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_centro*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+<br>
+</br>
+
+_Tabla que registra todos los pagos de todos los centros médicos. Se puede consultar el total de pagos por cada centro medico._
+
+<br>
+</br>
+
+
+ $$ \textbf{Tabla: Cobros }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_cobros*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*fecha_transaccion*|DATE NOT NULL 
+*importe*|INT NOT NULL 
+*id_medio_operacion*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_afiliado*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+*id_centro*|<b><span style = "color:blue">INT NOT NULL FOREIGN KEY </span></b>
+
+<br>
+</br>
+
+
+_Tabla que registra todos los cobros de todos los centros médicos. El id_centro que aparece en la linea del cobro de la empresa de medicina prepaga no se relaciona necesariamente con que le haya hecho un pago a ese centro medico, sino que hace relación a que con mayor frecuencia se atiende en ese centro y se termina imputando el cobro de esa manera._
+
+<br>
+</br>
+
+
+ $$ \textbf{Tabla: Medio Operacion }$$ 
+
+ **Atributos** |  **Descripcion**    
+-----------| ------------|
+*id_medio_operacion*|<b><span style = "color:green">INT NOT NULL PRIMARY KEY AUTOINCREMENT</span></b>
+*tipo_medio_operacion*|VARCHAR(50) NOT NULL 
+
+<br>
+</br>
+
+
+
+_Tabla que registra todos medios financieros de pagos: *Tarjeta de Debito, Crédito, Efectivo y Transferencias*._
+
+</b>
+<br>
+</br>
+
+
+
+
+## 7) _Scripts SQL:_
+
+Todos los Scrpit de SQL se pueden ver en el siguiente link:
+
+<div style="text-align: center" >
+[Link Github Codigo .sql](https://github.com/MGaloto/mysql_creando_database/tree/main/Codigo%20MySql)
+</div>
+
+El siguiente link contiene todos los scripts anteriores en uno solo:
+
+<div style="text-align: center" >
+[Link Github Codigo .sql Completo](https://github.com/MGaloto/mysql_creando_database/tree/main/Script%20Final)
+</div>
+
+
+
+
+
+
+<br>
+</br>
+
+
+
+## 8) _Scripts Incersion:_
+
+Todos los Scrpit de SQL se pueden ver en el siguiente link:
+
+<div style="text-align: center" >
+[Link Github Codigo .sql](https://github.com/MGaloto/mysql_creando_database/tree/main/Codigo%20MySql)
+</div>
+
+
+<br>
+</br>
+
+
+
+## 9) _Informes:_
+
+Todos los Scrpit de SQL se pueden ver en el siguiente link:
+
+<div style="text-align: center" >
+[Link Rpubs](https://rpubs.com/MGaloto/mysql_database)
+</div>
+
+
+<br>
+</br>
+
+
+## 9) _Tecnologias Utilizadas:_
+
+
+
+* [My Sql](https://www.mysql.com/) 
+
+* [Python](https://www.python.org/) 
+
+* [R Studio](https://www.rstudio.com/) 
+  
+

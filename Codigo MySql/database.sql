@@ -1,7 +1,7 @@
 CREATE SCHEMA IF NOT EXISTS centro_medicina_prepaga;
 
 USE centro_medicina_prepaga;
-
+	
 # Primero crear tablas sin relaciones
 
 CREATE TABLE IF NOT EXISTS medico (
@@ -79,8 +79,10 @@ fecha_transaccion DATE ,
 importe INT ,
 id_medio_operacion INT ,
 id_afiliado INT ,
+id_centro INT ,
 FOREIGN KEY (id_medio_operacion) REFERENCES medio_operacion(id_medio_operacion) ,
-FOREIGN KEY (id_afiliado) REFERENCES afiliado(id_afiliado) 
+FOREIGN KEY (id_afiliado) REFERENCES afiliado(id_afiliado) ,
+FOREIGN KEY (id_centro) REFERENCES centro_medico(id_centro) 
 )engine = innodb;
 
 CREATE TABLE IF NOT EXISTS pagos (
@@ -89,8 +91,10 @@ fecha_transaccion DATE ,
 importe BIGINT ,
 id_medio_operacion INT ,
 id_proveedor INT ,
+id_centro INT ,
 FOREIGN KEY (id_medio_operacion) REFERENCES medio_operacion(id_medio_operacion) ,
-FOREIGN KEY (id_proveedor) REFERENCES proveedor(id_proveedor) 
+FOREIGN KEY (id_proveedor) REFERENCES proveedor(id_proveedor) ,
+FOREIGN KEY (id_centro) REFERENCES centro_medico(id_centro) 
 )engine = innodb;
 
 

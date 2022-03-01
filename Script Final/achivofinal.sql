@@ -79,8 +79,10 @@ fecha_transaccion DATE ,
 importe INT ,
 id_medio_operacion INT ,
 id_afiliado INT ,
+id_centro INT ,
 FOREIGN KEY (id_medio_operacion) REFERENCES medio_operacion(id_medio_operacion) ,
-FOREIGN KEY (id_afiliado) REFERENCES afiliado(id_afiliado) 
+FOREIGN KEY (id_afiliado) REFERENCES afiliado(id_afiliado) ,
+FOREIGN KEY (id_centro) REFERENCES centro_medico(id_centro) 
 )engine = innodb;
 
 CREATE TABLE IF NOT EXISTS pagos (
@@ -89,10 +91,11 @@ fecha_transaccion DATE ,
 importe BIGINT ,
 id_medio_operacion INT ,
 id_proveedor INT ,
+id_centro INT ,
 FOREIGN KEY (id_medio_operacion) REFERENCES medio_operacion(id_medio_operacion) ,
-FOREIGN KEY (id_proveedor) REFERENCES proveedor(id_proveedor) 
+FOREIGN KEY (id_proveedor) REFERENCES proveedor(id_proveedor) ,
+FOREIGN KEY (id_centro) REFERENCES centro_medico(id_centro) 
 )engine = innodb;
-
 
 CREATE TABLE IF NOT EXISTS turnos (
 id_turno INT  PRIMARY KEY AUTO_INCREMENT,
@@ -125,20 +128,6 @@ FOREIGN KEY (id_insumo) REFERENCES insumos(id_insumo)
 )engine = innodb;
 
 
-
--- Insert Tabla Afiliado --
-
-INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (1,'Juan','Gomez','juangomez@gmail.com.ar',1945456565,'1990-05-01','calle 1','soltero',37454232,1,1);
-INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (2,'Maxi','Lopez','maxilopez@gmail.com.ar',1945456464,'1989-05-01','calle 2','casado',31444222,1,1);
-INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (3,'Lucas','Gonzales','lucasgonzales@gmail.com.ar',1945455454,'1987-05-01','calle 3','casado',37444228,1,1);
-INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (4,'Julieta','Reta','julietareta@gmail.com.ar',1523235656,'1987-05-02','calle 4','soltero',37444229,1,1);
-INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (5,'Giuliana','Lopez','giulopez@gmail.com.ar',1425253635,'1987-05-03','calle 5','soltero',37444230,1,1);
-INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (6,'Graciela','Galo','gragalo@gmail.com.ar',1168808947,'1987-05-04','calle 6','soltero',37444231,2,1);
-INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (7,'Alejandro','Galo','alegalo@gmail.com.ar',1235356964,'1987-05-05','calle 7','casado',37444232,2,1);
-INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (8,'Luis','Casal','luicasa@gmail.com.ar',1527278946,'1987-05-06','calle 8','soltero',37444233,2,1);
-INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (9,'Nicolas','Schiavi','nicochi@gmail.com.ar',1564796497,'1987-05-07','calle 9','soltero',37444234,2,2);
-INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (10,'Matias','Guitierrez','matgut@gmail.com.ar',1523465678,'1987-05-08','calle 10','soltero',37444235,2,2);
-INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (11,'juan','centurion','juancen@gmail',1165654848,'1980-01-05','calle 1500','soltero',30374152,1,1);
 
 -- Insert Tabla medico --
 
@@ -215,6 +204,21 @@ INSERT INTO centro_medico (`id_centro`,`nombre`,`direccion`,`telefono`,`cod_post
 INSERT INTO centro_medico (`id_centro`,`nombre`,`direccion`,`telefono`,`cod_postal`,`email`,`especialidad_principal`) VALUES (9,'Monte Grande','calle 262',153113119,158,'montegrande@gmail.com','dermatologia');
 INSERT INTO centro_medico (`id_centro`,`nombre`,`direccion`,`telefono`,`cod_postal`,`email`,`especialidad_principal`) VALUES (10,'Britanico','calle 263',153113120,159,'britanico@gmail.com','traumatologia');
 
+-- Insert Tabla Afiliado --
+
+INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (1,'Juan','Gomez','juangomez@gmail.com.ar',1945456565,'1990-05-01','calle 1','soltero',37454232,1,1);
+INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (2,'Maxi','Lopez','maxilopez@gmail.com.ar',1945456464,'1989-05-01','calle 2','casado',31444222,1,1);
+INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (3,'Lucas','Gonzales','lucasgonzales@gmail.com.ar',1945455454,'1987-05-01','calle 3','casado',37444228,1,1);
+INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (4,'Julieta','Reta','julietareta@gmail.com.ar',1523235656,'1987-05-02','calle 4','soltero',37444229,1,1);
+INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (5,'Giuliana','Lopez','giulopez@gmail.com.ar',1425253635,'1987-05-03','calle 5','soltero',37444230,1,1);
+INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (6,'Graciela','Galo','gragalo@gmail.com.ar',1168808947,'1987-05-04','calle 6','soltero',37444231,2,1);
+INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (7,'Alejandro','Galo','alegalo@gmail.com.ar',1235356964,'1987-05-05','calle 7','casado',37444232,2,1);
+INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (8,'Luis','Casal','luicasa@gmail.com.ar',1527278946,'1987-05-06','calle 8','soltero',37444233,2,1);
+INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (9,'Nicolas','Schiavi','nicochi@gmail.com.ar',1564796497,'1987-05-07','calle 9','soltero',37444234,2,2);
+INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (10,'Matias','Guitierrez','matgut@gmail.com.ar',1523465678,'1987-05-08','calle 10','soltero',37444235,2,2);
+INSERT INTO afiliado (`id_afiliado`,`nombre`,`apellido`,`email`,`telefono`,`fecha_nacimiento`,`domicilio`,`estado_civil`,`dni`,`id_plan`,`id_ocupacion`) VALUES (11,'juan','centurion','juancen@gmail',1165654848,'1980-01-05','calle 1500','soltero',30374152,1,1);
+
+
 -- Insert Tabla tipo_insumo --
 
 INSERT INTO tipo_insumo (`id_tipo_insumo`,`tipo_insumo`) VALUES (1,'farmaceutico');
@@ -225,30 +229,30 @@ INSERT INTO tipo_insumo (`id_tipo_insumo`,`tipo_insumo`) VALUES (4,'salud e higi
 -- Insert Tabla cobros --
 
 
-INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`) VALUES (1,'2022-02-01',8500,2,1);
-INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`) VALUES (2,'2022-02-02',8500,2,2);
-INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`) VALUES (3,'2022-02-03',8500,2,3);
-INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`) VALUES (4,'2022-02-04',8500,2,4);
-INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`) VALUES (5,'2022-02-05',8500,2,5);
-INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`) VALUES (6,'2022-02-06',10000,1,6);
-INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`) VALUES (7,'2022-02-07',10000,1,7);
-INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`) VALUES (8,'2022-02-08',10000,1,8);
-INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`) VALUES (9,'2022-02-09',10000,1,9);
-INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`) VALUES (10,'2022-02-10',10000,1,10);
-INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`) VALUES (11,'2022-01-01',8500,2,1);
+INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`,`id_centro`) VALUES (1,'2022-02-01',8500,2,1,1);
+INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`,`id_centro`) VALUES (2,'2022-02-02',8500,2,2,2);
+INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`,`id_centro`) VALUES (3,'2022-02-03',8500,2,3,3);
+INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`,`id_centro`) VALUES (4,'2022-02-04',8500,2,4,3);
+INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`,`id_centro`) VALUES (5,'2022-02-05',8500,2,5,3);
+INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`,`id_centro`) VALUES (6,'2022-02-06',10000,1,6,5);
+INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`,`id_centro`) VALUES (7,'2022-02-07',10000,1,7,5);
+INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`,`id_centro`) VALUES (8,'2022-02-08',10000,1,8,9);
+INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`,`id_centro`) VALUES (9,'2022-02-09',10000,1,9,9);
+INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`,`id_centro`) VALUES (10,'2022-02-10',10000,1,10,10);
+INSERT INTO cobros (`id_cobros`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_afiliado`,`id_centro`) VALUES (11,'2022-01-01',8500,2,1,10);
 
 -- Insert Tabla pagos --
 
-INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`) VALUES (1,'2022-01-01',500,3,1);
-INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`) VALUES (2,'2022-01-02',10000,3,2);
-INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`) VALUES (3,'2022-01-03',500,3,1);
-INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`) VALUES (4,'2022-01-04',500000,3,3);
-INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`) VALUES (5,'2022-01-05',500,3,4);
-INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`) VALUES (6,'2022-01-06',600,3,4);
-INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`) VALUES (7,'2022-01-07',700,3,4);
-INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`) VALUES (8,'2022-01-08',800,3,4);
-INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`) VALUES (9,'2022-01-09',900,3,4);
-INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`) VALUES (10,'2022-01-10',950,3,4);
+INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`,`id_centro`) VALUES (1,'2022-01-01',500,3,1,1);
+INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`,`id_centro`) VALUES (2,'2022-01-02',10000,3,2,2);
+INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`,`id_centro`) VALUES (3,'2022-01-03',500,3,1,3);
+INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`,`id_centro`) VALUES (4,'2022-01-04',500000,3,3,3);
+INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`,`id_centro`) VALUES (5,'2022-01-05',500,3,4,3);
+INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`,`id_centro`) VALUES (6,'2022-01-06',600,3,4,5);
+INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`,`id_centro`) VALUES (7,'2022-01-07',700,3,4,5);
+INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`,`id_centro`) VALUES (8,'2022-01-08',800,3,4,9);
+INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`,`id_centro`) VALUES (9,'2022-01-09',900,3,4,9);
+INSERT INTO pagos (`id_pagos`,`fecha_transaccion`,`importe`,`id_medio_operacion`,`id_proveedor`,`id_centro`) VALUES (10,'2022-01-10',950,3,4,10);
 
 -- Insert Tabla turnos --
 
@@ -296,7 +300,6 @@ INSERT INTO centro_medico_insumos (`id_centro_medico_insumos`,`id_centro`,`id_in
 INSERT INTO centro_medico_insumos (`id_centro_medico_insumos`,`id_centro`,`id_insumo`) VALUES (8,8,8);
 INSERT INTO centro_medico_insumos (`id_centro_medico_insumos`,`id_centro`,`id_insumo`) VALUES (9,9,9);
 INSERT INTO centro_medico_insumos (`id_centro_medico_insumos`,`id_centro`,`id_insumo`) VALUES (10,10,10);
-
 
 
 
