@@ -4,39 +4,39 @@ author: "Maximiliano Galoto"
 subtitle: "Proyecto sobre la construccion de una Base de Datos en My Sql."
 output:
  prettydoc::html_pretty:
-    theme: lumen
+    theme: cayman 
     highlight: github
     toc: true
     toc_depth: 2
     math: katex
 
 
+
 ---
 
 
 
-
+  
 <br>
 </br>
 
-
-```{css my-header-colors, echo = FALSE}
-.page-header {
-    background-image: linear-gradient(200deg, black, blue);
-    border: solid 1px black;
-    border-radius: .3rem;
-}
-
-
-```
 
 
 
 
 <style type="text/css">
 
+.page-header {
+    background-image: url('https://i.gifer.com/J59.gif');
+    border: solid 1px black;
+    border-radius: .3rem;
+    #background-position: center center;
+    #background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 
 
+}
 
 .toc .toc-box {
     padding: 1.5rem;
@@ -65,7 +65,7 @@ a {
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: 750;
-    background-image: linear-gradient(200deg, black, blue);
+    background-image: url('https://i.gifer.com/J59.gif');
     color: white;
     text-align: center;
     border: solid 1px black;
@@ -78,7 +78,7 @@ a {
 
 .main-content table th {
     font-weight: 700;
-    background-image: linear-gradient(2000deg, black, blue);
+    background-image: url('https://i.gifer.com/J59.gif');
     color: white;
 }
 
@@ -104,20 +104,22 @@ h1.title {
   text-align: center;
 }
 h3.subtitle { 
-    font-size: 24px;
+    font-size: 28px;
   font-family: "Times New Roman", Times, serif;
   color: white ;
   text-align: center;
 }
 h4.author { 
-    font-size: 20px;
+    font-size: 24px;
   font-family: "Times New Roman", Times, serif;
   color:white ;
   text-align: center;
 }
 
 
-
+.myimg {
+  border: solid 1px black;
+}
 
 
 </style>
@@ -134,6 +136,9 @@ library(tinytex)
 # app.diagrams.net
 
 ```
+
+
+
 
 
 <div style="text-align: left" class="toc-box">
@@ -739,14 +744,6 @@ En <b>[este link](https://app.diagrams.net/)</b> se puede elaborar un DER prelim
 
 
 
-```{css , echo = FALSE}
-
-.myimg {
-  border: solid 1px black;
-}
-
-
-```
 
 <br>
 </br>
@@ -1236,7 +1233,7 @@ knitr::include_graphics("Imagenes/funcion2.png")
 <b>
 Un Stored Procedure o Procedimiento Almacenado es un programa almacenado físicamente en una base de datos, creado para cumplir tareas específicas. Permite también establecer niveles de seguridad y manipular operaciones complejas o extensas del lado del servidor, evitando un ida y vuelta de datos que termine sobrecargando una red o servidor.
 
-Su estructura es similar a las Funciones SQL que vimos la clase anterior pero, a diferencia de éstas, un Stored Procedure esta pensado para resolver desde una operación simple, hasta operaciones complejas que requieran modificar varias tablas y/o datos almacenados en una base de datos.
+Su estructura es similar a las Funciones SQL pero, a diferencia de éstas, un Stored Procedure esta pensado para resolver desde una operación simple, hasta operaciones complejas que requieran modificar varias tablas y/o datos almacenados en una base de datos.
 
 Algunos Beneficios:
 
@@ -1616,6 +1613,8 @@ def run():
   cursor.execute(query)
   df = pd.read_sql(query, connection)
   df.to_excel('df.xlsx', index=False)
+  
+  return df
   
 
 if __name__ == '__main__':
