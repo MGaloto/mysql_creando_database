@@ -1,7 +1,8 @@
 
 
 
-# mysql_creando_database
+# My SQL
+
 Creando una Base de datos en MySql desde Python.
 
 
@@ -9,10 +10,51 @@ Creando una Base de datos en MySql desde Python.
 
 # Base de Datos
 
-Proyecto base de datos de una empresa de medicina prepaga.
+Base de datos de una _Empresa de Medicina Prepaga_ donde se va a hacer foco en un modelo de esquema [copo de nieve](https://es.wikipedia.org/wiki/Esquema_en_copo_de_nieve).
 
 Se utilizara My Sql para la creacion de la base de datos.
 
+La empresa de medicina prepaga tiene varios centros donde cada uno de ellos tiene una especialidad particular. La estructura de la base de datos nos ayuda a almacenar los datos de forma eficiente y de ellos podemos obtener la siguiente información:
+
+<ul>
+
+<li>
+Cobros de afiliados y pagos a proveedores por centro médico.
+</li>
+
+<li>
+Diagnósticos y consultas de los afiliados por centro y medico atendido.
+</li>
+
+<li>
+Fechas de las consultas y los turnos.
+</li>
+
+<li>
+Insumos por proveedor, por tipo y por centro médico.
+</li>
+
+<li>
+Datos de nuestros médicos y afiliados.
+</li>
+
+<li>
+Distintos medios por los cuales se llevan a cabo las operaciones de cobros y pagos.
+</li>
+
+<li>
+Resultados netos de caja por periodo y por centro médico.
+</li>
+
+
+
+</ul>
+
+
+El objetivo es introducirnos en el mundo de las bases de datos relacionales, entender las distintas funcionalidades que nos proveen para el armado de una base de datos y otras sentencias que nos ayuden al armado final de la base de datos de una empresa de medicina prepaga.
+
+
+# Items del Trabajo
 
 <ui>
 <li>
