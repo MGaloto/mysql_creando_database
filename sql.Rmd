@@ -751,7 +751,7 @@ En <b>[este link](https://app.diagrams.net/)</b> se puede elaborar un DER prelim
 
 
 ```{r, echo=FALSE, out.width="100%", fig.align='center' ,out.extra='class="myimg"'}
-knitr::include_graphics("DER.png")
+knitr::include_graphics("Imagenes/DER.png")
 ```
 
 
@@ -785,7 +785,7 @@ La siguiente imagen representa el Reverse Engineer de la base de datos creada:
 </br>
 
 ```{r, echo=FALSE, out.width="100%", fig.align='center' ,out.extra='class="myimg"'}
-knitr::include_graphics("REVERSE.png")
+knitr::include_graphics("Imagenes/REVERSE.png")
 ```
 
 

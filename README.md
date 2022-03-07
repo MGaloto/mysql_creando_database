@@ -3,7 +3,7 @@
 
 # My SQL
 
-Creando una Base de datos en MySql desde Python.
+Creando una Base de datos relacional en MySql desde Python.
 
 
 <a href="https://www.mysql.com/" rel="nofollow"><img src="https://hashtechy.com/wp-content/uploads/2021/12/mysql.jpg" align="right" width="200" style="max-width: 100%;"></a>
@@ -12,7 +12,6 @@ Creando una Base de datos en MySql desde Python.
 
 Base de datos de una _Empresa de Medicina Prepaga_ donde se va a hacer foco en un modelo de esquema [copo de nieve](https://es.wikipedia.org/wiki/Esquema_en_copo_de_nieve).
 
-Se utilizara My Sql para la creacion de la base de datos.
 
 La empresa de medicina prepaga tiene varios centros donde cada uno de ellos tiene una especialidad particular. La estructura de la base de datos nos ayuda a almacenar los datos de forma eficiente y de ellos podemos obtener la siguiente información:
 
