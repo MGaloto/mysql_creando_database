@@ -3,12 +3,17 @@
 
 import pymysql
 import pandas as pd
+import os
+from dotenv import load_dotenv
 
-with open('Keys.txt') as claves: keys = [clave for clave in claves]
+load_dotenv()
 
-connection = pymysql.connect(host= keys[0].strip('\n'), 
-                             user= keys[1].strip('\n'), 
-                             password= keys[2].strip('\n'), 
+
+
+
+connection = pymysql.connect(host= os.getenv('LOCALHOST'), 
+                             user= os.getenv('ROOT'), 
+                             password= os.getenv('NUMBER'), 
                              db='centro_medicina_prepaga' )
 
 

@@ -128,6 +128,7 @@ FOREIGN KEY (id_centro) REFERENCES centro_medico(id_centro) ,
 FOREIGN KEY (id_insumo) REFERENCES insumos(id_insumo) 
 )engine = innodb;
 
+USE inflacion;
+	
 
-
-
+SELECT * FROM inflacion_argentina;

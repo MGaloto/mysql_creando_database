@@ -6,9 +6,25 @@
 Creando una Base de datos relacional en MySql desde Python.
 
 
+### Contenido:
+
+
+- [**Introduccion**](https://github.com/MGaloto/mysql_creando_database#introduccion)
+- [**Items**](https://github.com/MGaloto/mysql_creando_database#items)
+- [**Carpetas**](https://github.com/MGaloto/mysql_creando_database#carpetas)
+- [**Tutorial**](https://github.com/MGaloto/mysql_creando_database#tutorial)
+
+
+
+
+
 <a href="https://www.mysql.com/" rel="nofollow"><img src="https://hashtechy.com/wp-content/uploads/2021/12/mysql.jpg" align="right" width="200" style="max-width: 100%;"></a>
 
-# Base de Datos
+## Introduccion
+
+<div style="text-align: right" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
 
 Base de datos de una _Empresa de Medicina Prepaga_ donde se va a hacer foco en un modelo de esquema [copo de nieve](https://es.wikipedia.org/wiki/Esquema_en_copo_de_nieve).
 
@@ -18,31 +34,31 @@ La empresa de medicina prepaga tiene varios centros donde cada uno de ellos tien
 <ul>
 
 <li>
-Cobros de afiliados y pagos a proveedores por centro médico.
+Cobros de afiliados y pagos a proveedores por centro médico. ✅
 </li>
 
 <li>
-Diagnósticos y consultas de los afiliados por centro y medico atendido.
+Diagnósticos y consultas de los afiliados por centro y medico atendido. ✅
 </li>
 
 <li>
-Fechas de las consultas y los turnos.
+Fechas de las consultas y los turnos. ✅
 </li>
 
 <li>
-Insumos por proveedor, por tipo y por centro médico.
+Insumos por proveedor, por tipo y por centro médico. ✅
 </li>
 
 <li>
-Datos de nuestros médicos y afiliados.
+Datos de nuestros médicos y afiliados. ✅
 </li>
 
 <li>
-Distintos medios por los cuales se llevan a cabo las operaciones de cobros y pagos.
+Distintos medios por los cuales se llevan a cabo las operaciones de cobros y pagos. ✅
 </li>
 
 <li>
-Resultados netos de caja por periodo y por centro médico.
+Resultados netos de caja por periodo y por centro médico. ✅
 </li>
 
 
@@ -53,7 +69,13 @@ Resultados netos de caja por periodo y por centro médico.
 El objetivo es introducirnos en el mundo de las bases de datos relacionales, entender las distintas funcionalidades que nos proveen para el armado de una base de datos y otras sentencias que nos ayuden al armado final de la base de datos de una empresa de medicina prepaga.
 
 
-# Items del Trabajo
+## Items
+
+<div style="text-align: right" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
+El trabajo final sera presentado en una notebook de **R Markdown** con cada uno de los siguientes items a modo de tutorial:
 
 <ui>
 <li>
@@ -109,20 +131,67 @@ El objetivo es introducirnos en el mundo de las bases de datos relacionales, ent
 
 
 
-# Contenido del Repositorio
+## Carpetas
 
-<ui>
-<li>
-Codigo .sql
-</li>
-<li>
-Codigo Python
-</li>
-<ui>
+<div style="text-align: right" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
 
 
-# Link del Proyecto
+``` shell
+.
+│   .gitignore
+│   README.md
+│   sql.Rmd
+│
+├───Codigo MySql
+│
+├───Codigo Python
+│
+├───Imagenes
+│
+├───Resumen PDF
+│
+├───Script Final
+│
+└───Tablas
+    ├───Tablas Excel
+    │
+    └───Tablas SQL
+```
 
-[Rpubs](https://rpubs.com/MGaloto/mysql_database)
+En resumen:
 
+- El archivo `.gitignore` no trackea documentos para el repositorio.
+- `sql.Rmd` es el script de R que contiene el código para el tutorial en R Markdown.
+- En la carpeta `Codigo MySql` se guardan los archivos .sql.
+- En la carpeta `Codigo Python` se guardan los archivos .py.
+- En la carpeta `Imagenes` están las imágenes y gifs del readme y del R Markdown.
+- En la carpeta `Resumen PDF` esta el documento en Latex (Resumen del trabajo).
+- En la carpeta `Script Final` se guardan los archivos .sql que ejecutan todo el trabajo.
+- En la carpeta `Tablas` se guardan los archivos .sql y .csv que se utilizan para crear las tablas en My Sql.
+
+
+## Tutorial
+
+<div style="text-align: right" class="toc-box">
+ <a href="#top">Volver al Inicio</a>
+</div>
+
+En el siguiente link se puede acceder al documento R Markdown:
+
+- [Rpubs Link](https://rpubs.com/MGaloto/mysql_database)
+
+
+Resumen en R Markdown:
+
+<p align="center">
+  <img width="550" height="425" src="Imagenes/rmarkdown.gif">
+</p>
+
+Resumen en Latex:
+
+<p align="center">
+  <img width="550" height="425" src="Imagenes/latex.gif">
+</p>
 
