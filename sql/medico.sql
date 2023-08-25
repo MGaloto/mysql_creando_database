@@ -1,0 +1,10 @@
+INSERT INTO medico (id_medico,nombre,apellido,fecha_nacimiento,domicilio,telefono) VALUES (1,'Alan','Mile','1990-01-01','calle 45',1180808080);
+INSERT INTO medico (id_medico,nombre,apellido,fecha_nacimiento,domicilio,telefono) VALUES (2,'Franco','Reta','1990-02-01','calle 450',1165656565);
+INSERT INTO medico (id_medico,nombre,apellido,fecha_nacimiento,domicilio,telefono) VALUES (3,'Maxi','Ruti','1990-01-01','calle 100',1136363636);
+INSERT INTO medico (id_medico,nombre,apellido,fecha_nacimiento,domicilio,telefono) VALUES (4,'Juan','Fernandez','1990-01-01','calle 101',1136363637);
+INSERT INTO medico (id_medico,nombre,apellido,fecha_nacimiento,domicilio,telefono) VALUES (5,'Dante','Pichetto','1990-02-01','calle 102',1136363638);
+INSERT INTO medico (id_medico,nombre,apellido,fecha_nacimiento,domicilio,telefono) VALUES (6,'Miguel','Boggiano','1990-03-01','calle 103',1136363639);
+INSERT INTO medico (id_medico,nombre,apellido,fecha_nacimiento,domicilio,telefono) VALUES (7,'Julieta','Catalina','1990-04-01','calle 104',1136363640);
+INSERT INTO medico (id_medico,nombre,apellido,fecha_nacimiento,domicilio,telefono) VALUES (8,'Analia','Cassa','1990-05-01','calle 105',1136363641);
+INSERT INTO medico (id_medico,nombre,apellido,fecha_nacimiento,domicilio,telefono) VALUES (9,'Graciela','Binett','1990-06-01','calle 106',1136363642);
+INSERT INTO medico (id_medico,nombre,apellido,fecha_nacimiento,domicilio,telefono) VALUES (10,'Juliana','Porto','1990-07-01','calle 107',1136363643);
