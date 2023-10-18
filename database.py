@@ -176,7 +176,7 @@ class ConfigDataBase():
     def insert_data(self):
         folder = "sql"
         sql_files = [
-            '/medico', # replicar en todas las demas tablas
+            '/medico',
             '/ocupacion_afiliado',
             '/plan_afiliado',
             '/consulta',
@@ -201,7 +201,6 @@ class ConfigDataBase():
                         self.cursor.execute(command)
 
         self.conn.commit()
-        self.cursor.close()
 
     def create_views(self):
         folder = "sql/vistas"
